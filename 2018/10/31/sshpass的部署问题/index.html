@@ -5,15 +5,19 @@
   
 
   
-  <title>Archives: 2018/11 | Hexo</title>
+  <title>ansible sshpass的部署问题 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/11/index.html">
+  <meta name="description" content="在使用ansible配置好hosts，运行ping1$ ansible all -m ping 发现出现错误，错误原因是需要安装sshpass。就用yum去安装，因为用的是mac，导致没有安装yum，所以就想用brew去安装，直接使用brew install sshpass,发现发现错误。 12345Shell代码  收藏代码$ brew install sshpass  Error: No av">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ansible sshpass的部署问题">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/sshpass的部署问题/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在使用ansible配置好hosts，运行ping1$ ansible all -m ping 发现出现错误，错误原因是需要安装sshpass。就用yum去安装，因为用的是mac，导致没有安装yum，所以就想用brew去安装，直接使用brew install sshpass,发现发现错误。 12345Shell代码  收藏代码$ brew install sshpass  Error: No av">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-31T11:22:27.913Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="ansible sshpass的部署问题">
+<meta name="twitter:description" content="在使用ansible配置好hosts，运行ping1$ ansible all -m ping 发现出现错误，错误原因是需要安装sshpass。就用yum去安装，因为用的是mac，导致没有安装yum，所以就想用brew去安装，直接使用brew install sshpass,发现发现错误。 12345Shell代码  收藏代码$ brew install sshpass  Error: No av">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,40 +64,70 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/01/hello-world/" class="archive-article-date">
-  <time datetime="2018-11-01T01:48:44.180Z" itemprop="datePublished">Nov 1</time>
+        <section id="main"><article id="ansible-sshpass的部署问题" class="article article-type-ansible" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/sshpass的部署问题/" class="article-date">
+  <time datetime="2018-10-31T09:58:50.000Z" itemprop="datePublished">2018-10-31</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/01/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      ansible sshpass的部署问题
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用ansible配置好hosts，运行ping<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ansible all -m ping</span><br></pre></td></tr></table></figure></p>
+<p>发现出现错误，错误原因是需要安装sshpass。就用yum去安装，因为用的是mac，导致没有安装yum，所以就想用brew去安装，直接使用<code>brew install sshpass</code>,发现发现错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Shell代码  收藏代码</span><br><span class="line">$ brew install sshpass  </span><br><span class="line">Error: No available formula for sshpass  </span><br><span class="line">We won&apos;t add sshpass because it makes it too easy for novice SSH users to  </span><br><span class="line">ruin SSH&apos;s security.</span><br></pre></td></tr></table></figure>
+<p>使用homebrew强制安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install https://raw.github.com/eugeneoden/homebrew/eca9de1/Library/Formula/sshpass.rb</span><br></pre></td></tr></table></figure>
+<p>就可以成功了</p>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/sshpass的部署问题/" data-id="cjnxxywdc001e1pfyp4mdmji2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/31/自动化部署/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ansible自动化部署
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/31/playbook/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ansible playbook</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         

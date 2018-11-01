@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>安装PyCrypto以后出现的错误 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近另一个同事安装了PyCrypto，并且在本地和服务器运行都没有错误。当我download下来的时候，安装PyCrypto，运行竟然出现了错误。如下：123456789101112131415homeassistant  | 16-07-01 18:35:24 ERROR (MainThread) [homeassistant.bootstrap] Error during setup of">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装PyCrypto以后出现的错误">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/安装PyCrypto以后出现的错误/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近另一个同事安装了PyCrypto，并且在本地和服务器运行都没有错误。当我download下来的时候，安装PyCrypto，运行竟然出现了错误。如下：123456789101112131415homeassistant  | 16-07-01 18:35:24 ERROR (MainThread) [homeassistant.bootstrap] Error during setup of">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-31T11:22:27.916Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安装PyCrypto以后出现的错误">
+<meta name="twitter:description" content="最近另一个同事安装了PyCrypto，并且在本地和服务器运行都没有错误。当我download下来的时候，安装PyCrypto，运行竟然出现了错误。如下：123456789101112131415homeassistant  | 16-07-01 18:35:24 ERROR (MainThread) [homeassistant.bootstrap] Error during setup of">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-安装PyCrypto以后出现的错误" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/安装PyCrypto以后出现的错误/" class="article-date">
+  <time datetime="2018-10-31T10:11:50.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      安装PyCrypto以后出现的错误
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 最近另一个同事安装了PyCrypto，并且在本地和服务器运行都没有错误。当我download下来的时候，安装PyCrypto，运行竟然出现了错误。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">homeassistant  | 16-07-01 18:35:24 ERROR (MainThread) [homeassistant.bootstrap] Error during setup of component wink</span><br><span class="line">homeassistant  | Traceback (most recent call last):</span><br><span class="line">homeassistant  |   File &quot;/usr/src/app/homeassistant/bootstrap.py&quot;, line 150, in _setup_component</span><br><span class="line">homeassistant  |     if not component.setup(hass, config):</span><br><span class="line">homeassistant  |   File &quot;/usr/src/app/homeassistant/components/wink.py&quot;, line 29, in setup</span><br><span class="line">homeassistant  |     from pubnub import Pubnub</span><br><span class="line">homeassistant  |   File &quot;/usr/local/lib/python3.4/site-packages/pubnub.py&quot;, line 25, in &lt;module&gt;</span><br><span class="line">homeassistant  |     from Crypto.Cipher import AES</span><br><span class="line">homeassistant  |   File &quot;/usr/local/lib/python3.4/site-packages/Crypto/Cipher/__init__.py&quot;, line 78, in &lt;module&gt;</span><br><span class="line">homeassistant  |     from Crypto.Cipher._mode_ecb import _create_ecb_cipher</span><br><span class="line">homeassistant  |   File &quot;/usr/local/lib/python3.4/site-packages/Crypto/Cipher/_mode_ecb.py&quot;, line 29, in &lt;module&gt;</span><br><span class="line">homeassistant  |     from Crypto.Util._raw_api import (load_pycryptodome_raw_lib,</span><br><span class="line">homeassistant  |   File &quot;/usr/local/lib/python3.4/site-packages/Crypto/Util/_raw_api.py&quot;, line 33, in &lt;module&gt;</span><br><span class="line">homeassistant  |     from Crypto.Util.py3compat import byte_string</span><br><span class="line">homeassistant  | ImportError: cannot import name &apos;byte_string&apos;</span><br></pre></td></tr></table></figure></p>
+<p>解决办法是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip3 uninstall pycrypto</span><br><span class="line">pip3 uninstall pycryptodome</span><br><span class="line">pip3 install pycryptodome</span><br></pre></td></tr></table></figure></p>
+<p>这时候就可以正常运行了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/安装PyCrypto以后出现的错误/" data-id="cjnxxywdi001q1pfyf2yu9v0u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/31/pip安装时ReadTimeoutError解决办法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          pip安装时ReadTimeoutError解决办法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/31/使用tablib出现的错误/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用tablib出现的错误</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/对Python装饰器的一些理解/">对Python装饰器的一些理解</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Python基础学习-切片、迭代、列表生成式/">Python基础学习----切片、迭代、列表生成式</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Flask-上下文全局变量/">Flask 上下文全局变量</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/flask下-gunicorn在Python中的使用/">flask下 gunicorn在Python中的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Python基础学习----切片、迭代、列表生成式 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="切片通常我们取list里面的元素会这样写 12345list = [&amp;apos;zhangsan&amp;apos;,&amp;apos;lisi&amp;apos;,&amp;apos;wangwu&amp;apos;]list[0] list[1] list[2]取n个的话：for i in range(3):   list[i] 但是这样用循环很麻烦，可以这样做 12list[0:3]  #这样取的是从0开始，往后数3个数list">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python基础学习----切片、迭代、列表生成式">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/Python基础学习-切片、迭代、列表生成式/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="切片通常我们取list里面的元素会这样写 12345list = [&amp;apos;zhangsan&amp;apos;,&amp;apos;lisi&amp;apos;,&amp;apos;wangwu&amp;apos;]list[0] list[1] list[2]取n个的话：for i in range(3):   list[i] 但是这样用循环很麻烦，可以这样做 12list[0:3]  #这样取的是从0开始，往后数3个数list">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-31T11:22:27.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python基础学习----切片、迭代、列表生成式">
+<meta name="twitter:description" content="切片通常我们取list里面的元素会这样写 12345list = [&amp;apos;zhangsan&amp;apos;,&amp;apos;lisi&amp;apos;,&amp;apos;wangwu&amp;apos;]list[0] list[1] list[2]取n个的话：for i in range(3):   list[i] 但是这样用循环很麻烦，可以这样做 12list[0:3]  #这样取的是从0开始，往后数3个数list">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Python基础学习-切片、迭代、列表生成式" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/Python基础学习-切片、迭代、列表生成式/" class="article-date">
+  <time datetime="2018-10-31T10:13:32.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python基础学习----切片、迭代、列表生成式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h2><p>通常我们取list里面的元素会这样写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list = [&apos;zhangsan&apos;,&apos;lisi&apos;,&apos;wangwu&apos;]</span><br><span class="line">list[0] list[1] list[2]</span><br><span class="line">取n个的话：</span><br><span class="line">for i in range(3):</span><br><span class="line">   list[i]</span><br></pre></td></tr></table></figure>
+<p>但是这样用循环很麻烦，可以这样做</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list[0:3]  #这样取的是从0开始，往后数3个数</span><br><span class="line">list[1:3]  #这样取的是从1开始，往后数2个数</span><br></pre></td></tr></table></figure>
+<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><p>   如果给定一个list或tuple，我们可以通过for循环来遍历这个list或tuple，这种遍历我们称为迭代。在Python中，迭代是通过for … in来完成的<br><br>    在Python不是都是迭代的，所以有时候需要判断是否可以迭代</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from collections import Iterable</span><br><span class="line">&gt;&gt;&gt; isinstance(&apos;abc&apos;, Iterable) # str是否可迭代</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; isinstance([1,2,3], Iterable) # list是否可迭代</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; isinstance(123, Iterable) # 整数是否可迭代</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><p>列表生成式是Python中内置的非常简单却非常强大的可以用来创建list的生成式。<br>例如要生成list <code>[1,2,3,4,5,6,7,8,9]</code>,可以用<code>list(range(1,10))</code><br>但如果要生成[1x1, 2x2, 3x3, …, 10x10]怎么做？<br><br>方法一是循环：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; L = []</span><br><span class="line">&gt;&gt;&gt; for x in range(1, 11):</span><br><span class="line">...    L.append(x * x)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; L</span><br><span class="line">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span><br></pre></td></tr></table></figure>
+<p>方法二：列表生成式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[x * x for x in range(1,10)]</span><br><span class="line">得出：</span><br><span class="line">[1, 4, 9, 16, 25, 36, 49, 64, 81]</span><br></pre></td></tr></table></figure>
+<p>列表生成式还有其他的用法<br><br>*在for循环后面加if判断语句<br><br>例如：仅偶数的平方</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[x * x for x in range(1,11) if x % 2 == 0 ]</span><br><span class="line">[4, 16, 36, 64, 100]</span><br></pre></td></tr></table></figure>
+<p>*使用两层循环,生成全排列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[m + n for m in &apos;ABC&apos; for n in &apos;XYZ&apos;]</span><br><span class="line">[&apos;AX&apos;, &apos;AY&apos;, &apos;AZ&apos;, &apos;BX&apos;, &apos;BY&apos;, &apos;BZ&apos;, &apos;CX&apos;, &apos;CY&apos;, &apos;CZ&apos;]</span><br></pre></td></tr></table></figure>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p>判断是否可以迭代，在用列表生成式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">L = [&apos;Hello&apos;, &apos;World&apos;, 18, &apos;Apple&apos;, None]</span><br><span class="line">[x for x in L if isinstance(x,str) == True]</span><br><span class="line">结果：</span><br><span class="line">[&apos;Hello&apos;, &apos;World&apos;, &apos;Apple&apos;]</span><br></pre></td></tr></table></figure>
+<p>注：文章是在廖雪峰大大的网站学习后写下的学习摘要。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/Python基础学习-切片、迭代、列表生成式/" data-id="cjnxxywco00081pfyziohmcti" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/31/对Python装饰器的一些理解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          对Python装饰器的一些理解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/31/Flask-上下文全局变量/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Flask 上下文全局变量</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/对Python装饰器的一些理解/">对Python装饰器的一些理解</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Python基础学习-切片、迭代、列表生成式/">Python基础学习----切片、迭代、列表生成式</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Flask-上下文全局变量/">Flask 上下文全局变量</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/flask下-gunicorn在Python中的使用/">flask下 gunicorn在Python中的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

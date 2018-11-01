@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>table宽度问题 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近在做table列表的时候，出现如果数据过多，导致列表的宽度越来越宽，后来在网上找了很多方法，通过在td里面添加div,通过设置div的宽度来解决。具体代码如下：1234567891011&amp;lt;table  border=&amp;quot;1&amp;quot;  height=&amp;quot;100&amp;quot; width=&amp;quot;500&amp;quot; bordercolor=&amp;quot;#ccc&amp;quot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="table宽度问题">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/table宽度问题/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近在做table列表的时候，出现如果数据过多，导致列表的宽度越来越宽，后来在网上找了很多方法，通过在td里面添加div,通过设置div的宽度来解决。具体代码如下：1234567891011&amp;lt;table  border=&amp;quot;1&amp;quot;  height=&amp;quot;100&amp;quot; width=&amp;quot;500&amp;quot; bordercolor=&amp;quot;#ccc&amp;quot">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-31T11:22:27.914Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="table宽度问题">
+<meta name="twitter:description" content="最近在做table列表的时候，出现如果数据过多，导致列表的宽度越来越宽，后来在网上找了很多方法，通过在td里面添加div,通过设置div的宽度来解决。具体代码如下：1234567891011&amp;lt;table  border=&amp;quot;1&amp;quot;  height=&amp;quot;100&amp;quot; width=&amp;quot;500&amp;quot; bordercolor=&amp;quot;#ccc&amp;quot">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-table宽度问题" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/table宽度问题/" class="article-date">
+  <time datetime="2018-10-31T10:04:11.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html/">html</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      table宽度问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在做table列表的时候，出现如果数据过多，导致列表的宽度越来越宽，后来在网上找了很多方法，通过在<code>td</code>里面添加<code>div</code>,通过设置div的宽度来解决。具体代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;table  border=&quot;1&quot;  height=&quot;100&quot; width=&quot;500&quot; bordercolor=&quot;#ccc&quot; id=&quot;startId&quot; &gt;</span><br><span class="line">       &lt;thead&gt;</span><br><span class="line">               &lt;tr&gt;</span><br><span class="line">                     &lt;th&gt;topicId&lt;/th&gt;</span><br><span class="line">                     &lt;th&gt;创建时间(北京)&lt;/th&gt;</span><br><span class="line">                     &lt;th&gt;测试类型&lt;/th&gt;</span><br><span class="line">                     &lt;th&gt;测试信息&lt;/th&gt;</span><br><span class="line">               &lt;/tr&gt;</span><br><span class="line">        &lt;/thead&gt;</span><br><span class="line">        &lt;tbody id=&quot;tbMain&quot;&gt;&lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在请求数据的时候，在td里面添加div,设置div的宽度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">function resultData1(data) &#123;</span><br><span class="line">        var tbody = document.getElementById(&apos;resultMain&apos;);</span><br><span class="line">        for(var i = 0;i &lt; data.length; i++)&#123; //遍历一下json数据</span><br><span class="line">            var trow = getresultRow(data[i]); //定义一个方法,返回tr数据</span><br><span class="line">            tbody.appendChild(trow);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    function getresultRow(h) &#123;</span><br><span class="line"></span><br><span class="line">	    console.log(h);</span><br><span class="line">        var row = document.createElement(&apos;tr&apos;); //创建行</span><br><span class="line">            var idCell = document.createElement(&apos;td&apos;); //创建第一列id</span><br><span class="line">            idCell.innerHTML = h.debug_info.topic_id; //填充数据</span><br><span class="line">            row.appendChild(idCell); //加入行  ，下面类似</span><br><span class="line"></span><br><span class="line">            var ddd = &quot;&quot;</span><br><span class="line">            if (&quot;create_ts&quot; in h.debug_info)&#123;</span><br><span class="line">                var ddd =  formatTS2YYYYMMDDHHMMSS(h.create_ts.toString());</span><br><span class="line">            &#125;</span><br><span class="line">            var nameCell = document.createElement(&apos;td&apos;);//创建第二列name</span><br><span class="line">            nameCell.innerHTML = ddd;</span><br><span class="line">            row.appendChild(nameCell);</span><br><span class="line"></span><br><span class="line">             jobCell = document.createElement(&apos;td&apos;);//创建第三列</span><br><span class="line">            jobCell.innerHTML = h.debug_info.type;</span><br><span class="line">            row.appendChild(jobCell);</span><br><span class="line"></span><br><span class="line">             jobCell = document.createElement(&apos;td&apos;);//创建第四列</span><br><span class="line">            var mesDiv = document.createElement(&apos;div&apos;);</span><br><span class="line">            mesDiv.className = &apos;mes_div&apos;; #这里添加div，并且设置div的class</span><br><span class="line">            mesDiv.innerHTML = h.debug_info.message;</span><br><span class="line">            jobCell.appendChild(mesDiv);</span><br><span class="line"></span><br><span class="line">            row.appendChild(jobCell);</span><br><span class="line"></span><br><span class="line">             jobCell = document.createElement(&apos;td&apos;);//创建第五列</span><br><span class="line">            var div = document.createElement(&apos;div&apos;);</span><br><span class="line">            div.innerHTML = h.debug_info.result;</span><br><span class="line">            jobCell.appendChild(div);</span><br><span class="line">            row.appendChild(jobCell);</span><br><span class="line"></span><br><span class="line">            return row; //返回tr数据</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  .mes_div&#123;</span><br><span class="line">        width: 100px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/table宽度问题/" data-id="cjnxxywdd001g1pfyiz48xosu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/31/jQuery实现获取年月日的一些方法总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          jQuery实现获取年月日的一些方法总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/31/easyui弹窗窗口无法移动/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">easyui弹窗窗口无法移动</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/对Python装饰器的一些理解/">对Python装饰器的一些理解</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Python基础学习-切片、迭代、列表生成式/">Python基础学习----切片、迭代、列表生成式</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Flask-上下文全局变量/">Flask 上下文全局变量</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/flask下-gunicorn在Python中的使用/">flask下 gunicorn在Python中的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -5,19 +5,19 @@
   
 
   
-  <title>Hello World | Hexo</title>
+  <title>mac查看端口占用进程以及强制清理进程 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="查看5001段口被占用进程lsof -i:5001：12345678910111213localhost:My$ lsof -i:5001COMMAND  PID        USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME[Python](http://lib.csdn.net/base/python &amp;quot;Python知识库&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/11/01/hello-world/index.html">
+<meta property="og:title" content="mac查看端口占用进程以及强制清理进程">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/mac查看端口占用进程以及强制清理进程/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="查看5001段口被占用进程lsof -i:5001：12345678910111213localhost:My$ lsof -i:5001COMMAND  PID        USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME[Python](http://lib.csdn.net/base/python &amp;quot;Python知识库&amp;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-01T01:48:44.180Z">
+<meta property="og:updated_time" content="2018-10-31T11:22:27.912Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="mac查看端口占用进程以及强制清理进程">
+<meta name="twitter:description" content="查看5001段口被占用进程lsof -i:5001：12345678910111213localhost:My$ lsof -i:5001COMMAND  PID        USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME[Python](http://lib.csdn.net/base/python &amp;quot;Python知识库&amp;">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,12 +64,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-mac查看端口占用进程以及强制清理进程" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/11/01/hello-world/" class="article-date">
-  <time datetime="2018-11-01T01:48:44.180Z" itemprop="datePublished">2018-11-01</time>
+    <a href="/2018/10/31/mac查看端口占用进程以及强制清理进程/" class="article-date">
+  <time datetime="2018-10-31T09:47:30.000Z" itemprop="datePublished">2018-10-31</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Mac/">Mac</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -78,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      mac查看端口占用进程以及强制清理进程
     </h1>
   
 
@@ -86,20 +90,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h3 id="查看5001段口被占用进程lsof-i-5001："><a href="#查看5001段口被占用进程lsof-i-5001：" class="headerlink" title="查看5001段口被占用进程lsof -i:5001："></a>查看5001段口被占用进程<code>lsof -i:5001</code>：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">localhost:My$ lsof -i:5001</span><br><span class="line"></span><br><span class="line">COMMAND  PID        USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME</span><br><span class="line"></span><br><span class="line">[Python](http://lib.csdn.net/base/python &quot;Python知识库&quot;)  6320 zhaozeguang    3u  IPv4 0x82d867c5ec4904d9      0t0  TCP localhost:51816-&gt;localhost:commplex-link (CLOSED)</span><br><span class="line"></span><br><span class="line">[python](http://lib.csdn.net/base/python &quot;Python知识库&quot;)  6323 zhaozeguang    3u  IPv4 0x82d867c5ec4916e9      0t0  TCP localhost:51820-&gt;localhost:commplex-link (CLOSED)</span><br><span class="line"></span><br><span class="line">Python  6327 zhaozeguang    3u  IPv4 0x82d867c5ed8b52c9      0t0  TCP localhost:51828-&gt;localhost:commplex-link (CLOSED)</span><br><span class="line"></span><br><span class="line">Python  6328 zhaozeguang    3u  IPv4 0x82d867c5edcf04d9      0t0  TCP localhost:51835-&gt;localhost:commplex-link (CLOSED)</span><br><span class="line"></span><br><span class="line">Python  6330 zhaozeguang    3u  IPv4 0x82d867c5e27d06e9      0t0  TCP localhost:51836-&gt;localhost:commplex-link (CLOSED)</span><br></pre></td></tr></table></figure>
+<h3 id="kill掉无用进程-kill-PID"><a href="#kill掉无用进程-kill-PID" class="headerlink" title="kill掉无用进程 kill PID"></a>kill掉无用进程 <code>kill PID</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:My$ kill 6327 6328 6330</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/01/hello-world/" data-id="cjnxxywd0000s1pfyhgfye2tz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/31/mac查看端口占用进程以及强制清理进程/" data-id="cjnxxywd600131pfy2a3t58ff" class="article-share-link">Share</a>
       
       
     </footer>
@@ -108,11 +104,15 @@
     
 <nav id="article-nav">
   
-  
-    <a href="/2018/10/31/对Python装饰器的一些理解/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">对Python装饰器的一些理解</div>
+    <a href="/2018/10/31/Supervisor重新加载配置启动新的进程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Supervisor重新加载配置启动新的进程
+        
+      </div>
     </a>
+  
   
 </nav>
 

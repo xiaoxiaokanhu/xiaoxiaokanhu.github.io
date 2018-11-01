@@ -5,15 +5,21 @@
   
 
   
-  <title>Archives: 2018/11 | Hexo</title>
+  <title>关于cocoapods管理库遇到的坑 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/11/index.html">
+  <meta name="description" content="今天花了一点时间来做cocoapods管理自己写的库问题。发现遇到好多坑。 记得这样放 记得当你pod lib lint XXKH.podspec成功的时候，记得给库加入tag值123git tag &amp;apos;1.0.0&amp;apos;git push --tagspod spec lint 然后是检查下，最后提交给pod，具体为pod trunk push XXKH.podspec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于cocoapods管理库遇到的坑">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/关于cocoapods管理库遇到的坑/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="今天花了一点时间来做cocoapods管理自己写的库问题。发现遇到好多坑。 记得这样放 记得当你pod lib lint XXKH.podspec成功的时候，记得给库加入tag值123git tag &amp;apos;1.0.0&amp;apos;git push --tagspod spec lint 然后是检查下，最后提交给pod，具体为pod trunk push XXKH.podspec">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2120155-24cc6c2668e503dc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-31T11:22:27.914Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="关于cocoapods管理库遇到的坑">
+<meta name="twitter:description" content="今天花了一点时间来做cocoapods管理自己写的库问题。发现遇到好多坑。 记得这样放 记得当你pod lib lint XXKH.podspec成功的时候，记得给库加入tag值123git tag &amp;apos;1.0.0&amp;apos;git push --tagspod spec lint 然后是检查下，最后提交给pod，具体为pod trunk push XXKH.podspec">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2120155-24cc6c2668e503dc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,40 +66,68 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/01/hello-world/" class="archive-article-date">
-  <time datetime="2018-11-01T01:48:44.180Z" itemprop="datePublished">Nov 1</time>
+        <section id="main"><article id="post-关于cocoapods管理库遇到的坑" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/关于cocoapods管理库遇到的坑/" class="article-date">
+  <time datetime="2018-10-31T10:10:15.000Z" itemprop="datePublished">2018-10-31</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/01/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      关于cocoapods管理库遇到的坑
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天花了一点时间来做cocoapods管理自己写的库问题。发现遇到好多坑。</p>
+<h3 id="记得这样放"><a href="#记得这样放" class="headerlink" title="记得这样放"></a>记得这样放</h3><p><img src="http://upload-images.jianshu.io/upload_images/2120155-24cc6c2668e503dc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cocoaspods1.png"></p>
+<h3 id="记得当你pod-lib-lint-XXKH-podspec成功的时候，记得给库加入tag值"><a href="#记得当你pod-lib-lint-XXKH-podspec成功的时候，记得给库加入tag值" class="headerlink" title="记得当你pod lib lint XXKH.podspec成功的时候，记得给库加入tag值"></a>记得当你pod lib lint XXKH.podspec成功的时候，记得给库加入tag值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git tag &apos;1.0.0&apos;</span><br><span class="line">git push --tags</span><br><span class="line">pod spec lint</span><br></pre></td></tr></table></figure>
+<p>然后是检查下，最后提交给pod，具体为pod trunk push XXKH.podspec</p>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/关于cocoapods管理库遇到的坑/" data-id="cjnxxywdf001k1pfy1ej8lpbr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/31/iOS开发杂记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS开发杂记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/31/git-Authentication-failed-错误/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">git Authentication failed 错误</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         

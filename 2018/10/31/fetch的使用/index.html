@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>fetch的使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。 fetch的基本方式123456789101112131415fetch(url,&amp;#123;	method:&amp;apos;GET&amp;apos;, # &amp;apos;POST&amp;apos;,&amp;apos;PUT&amp;apos;,&amp;apos;DELETE&amp;apos;	he">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fetch的使用">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/fetch的使用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。 fetch的基本方式123456789101112131415fetch(url,&amp;#123;	method:&amp;apos;GET&amp;apos;, # &amp;apos;POST&amp;apos;,&amp;apos;PUT&amp;apos;,&amp;apos;DELETE&amp;apos;	he">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-31T11:22:27.910Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fetch的使用">
+<meta name="twitter:description" content="最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。 fetch的基本方式123456789101112131415fetch(url,&amp;#123;	method:&amp;apos;GET&amp;apos;, # &amp;apos;POST&amp;apos;,&amp;apos;PUT&amp;apos;,&amp;apos;DELETE&amp;apos;	he">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-fetch的使用" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/fetch的使用/" class="article-date">
+  <time datetime="2018-10-31T10:03:35.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html/">html</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      fetch的使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。</p>
+<h4 id="fetch的基本方式"><a href="#fetch的基本方式" class="headerlink" title="fetch的基本方式"></a>fetch的基本方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fetch(url,&#123;</span><br><span class="line">	method:&apos;GET&apos;, # &apos;POST&apos;,&apos;PUT&apos;,&apos;DELETE&apos;</span><br><span class="line">	headers:&#123;</span><br><span class="line">		&apos;Content-Type&apos;:&apos;application/json&apos;, //&apos;application/x-www-form-urlencoded&apos;</span><br><span class="line">		&apos;Accept&apos;:&apos;application/json&apos;</span><br><span class="line">	&#125;,</span><br><span class="line">	body:JSON.stringfiy(body)</span><br><span class="line">&#125;).then((res)=&gt;&#123;</span><br><span class="line">	</span><br><span class="line">	return res.json() //返回一个Promise,解析成JSON,具体请看下面返回的数据</span><br><span class="line">&#125;).then(function(res)&#123;</span><br><span class="line">	console.log(res) //获取json数据</span><br><span class="line">&#125;).catch(function(error)&#123;</span><br><span class="line">	console.log(error)  //请求错误时返回</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="返回的数据"><a href="#返回的数据" class="headerlink" title="返回的数据"></a>返回的数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">res.arrayBuffer()</span><br><span class="line">读取 res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为ArrayBuffer格式的promise对象</span><br><span class="line"></span><br><span class="line">res.blob()</span><br><span class="line">读取 res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为Blob格式的promise对象</span><br><span class="line"></span><br><span class="line">res.formData()</span><br><span class="line">读取res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为FormData格式的promise对象</span><br><span class="line"></span><br><span class="line">res.json()</span><br><span class="line">读取 res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为JSON格式的promise对象</span><br><span class="line"></span><br><span class="line">res.text()</span><br><span class="line">读取 res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为USVString格式的promise对象</span><br></pre></td></tr></table></figure>
+<h4 id="强制带Cookie"><a href="#强制带Cookie" class="headerlink" title="强制带Cookie"></a>强制带Cookie</h4><p>默认情况下, fetch不会从服务端发送或接收任何 cookies, 如果站点依赖于维护一个用户会话，则导致未经认证的请求(要发送 cookies，必须发送凭据头).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fetch(url, &#123;</span><br><span class="line">    method: &apos;GET&apos;,</span><br><span class="line">    credentials: &apos;include&apos; // 强制加入凭据头</span><br><span class="line">  &#125;)</span><br><span class="line">  .then((res)=&gt;&#123;</span><br><span class="line">    return res.text()</span><br><span class="line">  &#125;)</span><br><span class="line">  .then((res)=&gt;&#123;</span><br><span class="line">    console.log(res)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/fetch的使用/" data-id="cjnxxywcv000i1pfy35zffzg1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/31/easyui弹窗窗口无法移动/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          easyui弹窗窗口无法移动
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/31/自动化部署/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ansible自动化部署</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/对Python装饰器的一些理解/">对Python装饰器的一些理解</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Python基础学习-切片、迭代、列表生成式/">Python基础学习----切片、迭代、列表生成式</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Flask-上下文全局变量/">Flask 上下文全局变量</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/flask下-gunicorn在Python中的使用/">flask下 gunicorn在Python中的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

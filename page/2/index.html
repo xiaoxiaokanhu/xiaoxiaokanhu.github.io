@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-安装PyCrypto以后出现的错误" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/安装PyCrypto以后出现的错误/" class="article-date">
+  <time datetime="2018-10-31T10:11:50.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/31/安装PyCrypto以后出现的错误/">安装PyCrypto以后出现的错误</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 最近另一个同事安装了PyCrypto，并且在本地和服务器运行都没有错误。当我download下来的时候，安装PyCrypto，运行竟然出现了错误。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">homeassistant  | 16-07-01 18:35:24 ERROR (MainThread) [homeassistant.bootstrap] Error during setup of component wink</span><br><span class="line">homeassistant  | Traceback (most recent call last):</span><br><span class="line">homeassistant  |   File &quot;/usr/src/app/homeassistant/bootstrap.py&quot;, line 150, in _setup_component</span><br><span class="line">homeassistant  |     if not component.setup(hass, config):</span><br><span class="line">homeassistant  |   File &quot;/usr/src/app/homeassistant/components/wink.py&quot;, line 29, in setup</span><br><span class="line">homeassistant  |     from pubnub import Pubnub</span><br><span class="line">homeassistant  |   File &quot;/usr/local/lib/python3.4/site-packages/pubnub.py&quot;, line 25, in &lt;module&gt;</span><br><span class="line">homeassistant  |     from Crypto.Cipher import AES</span><br><span class="line">homeassistant  |   File &quot;/usr/local/lib/python3.4/site-packages/Crypto/Cipher/__init__.py&quot;, line 78, in &lt;module&gt;</span><br><span class="line">homeassistant  |     from Crypto.Cipher._mode_ecb import _create_ecb_cipher</span><br><span class="line">homeassistant  |   File &quot;/usr/local/lib/python3.4/site-packages/Crypto/Cipher/_mode_ecb.py&quot;, line 29, in &lt;module&gt;</span><br><span class="line">homeassistant  |     from Crypto.Util._raw_api import (load_pycryptodome_raw_lib,</span><br><span class="line">homeassistant  |   File &quot;/usr/local/lib/python3.4/site-packages/Crypto/Util/_raw_api.py&quot;, line 33, in &lt;module&gt;</span><br><span class="line">homeassistant  |     from Crypto.Util.py3compat import byte_string</span><br><span class="line">homeassistant  | ImportError: cannot import name &apos;byte_string&apos;</span><br></pre></td></tr></table></figure></p>
+<p>解决办法是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip3 uninstall pycrypto</span><br><span class="line">pip3 uninstall pycryptodome</span><br><span class="line">pip3 install pycryptodome</span><br></pre></td></tr></table></figure></p>
+<p>这时候就可以正常运行了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/安装PyCrypto以后出现的错误/" data-id="cjnxxywdi001q1pfyf2yu9v0u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-使用tablib出现的错误" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/使用tablib出现的错误/" class="article-date">
+  <time datetime="2018-10-31T10:11:39.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/31/使用tablib出现的错误/">使用tablib出现的错误</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近公司要发邮件，基于tablib的强大功能，我理所当然的使用了它。但是在使用过程中发现一个bug，具体bug报这个错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Using a coordinate with ws.cell is deprecated. Use ws[coordinate] instead&quot;</span><br></pre></td></tr></table></figure></p>
+<p>刚开始是报警告，后面因为换电脑直接更新requerement.txt，然后发邮件就直接报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DeprecationWarning: Call to deprecated function remove_sheet</span><br><span class="line"> (Use wb.remove(worksheet) or del wb[sheetname]).</span><br><span class="line">  wb.remove_sheet(sheet)</span><br></pre></td></tr></table></figure></p>
+<p>后来经过查资料发现是因为tablib里面使用openpyxl的问题。openpyxl的版本过高，导致的问题，把openpyxl的版本改下就OK了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">原来的openpyxl版本是2.5.4.将其降到2.5.0以下就没问题了。</span><br><span class="line">pip install openpyxl==2.4.9</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/使用tablib出现的错误/" data-id="cjnxxywde001i1pfygv1h266a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-flask-excel-下载的时候出现OSError错误" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/flask-excel-下载的时候出现OSError错误/" class="article-date">
+  <time datetime="2018-10-31T10:11:27.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/31/flask-excel-下载的时候出现OSError错误/">flask-excel 下载的时候出现OSError错误</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在使用flask-excel报OSError: No content, file name. Nothing is given错误，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return excel.make_response_from_records(items, &quot;xlsx&quot;, file_name=&quot;all_content&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>经过查考是因为需要添加支持xlsx的控件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyexcel-xlsx</span><br></pre></td></tr></table></figure></p>
+<p>这时候就会完美解决</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/flask-excel-下载的时候出现OSError错误/" data-id="cjnxxywcu000g1pfybsz96hrf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iOS开发杂记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/iOS开发杂记/" class="article-date">
+  <time datetime="2018-10-31T10:10:26.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/31/iOS开发杂记/">iOS开发杂记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为记性不好，常常看到点东西，都感觉很好，但是经常时间一长都忘了，所以现在些杂记，记住这些。慢慢补充。</p>
+<h2 id="1-iOS屏幕旋转"><a href="#1-iOS屏幕旋转" class="headerlink" title="1.iOS屏幕旋转"></a>1.iOS屏幕旋转</h2><p>iOS屏幕旋转可以用系统通知判断方向UIDeviceOrientationDidChangeNotification; 是在屏幕旋转过以后UIApplicationWillChangeStatusBarOrientationNotification;<br>屏幕没有旋转过的时候调用，可以用系统通知</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:</span><br><span class="line">@selector(autorotateDirection)name:UIDeviceOrientationDidChangeNotification object:nil];</span><br></pre></td></tr></table></figure>
+<h2 id="2-tableView头部偏离问题"><a href="#2-tableView头部偏离问题" class="headerlink" title="2.tableView头部偏离问题"></a>2.tableView头部偏离问题</h2><p>最近在用tableView的时候，出现自动偏移了64PX，经过查资料，发现需要设置下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if([selfrespondsToSelector:@selector(edgesForExtendedLayout)])</span><br><span class="line">&#123;</span><br><span class="line">	self.edgesForExtendedLayout= UIRectEdgeNone;</span><br><span class="line">&#125;</span><br><span class="line">[self.navigationController.navigationBar setTranslucent:YES]</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/iOS开发杂记/" data-id="cjnxxywd2000u1pfy0fn6rtjb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-关于cocoapods管理库遇到的坑" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/关于cocoapods管理库遇到的坑/" class="article-date">
+  <time datetime="2018-10-31T10:10:15.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/31/关于cocoapods管理库遇到的坑/">关于cocoapods管理库遇到的坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天花了一点时间来做cocoapods管理自己写的库问题。发现遇到好多坑。</p>
+<h3 id="记得这样放"><a href="#记得这样放" class="headerlink" title="记得这样放"></a>记得这样放</h3><p><img src="http://upload-images.jianshu.io/upload_images/2120155-24cc6c2668e503dc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cocoaspods1.png"></p>
+<h3 id="记得当你pod-lib-lint-XXKH-podspec成功的时候，记得给库加入tag值"><a href="#记得当你pod-lib-lint-XXKH-podspec成功的时候，记得给库加入tag值" class="headerlink" title="记得当你pod lib lint XXKH.podspec成功的时候，记得给库加入tag值"></a>记得当你pod lib lint XXKH.podspec成功的时候，记得给库加入tag值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git tag &apos;1.0.0&apos;</span><br><span class="line">git push --tags</span><br><span class="line">pod spec lint</span><br></pre></td></tr></table></figure>
+<p>然后是检查下，最后提交给pod，具体为pod trunk push XXKH.podspec</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/关于cocoapods管理库遇到的坑/" data-id="cjnxxywdf001k1pfy1ej8lpbr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-git-Authentication-failed-错误" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/git-Authentication-failed-错误/" class="article-date">
+  <time datetime="2018-10-31T10:08:47.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/31/git-Authentication-failed-错误/">git Authentication failed 错误</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在windows上面安装git的以后，git某一个项目，出现输入账号密码的界面，这时候应当输入你的用户名和密码。用户名是你的登录账号，密码是你的密码。这时候如果输入错误。那么你就git clone git… 会出现Authentication failed错误。</p>
+<p>这时候你无论修改 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name  &apos;name&apos;</span><br><span class="line">git config --global user.email  &apos;email&apos;</span><br></pre></td></tr></table></figure>
+<p>会发现还是报这个错误。然后我把git删除了，重装也还是不成。后来经大神指点，发现一个非常简单的解决方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> (一)进入控制面板</span><br><span class="line">（二）选择用户账户</span><br><span class="line">（三）选择管理你的凭据</span><br><span class="line">（四）选择Windows凭据</span><br><span class="line">（五）选择git保存的用户信息</span><br><span class="line">（六）选择编辑或者进行删除操作</span><br></pre></td></tr></table></figure>
+<p>这时候你在git clone git…，你就会发现成功了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;good&apos;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/git-Authentication-failed-错误/" data-id="cjnxxywcy000n1pfysw7qeqnw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Git-tag值的使用" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/Git-tag值的使用/" class="article-date">
+  <time datetime="2018-10-31T10:07:55.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/31/Git-tag值的使用/">Git tag值的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>项目中因为业务的需要，需要打标签。所以这里就把常用的几个命令写下来，方便以后自己在打tag的时候可以直接用到。</p>
+<h3 id="查看标签"><a href="#查看标签" class="headerlink" title="查看标签"></a>查看标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git tag   #这会看到项目下包含的标签</span><br><span class="line">git show v1.1.0    #查看该标签下的版本信息</span><br></pre></td></tr></table></figure>
+<h3 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h3><p>打标签有两种，轻量标签和附注标签,轻量标签是指向提交对象的引用，附注标签则是仓库中的一个独立对象.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git tag v1.1.0  #创建轻量标签</span><br><span class="line">git tag -a v1.1.0 -m &quot;1.1.0版本&quot;   #创建附注标签</span><br></pre></td></tr></table></figure>
+<p>创建附注Tag时，参数a即annotated的缩写，指定Tag类型，后附Tag名。参数m指定Tag说明，说明信息会保存在Tag对象中。</p>
+<h3 id="切换标签"><a href="#切换标签" class="headerlink" title="切换标签"></a>切换标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout v1.1.0</span><br></pre></td></tr></table></figure>
+<h3 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h3><p>删除本地标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d v1.1.0   #删除tag</span><br></pre></td></tr></table></figure></p>
+<p>删除远程标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push origin :refs/tags/标签名  </span><br><span class="line">  </span><br><span class="line">git push origin :refs/tags/protobuf-2.5.0rc1</span><br></pre></td></tr></table></figure>
+<h3 id="tag推送到项目管理仓库"><a href="#tag推送到项目管理仓库" class="headerlink" title="tag推送到项目管理仓库"></a>tag推送到项目管理仓库</h3><p>注意：打tag的时候先把代码提交到项目管理仓库，然后在提交tag,所以在提交tag值的时候可以先<br>git push origin master</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git push origin v1.1.0   #将v1.1.0 Tag提交到git服务器</span><br><span class="line">git push origin –-tags    # 将本地所有Tag一次性提交到git服务器</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/Git-tag值的使用/" data-id="cjnxxywcl00041pfyrijy2yf6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-git的初始用" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/git的初始用/" class="article-date">
+  <time datetime="2018-10-31T10:07:44.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/31/git的初始用/">git的初始用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="git配置全局的用户名和邮箱"><a href="#git配置全局的用户名和邮箱" class="headerlink" title="git配置全局的用户名和邮箱"></a>git配置全局的用户名和邮箱</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name xxkh</span><br><span class="line">git config --global user.email xxx@gmail.com</span><br></pre></td></tr></table></figure>
+<h3 id="查看用户名和邮箱"><a href="#查看用户名和邮箱" class="headerlink" title="查看用户名和邮箱"></a>查看用户名和邮箱</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+<h3 id="记住密码"><a href="#记住密码" class="headerlink" title="记住密码"></a>记住密码</h3><p>在服务器上 clone 代码第一次通常会提示输入密码，为了下次不再提示，可以在 clone 后做如下操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config credential.helper store</span><br></pre></td></tr></table></figure></p>
+<h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd project_root                             # 进入项目目录</span><br><span class="line">git init                                    # 初始化git仓库</span><br><span class="line">git add .                                   # 添加文件到仓库</span><br><span class="line">git commit -m &apos;init commit&apos;                 # 提交代码到本地仓库</span><br><span class="line">git remote add origin $&#123;repository_path&#125;    # 将项目关联到git server</span><br><span class="line">git pull origin master                      # 同步代码</span><br><span class="line">git push origin master                      # push代码到远程仓库</span><br><span class="line">git clone $&#123;repository_path&#125;                # 新的位置clone项目</span><br></pre></td></tr></table></figure>
+<h3 id="重新提交"><a href="#重新提交" class="headerlink" title="重新提交"></a>重新提交</h3><p>提交后如果发现遗漏可以使用 git commit –amend 重新提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &apos;initial commit&apos;</span><br><span class="line">git add forgotten_file</span><br><span class="line">git commit --amend</span><br></pre></td></tr></table></figure></p>
+<h3 id="撤销提交文件"><a href="#撤销提交文件" class="headerlink" title="撤销提交文件"></a>撤销提交文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- &lt;file&gt;              # 取消对文件的修改。还原到最近的版本，废弃本地做的修改。</span><br><span class="line">git reset HEAD &lt;file&gt;...            # 取消已经暂存的文件。即，撤销先前&quot;git add&quot;的操作</span><br><span class="line">git reset HEAD^                     # 回退所有内容到上一个版本</span><br><span class="line">git reset HEAD^ a.py                # 回退a.py这个文件的版本到上一个版本</span><br><span class="line">git reset –soft HEAD~3              # 向前回退到第3个版本</span><br><span class="line">git reset –hard origin/master       # 将本地的状态回退到和远程的一样</span><br><span class="line">git reset 057d                      # 回退到某个版本</span><br><span class="line">git revert HEAD                     # 回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit.(代码回滚到上个版本，并提交git)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/git的初始用/" data-id="cjnxxywcz000q1pfyd3nc5f91" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-input-radio-attr动态赋值问题" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/input-radio-attr动态赋值问题/" class="article-date">
+  <time datetime="2018-10-31T10:04:46.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html/">html</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/31/input-radio-attr动态赋值问题/">input radio attr动态赋值问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>程序环境：easyui+jQuery</p>
+<p>代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;label &gt;&lt;input name=&quot;Fruit&quot; type=&quot;radio&quot;  value=&quot;苹果&quot;  /&gt;苹果 &lt;/label&gt;</span><br><span class="line">&lt;label &gt;&lt;input name=&quot;Fruit&quot; type=&quot;radio&quot;  value=&quot;西瓜&quot;  /&gt;西瓜 &lt;/label&gt;</span><br></pre></td></tr></table></figure>
+<p>最近发现用<code>$(&quot;input[name=&#39;Fruit&#39;][value=&#39;西瓜&#39;]&quot;).attr(&quot;checked&quot;,true);</code>动态赋值没有赋值成功。原来以为是easyui的问题，后来查考文档才发现jQuery中使用prop可以完美解决这个问题。<br><code>$(&quot;input[name=&#39;Fruit&#39;][value=&#39;西瓜&#39;]&quot;).prop(&quot;checked&quot;,true);</code></p>
+<h5 id="那么，什么时候使用attr，什么时候使用prop？"><a href="#那么，什么时候使用attr，什么时候使用prop？" class="headerlink" title="那么，什么时候使用attr，什么时候使用prop？"></a>那么，什么时候使用attr，什么时候使用prop？</h5><p>1.添加属性名称该属性就会生效应该使用prop.<br>2.是有true,false两个属性使用prop.<br>3.其他则使用attr<br></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/input-radio-attr动态赋值问题/" data-id="cjnxxywd3000w1pfyd1g5lxbn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jQuery实现获取年月日的一些方法总结" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/jQuery实现获取年月日的一些方法总结/" class="article-date">
+  <time datetime="2018-10-31T10:04:23.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html/">html</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/31/jQuery实现获取年月日的一些方法总结/">jQuery实现获取年月日的一些方法总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/1761761-7990e80ba13d67a1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/580" alt="MacDown logo"></p>
+<p>用jq来获取当前的时间：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    var myDate = new Date;</span><br><span class="line">    var year = myDate.getFullYear();//获取当前年</span><br><span class="line">    var yue = myDate.getMonth()+1;//获取当前月</span><br><span class="line">    var date = myDate.getDate();//获取当前日</span><br><span class="line">    var h = myDate.getHours();//获取当前小时数(0-23)</span><br><span class="line">    var m = myDate.getMinutes();//获取当前分钟数(0-59)</span><br><span class="line">    var s = myDate.getSeconds();//获取当前秒</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/jQuery实现获取年月日的一些方法总结/" data-id="cjnxxywd500111pfyf6cuxf5c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/对Python装饰器的一些理解/">对Python装饰器的一些理解</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Python基础学习-切片、迭代、列表生成式/">Python基础学习----切片、迭代、列表生成式</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Flask-上下文全局变量/">Flask 上下文全局变量</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/flask下-gunicorn在Python中的使用/">flask下 gunicorn在Python中的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Linux的常用命令 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="查看硬盘使用了多少容量123456789101112131415161718[root@iZ2ze32 ~]# df -hl文件系统        容量  已用  可用 已用% 挂载点/dev/vda1        40G  3.7G   34G   10% /devtmpfs        1.9G     0  1.9G    0% /devtmpfs           1.9G">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux的常用命令">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/Linux的常用命令/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="查看硬盘使用了多少容量123456789101112131415161718[root@iZ2ze32 ~]# df -hl文件系统        容量  已用  可用 已用% 挂载点/dev/vda1        40G  3.7G   34G   10% /devtmpfs        1.9G     0  1.9G    0% /devtmpfs           1.9G">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-31T11:22:27.908Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux的常用命令">
+<meta name="twitter:description" content="查看硬盘使用了多少容量123456789101112131415161718[root@iZ2ze32 ~]# df -hl文件系统        容量  已用  可用 已用% 挂载点/dev/vda1        40G  3.7G   34G   10% /devtmpfs        1.9G     0  1.9G    0% /devtmpfs           1.9G">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Linux的常用命令" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/Linux的常用命令/" class="article-date">
+  <time datetime="2018-10-31T09:55:04.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux的常用命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="查看硬盘使用了多少容量"><a href="#查看硬盘使用了多少容量" class="headerlink" title="查看硬盘使用了多少容量"></a>查看硬盘使用了多少容量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ2ze32 ~]# df -hl</span><br><span class="line">文件系统        容量  已用  可用 已用% 挂载点</span><br><span class="line">/dev/vda1        40G  3.7G   34G   10% /</span><br><span class="line">devtmpfs        1.9G     0  1.9G    0% /dev</span><br><span class="line">tmpfs           1.9G     0  1.9G    0% /dev/shm</span><br><span class="line">tmpfs           1.9G  364K  1.9G    1% /run</span><br><span class="line">tmpfs           1.9G     0  1.9G    0% /sys/fs/cgroup</span><br><span class="line">tmpfs           380M     0  380M    0% /run/user/0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@iZ2ze326 ~]# df</span><br><span class="line">文件系统          1K-块    已用     可用 已用% 挂载点</span><br><span class="line">/dev/vda1      41151808 3867112 35171264   10% /</span><br><span class="line">devtmpfs        1931336       0  1931336    0% /dev</span><br><span class="line">tmpfs           1940844       0  1940844    0% /dev/shm</span><br><span class="line">tmpfs           1940844     364  1940480    1% /run</span><br><span class="line">tmpfs           1940844       0  1940844    0% /sys/fs/cgroup</span><br><span class="line">tmpfs            388172       0   388172    0% /run/user/0</span><br></pre></td></tr></table></figure>
+<h3 id="查看Linux系统是Centos还是Ubuntu"><a href="#查看Linux系统是Centos还是Ubuntu" class="headerlink" title="查看Linux系统是Centos还是Ubuntu"></a>查看Linux系统是Centos还是Ubuntu</h3><p>输入命令 <code>lsb_release -a</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">## 现在有的系统可以用这个查出是否是centos还是ubuntu，如阿里云</span><br><span class="line">[root@iZ2ze326 ~]# lsb_release -a</span><br><span class="line">LSB Version:	:core-4.1-amd64:core-4.1-noarch</span><br><span class="line">Distributor ID:	CentOS</span><br><span class="line">Description:	CentOS Linux release 7.4.1708 (Core)</span><br><span class="line">Release:	7.4.1708</span><br><span class="line">Codename:	Core</span><br><span class="line"></span><br><span class="line">## 而在公司的本地服务器，却出现这种情况</span><br><span class="line">[root@hardwareupdate ~]# lsb_release -a</span><br><span class="line">-bash: lsb_release: command not found</span><br></pre></td></tr></table></figure>
+<p>当这个命令不管用的时候，可以使用命令 <code>cat /etc/redhat-release</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">## 在ubuntu中会出现</span><br><span class="line">[root@hardwareupdate ~]# cat /etc/redhat-release</span><br><span class="line">-bash: /etc/redhat-release: command not found</span><br><span class="line"></span><br><span class="line">## 在centos中显示</span><br><span class="line">[root@hardwareupdate ~]# cat /etc/redhat-release</span><br><span class="line">CentOS release 6.10 (Final)</span><br></pre></td></tr></table></figure>
+<h2 id="查看Linux-某些程序进程-ps-aux"><a href="#查看Linux-某些程序进程-ps-aux" class="headerlink" title="查看Linux 某些程序进程 ps aux"></a>查看Linux 某些程序进程 <code>ps aux</code></h2><p>比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ2ze3269b etc]# ps aux | grep mysql</span><br><span class="line">root      2371  0.0  0.0 112676   980 pts/0    S+   14:34   0:00 grep --color=auto mysql</span><br><span class="line">mysql    10810  0.1  9.4 1599384 367788 ?      Sl   10月11  13:13 /usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mysqld.pid</span><br></pre></td></tr></table></figure></p>
+<p>持续更新中。。。。。。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/Linux的常用命令/" data-id="cjnxxywck00031pfy7yaw8kmq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/31/如何杀死一个已经detached的screen会话/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          如何杀死一个已经detached的screen会话
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/31/Centos7安装mysql/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Centos7安装mysql</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/对Python装饰器的一些理解/">对Python装饰器的一些理解</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Python基础学习-切片、迭代、列表生成式/">Python基础学习----切片、迭代、列表生成式</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Flask-上下文全局变量/">Flask 上下文全局变量</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/flask下-gunicorn在Python中的使用/">flask下 gunicorn在Python中的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

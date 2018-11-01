@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Centos7安装mysql | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="mysql 官方下载地址：https://dev.mysql.com/downloads/repo/yum/查找最新的 rpm 下载1$ wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm 确定 md5 值12$ md5sum mysql80-community-release-el7-1.noarch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos7安装mysql">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/Centos7安装mysql/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="mysql 官方下载地址：https://dev.mysql.com/downloads/repo/yum/查找最新的 rpm 下载1$ wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm 确定 md5 值12$ md5sum mysql80-community-release-el7-1.noarch">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2120155-cb6f36a82f444081.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-31T11:22:27.906Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Centos7安装mysql">
+<meta name="twitter:description" content="mysql 官方下载地址：https://dev.mysql.com/downloads/repo/yum/查找最新的 rpm 下载1$ wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm 确定 md5 值12$ md5sum mysql80-community-release-el7-1.noarch">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2120155-cb6f36a82f444081.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Centos7安装mysql" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/Centos7安装mysql/" class="article-date">
+  <time datetime="2018-10-31T09:53:56.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Centos7安装mysql
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>mysql 官方下载地址：<br><a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/repo/yum/</a><br>查找最新的 rpm<img src="https://upload-images.jianshu.io/upload_images/2120155-cb6f36a82f444081.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mysqlrpm.png"></p>
+<p>下载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>确定 md5 值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ md5sum mysql80-community-release-el7-1.noarch.rpm</span><br><span class="line">739dc44566d739c5d7b893de96ee6848  mysql80-community-release-el7-1.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo rpm -ivh mysql80-community-release-el7-1.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>因为现今mysql已经更新到8.0以上了，所以可以根据需求是用5.5以上的某一个版本还是8.0等</p>
+<h4 id="8-0版本"><a href="#8-0版本" class="headerlink" title="8.0版本"></a>8.0版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum update -y</span><br><span class="line">$ sudo yum install -y mysql-server</span><br></pre></td></tr></table></figure>
+<h4 id="5-7版本"><a href="#5-7版本" class="headerlink" title="5.7版本"></a>5.7版本</h4><p>查看可安装的版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ yum repolist all | grep mysql</span><br><span class="line">mysql-cluster-7.5-community/x86_64 MySQL Cluster 7.5 Community    disabled</span><br><span class="line">mysql-cluster-7.5-community-source MySQL Cluster 7.5 Community -  disabled</span><br><span class="line">mysql-cluster-7.6-community/x86_64 MySQL Cluster 7.6 Community    disabled</span><br><span class="line">mysql-cluster-7.6-community-source MySQL Cluster 7.6 Community -  disabled</span><br><span class="line">mysql-connectors-community/x86_64  MySQL Connectors Community     enabled:    51</span><br><span class="line">mysql-connectors-community-source  MySQL Connectors Community - S disabled</span><br><span class="line">mysql-tools-community/x86_64       MySQL Tools Community          enabled:    63</span><br><span class="line">mysql-tools-community-source       MySQL Tools Community - Source disabled</span><br><span class="line">mysql-tools-preview/x86_64         MySQL Tools Preview            disabled</span><br><span class="line">mysql-tools-preview-source         MySQL Tools Preview - Source   disabled</span><br><span class="line">mysql55-community/x86_64           MySQL 5.5 Community Server     disabled</span><br><span class="line">mysql55-community-source           MySQL 5.5 Community Server - S disabled</span><br><span class="line">mysql56-community/x86_64           MySQL 5.6 Community Server     disabled</span><br><span class="line">mysql56-community-source           MySQL 5.6 Community Server - S disabled</span><br><span class="line">mysql57-community/x86_64           MySQL 5.7 Community Server     disabled</span><br><span class="line">mysql57-community-source           MySQL 5.7 Community Server - S disabled</span><br><span class="line">mysql80-community/x86_64           MySQL 8.0 Community Server     enabled:    17</span><br><span class="line">mysql80-community-source           MySQL 8.0 Community Server - S disabled</span><br></pre></td></tr></table></figure></p>
+<p>因为默认的是8.0的版本，所以要选择5.7的版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum-config-manager --disable mysql80-community</span><br><span class="line">$ sudo yum-config-manager --enable mysql57-community</span><br></pre></td></tr></table></figure></p>
+<p>下载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install mysql-community-server</span><br></pre></td></tr></table></figure></p>
+<p>启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl start mysqld</span><br></pre></td></tr></table></figure></p>
+<p>查看运行状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl status mysqld</span><br><span class="line"></span><br><span class="line">● mysqld.service - MySQL Server</span><br><span class="line"> Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)</span><br><span class="line"> Active: active (running) since Fri 2018-06-01 10:35:58 UTC; 1h 39min ago</span><br><span class="line"> Docs: man:mysqld(8)</span><br><span class="line"> [http://dev.mysql.com/doc/refman/en/using-systemd.html](http://dev.mysql.com/doc/refman/en/using-systemd.html)</span><br><span class="line"> Process: 7474 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)</span><br><span class="line"> Main PID: 7542 (mysqld)</span><br><span class="line"> Status: &quot;SERVER_OPERATING&quot;</span><br><span class="line"> CGroup: /system.slice/mysqld.service</span><br><span class="line"> └─7542 /usr/sbin/mysqld</span><br><span class="line"></span><br><span class="line">Jun 01 10:35:49 bogon systemd[1]: Starting MySQL Server...</span><br><span class="line">Jun 01 10:35:58 bogon systemd[1]: Started MySQL Server.&lt;/pre&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这时候mysql已经安装成功了，下面是配置</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>Mysql 在安装时会默认设置一个随机密码，需要在第一次使用时修改</p>
+<p>查看密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo grep &apos;temporary password&apos; /var/log/mysqld.log</span><br><span class="line">2018-06-01T10:35:51.710406Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: Vq9wOQ&amp;trFs*</span><br></pre></td></tr></table></figure></p>
+<p>首先使用默认密码登录 Mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -uroot -p</span><br></pre></td></tr></table></figure></p>
+<p>查看所有 validatei_password<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW VARIABLES LIKE &apos;validate_password%&apos;;</span><br><span class="line"></span><br><span class="line">+--------------------------------------+-------+</span><br><span class="line">| Variable_name                        | Value |</span><br><span class="line">+--------------------------------------+-------+</span><br><span class="line">| validate_password.check_user_name    | ON    |</span><br><span class="line">| validate_password.dictionary_file    |       |</span><br><span class="line">| validate_password.length             | 8     |</span><br><span class="line">| validate_password.mixed_case_count   | 1     |</span><br><span class="line">| validate_password.number_count       | 1     |</span><br><span class="line">| validate_password.policy             | MEDIUM|</span><br><span class="line">| validate_password.special_char_count | 1     |</span><br><span class="line">| validate_password_check_user_name    | ON    |</span><br><span class="line">| validate_password_dictionary_file    |       |</span><br><span class="line">| validate_password_length             | 8     |</span><br><span class="line">| validate_password_mixed_case_count   | 1     |</span><br><span class="line">| validate_password_number_count       | 1     |</span><br><span class="line">| validate_password_policy             | MEDIUM|</span><br><span class="line">| validate_password_special_char_count | 1     |</span><br><span class="line">+--------------------------------------+-------+</span><br><span class="line">14 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<p>这时候会看到mysql的密码策略<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">There are three levels of password validation policy:</span><br><span class="line"></span><br><span class="line"># 长度大于 8 位</span><br><span class="line">LOW    Length &gt;= 8</span><br><span class="line"># 长度大于 8 位，数字，混合大小写和特殊字符</span><br><span class="line">MEDIUM Length &gt;= 8, numeric, mixed case, and special characters</span><br><span class="line"># 长度大于 8 位，数字，混合大小写，特殊字符和字典</span><br><span class="line">STRONG Length &gt;= 8, numeric, mixed case, special characters and dictionary</span><br><span class="line"></span><br><span class="line">Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG:</span><br><span class="line"></span><br><span class="line">他们分别对应了数字 0, 1, 2，Mysql 默认的等级为 MEDIUM，所以输入普通的密码就会报错，怎样修改策略呢？</span><br></pre></td></tr></table></figure></p>
+<p>所以当出现下面的错误的时候，有可能就是因为密码强度的问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed! Error: Your password does not satisfy the current policy requirements</span><br></pre></td></tr></table></figure></p>
+<p>所以可以根据你想达到的安全程度，设置密码，比如我这里设置为最低:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set global validate_password_policy=0;</span><br><span class="line">## 如果你不想让长度必须大于 8 位，也可以改为 4，这是最低长度</span><br><span class="line">set global validate_password_length=4;</span><br></pre></td></tr></table></figure></p>
+<p>随后修改mysql密码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set password=password(&apos;111111&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>最后可以将访问权限全部对外开放<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;wxnacy&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
+<p>也可以指定 ip 开放<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;192.168.33.11&apos; IDENTIFIED BY &apos;wxnacy&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
+<p>最后使配置生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure></p>
+<p>mysql 新设置用户或更改密码后需用flush privileges刷新MySQL的系统权限相关表，否则会出现拒绝访问，还有一种方法，就是重新启动mysql服务器，来使新设置生效</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/31/Centos7安装mysql/" data-id="cjnxxywcc00001pfyaw8cpnu0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/31/Linux的常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux的常用命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/31/Supervisor重新加载配置启动新的进程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Supervisor重新加载配置启动新的进程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/对Python装饰器的一些理解/">对Python装饰器的一些理解</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Python基础学习-切片、迭代、列表生成式/">Python基础学习----切片、迭代、列表生成式</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/Flask-上下文全局变量/">Flask 上下文全局变量</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/flask下-gunicorn在Python中的使用/">flask下 gunicorn在Python中的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
