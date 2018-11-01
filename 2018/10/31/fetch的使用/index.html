@@ -88,17 +88,17 @@
 
 
 
-<meta name="description" content="最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。 fetch的基本方式123456789101112131415fetch(url,&amp;#123;	method:&amp;apos;GET&amp;apos;, # &amp;apos;POST&amp;apos;,&amp;apos;PUT&amp;apos;,&amp;apos;DELETE&amp;apos;	he">
+<meta name="description" content="最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fetch的使用">
 <meta property="og:url" content="http://yoursite.com/2018/10/31/fetch的使用/index.html">
 <meta property="og:site_name" content="小小看护">
-<meta property="og:description" content="最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。 fetch的基本方式123456789101112131415fetch(url,&amp;#123;	method:&amp;apos;GET&amp;apos;, # &amp;apos;POST&amp;apos;,&amp;apos;PUT&amp;apos;,&amp;apos;DELETE&amp;apos;	he">
+<meta property="og:description" content="最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-31T11:22:27.910Z">
+<meta property="og:updated_time" content="2018-11-01T06:41:23.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fetch的使用">
-<meta name="twitter:description" content="最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。 fetch的基本方式123456789101112131415fetch(url,&amp;#123;	method:&amp;apos;GET&amp;apos;, # &amp;apos;POST&amp;apos;,&amp;apos;PUT&amp;apos;,&amp;apos;DELETE&amp;apos;	he">
+<meta name="twitter:description" content="最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。">
 
 
 
@@ -413,7 +413,7 @@
       
 
       
-        <p>最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。</p>
+        <p>最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。<br><a id="more"></a></p>
 <h4 id="fetch的基本方式"><a href="#fetch的基本方式" class="headerlink" title="fetch的基本方式"></a>fetch的基本方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fetch(url,&#123;</span><br><span class="line">	method:&apos;GET&apos;, # &apos;POST&apos;,&apos;PUT&apos;,&apos;DELETE&apos;</span><br><span class="line">	headers:&#123;</span><br><span class="line">		&apos;Content-Type&apos;:&apos;application/json&apos;, //&apos;application/x-www-form-urlencoded&apos;</span><br><span class="line">		&apos;Accept&apos;:&apos;application/json&apos;</span><br><span class="line">	&#125;,</span><br><span class="line">	body:JSON.stringfiy(body)</span><br><span class="line">&#125;).then((res)=&gt;&#123;</span><br><span class="line">	</span><br><span class="line">	return res.json() //返回一个Promise,解析成JSON,具体请看下面返回的数据</span><br><span class="line">&#125;).then(function(res)&#123;</span><br><span class="line">	console.log(res) //获取json数据</span><br><span class="line">&#125;).catch(function(error)&#123;</span><br><span class="line">	console.log(error)  //请求错误时返回</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h4 id="返回的数据"><a href="#返回的数据" class="headerlink" title="返回的数据"></a>返回的数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">res.arrayBuffer()</span><br><span class="line">读取 res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为ArrayBuffer格式的promise对象</span><br><span class="line"></span><br><span class="line">res.blob()</span><br><span class="line">读取 res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为Blob格式的promise对象</span><br><span class="line"></span><br><span class="line">res.formData()</span><br><span class="line">读取res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为FormData格式的promise对象</span><br><span class="line"></span><br><span class="line">res.json()</span><br><span class="line">读取 res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为JSON格式的promise对象</span><br><span class="line"></span><br><span class="line">res.text()</span><br><span class="line">读取 res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为USVString格式的promise对象</span><br></pre></td></tr></table></figure>
 <h4 id="强制带Cookie"><a href="#强制带Cookie" class="headerlink" title="强制带Cookie"></a>强制带Cookie</h4><p>默认情况下, fetch不会从服务端发送或接收任何 cookies, 如果站点依赖于维护一个用户会话，则导致未经认证的请求(要发送 cookies，必须发送凭据头).</p>
@@ -547,7 +547,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -652,7 +652,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">9k</span>
+    <span title="Site words total count">8.9k</span>
   
 </div>
 
@@ -672,7 +672,7 @@
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共9k字</span>
+  <span class="post-count">博客全站共8.9k字</span>
 </div>
 
         

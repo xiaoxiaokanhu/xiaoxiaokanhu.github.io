@@ -290,182 +290,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/table宽度问题/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="小小看护">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://thirdwx.qlogo.cn/mmopen/gy7HrdALolXbdzGgLc2MpEs78jzIJDZiax8sduYYVLnXXibAiapqG3d2KAUTz2XtYZibqSzG1zaQ9vDwu7j51wyZDqPMRRYkGZ6d/132">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小小看护">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/31/table宽度问题/" itemprop="url">table宽度问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T18:04:11+08:00">
-                2018-10-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/html/" itemprop="url" rel="index">
-                    <span itemprop="name">html</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  420
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近在做table列表的时候，出现如果数据过多，导致列表的宽度越来越宽，后来在网上找了很多方法，通过在<code>td</code>里面添加<code>div</code>,通过设置div的宽度来解决。具体代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;table  border=&quot;1&quot;  height=&quot;100&quot; width=&quot;500&quot; bordercolor=&quot;#ccc&quot; id=&quot;startId&quot; &gt;</span><br><span class="line">       &lt;thead&gt;</span><br><span class="line">               &lt;tr&gt;</span><br><span class="line">                     &lt;th&gt;topicId&lt;/th&gt;</span><br><span class="line">                     &lt;th&gt;创建时间(北京)&lt;/th&gt;</span><br><span class="line">                     &lt;th&gt;测试类型&lt;/th&gt;</span><br><span class="line">                     &lt;th&gt;测试信息&lt;/th&gt;</span><br><span class="line">               &lt;/tr&gt;</span><br><span class="line">        &lt;/thead&gt;</span><br><span class="line">        &lt;tbody id=&quot;tbMain&quot;&gt;&lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
-<p>在请求数据的时候，在td里面添加div,设置div的宽度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">function resultData1(data) &#123;</span><br><span class="line">        var tbody = document.getElementById(&apos;resultMain&apos;);</span><br><span class="line">        for(var i = 0;i &lt; data.length; i++)&#123; //遍历一下json数据</span><br><span class="line">            var trow = getresultRow(data[i]); //定义一个方法,返回tr数据</span><br><span class="line">            tbody.appendChild(trow);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    function getresultRow(h) &#123;</span><br><span class="line"></span><br><span class="line">	    console.log(h);</span><br><span class="line">        var row = document.createElement(&apos;tr&apos;); //创建行</span><br><span class="line">            var idCell = document.createElement(&apos;td&apos;); //创建第一列id</span><br><span class="line">            idCell.innerHTML = h.debug_info.topic_id; //填充数据</span><br><span class="line">            row.appendChild(idCell); //加入行  ，下面类似</span><br><span class="line"></span><br><span class="line">            var ddd = &quot;&quot;</span><br><span class="line">            if (&quot;create_ts&quot; in h.debug_info)&#123;</span><br><span class="line">                var ddd =  formatTS2YYYYMMDDHHMMSS(h.create_ts.toString());</span><br><span class="line">            &#125;</span><br><span class="line">            var nameCell = document.createElement(&apos;td&apos;);//创建第二列name</span><br><span class="line">            nameCell.innerHTML = ddd;</span><br><span class="line">            row.appendChild(nameCell);</span><br><span class="line"></span><br><span class="line">             jobCell = document.createElement(&apos;td&apos;);//创建第三列</span><br><span class="line">            jobCell.innerHTML = h.debug_info.type;</span><br><span class="line">            row.appendChild(jobCell);</span><br><span class="line"></span><br><span class="line">             jobCell = document.createElement(&apos;td&apos;);//创建第四列</span><br><span class="line">            var mesDiv = document.createElement(&apos;div&apos;);</span><br><span class="line">            mesDiv.className = &apos;mes_div&apos;; #这里添加div，并且设置div的class</span><br><span class="line">            mesDiv.innerHTML = h.debug_info.message;</span><br><span class="line">            jobCell.appendChild(mesDiv);</span><br><span class="line"></span><br><span class="line">            row.appendChild(jobCell);</span><br><span class="line"></span><br><span class="line">             jobCell = document.createElement(&apos;td&apos;);//创建第五列</span><br><span class="line">            var div = document.createElement(&apos;div&apos;);</span><br><span class="line">            div.innerHTML = h.debug_info.result;</span><br><span class="line">            jobCell.appendChild(div);</span><br><span class="line">            row.appendChild(jobCell);</span><br><span class="line"></span><br><span class="line">            return row; //返回tr数据</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  .mes_div&#123;</span><br><span class="line">        width: 100px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-	<div>
-  
-</div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/easyui弹窗窗口无法移动/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -589,14 +413,17 @@
 
       
         
-          
-            <p>最近在使用easyui 弹出窗口的时候，发现窗口无法拖动。具体代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function openLookUp(url, title) &#123;</span><br><span class="line">	lookUpWin.dialogFrameHtml(url);</span><br><span class="line">	 if(title) &#123;</span><br><span class="line">	    lookUpWin.panel(&#123;title: title&#125;);</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>后来经过对比是因为修改title引起的，这个easyui 还没有解决这个bug。知道是哪出现问题，后面就好办了，具体代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function openLookUp(url, title) &#123;</span><br><span class="line">	lookUpWin.dialogFrameHtml(url);</span><br><span class="line">	$(&apos;.panel-title&apos;)[0].innerHTML=title;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
+          <p>最近在使用easyui 弹出窗口的时候，发现窗口无法拖动。具体代码如下<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/easyui弹窗窗口无法移动/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -765,17 +592,17 @@
 
       
         
-          
-            <p>最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。</p>
-<h4 id="fetch的基本方式"><a href="#fetch的基本方式" class="headerlink" title="fetch的基本方式"></a>fetch的基本方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fetch(url,&#123;</span><br><span class="line">	method:&apos;GET&apos;, # &apos;POST&apos;,&apos;PUT&apos;,&apos;DELETE&apos;</span><br><span class="line">	headers:&#123;</span><br><span class="line">		&apos;Content-Type&apos;:&apos;application/json&apos;, //&apos;application/x-www-form-urlencoded&apos;</span><br><span class="line">		&apos;Accept&apos;:&apos;application/json&apos;</span><br><span class="line">	&#125;,</span><br><span class="line">	body:JSON.stringfiy(body)</span><br><span class="line">&#125;).then((res)=&gt;&#123;</span><br><span class="line">	</span><br><span class="line">	return res.json() //返回一个Promise,解析成JSON,具体请看下面返回的数据</span><br><span class="line">&#125;).then(function(res)&#123;</span><br><span class="line">	console.log(res) //获取json数据</span><br><span class="line">&#125;).catch(function(error)&#123;</span><br><span class="line">	console.log(error)  //请求错误时返回</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="返回的数据"><a href="#返回的数据" class="headerlink" title="返回的数据"></a>返回的数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">res.arrayBuffer()</span><br><span class="line">读取 res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为ArrayBuffer格式的promise对象</span><br><span class="line"></span><br><span class="line">res.blob()</span><br><span class="line">读取 res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为Blob格式的promise对象</span><br><span class="line"></span><br><span class="line">res.formData()</span><br><span class="line">读取res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为FormData格式的promise对象</span><br><span class="line"></span><br><span class="line">res.json()</span><br><span class="line">读取 res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为JSON格式的promise对象</span><br><span class="line"></span><br><span class="line">res.text()</span><br><span class="line">读取 res对象并且将它设置为已读（因为Responses对象被设置为了 stream 的方式，所以它们只能被读取一次） ,并返回一个被解析为USVString格式的promise对象</span><br></pre></td></tr></table></figure>
-<h4 id="强制带Cookie"><a href="#强制带Cookie" class="headerlink" title="强制带Cookie"></a>强制带Cookie</h4><p>默认情况下, fetch不会从服务端发送或接收任何 cookies, 如果站点依赖于维护一个用户会话，则导致未经认证的请求(要发送 cookies，必须发送凭据头).</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fetch(url, &#123;</span><br><span class="line">    method: &apos;GET&apos;,</span><br><span class="line">    credentials: &apos;include&apos; // 强制加入凭据头</span><br><span class="line">  &#125;)</span><br><span class="line">  .then((res)=&gt;&#123;</span><br><span class="line">    return res.text()</span><br><span class="line">  &#125;)</span><br><span class="line">  .then((res)=&gt;&#123;</span><br><span class="line">    console.log(res)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-
-          
+          <p>最近的工作过程中，在做js调取接口的时候，使用了fetch，原来是只知道fetch，但是没有怎么使用过。正好最近使用到，所以对其详细了解了下。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/fetch的使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -944,24 +771,17 @@
 
       
         
-          
-            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Ansible可通过 “pip” 安装(安装和管理Python包的工具),若你还没有安装 pip,可执行如下命令安装:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo easy_install pip</span><br></pre></td></tr></table></figure>
-<p>然后安装Ansible:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip install ansible</span><br></pre></td></tr></table></figure></p>
-<p>如果你是在 OS X Mavericks 上安装,编译器可能或告警或报错,可通过如下设置避免这种情况:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install ansible</span><br></pre></td></tr></table></figure></p>
-<p>使用 virtualenv 的读者可通过 virtualenv 安装 Ansible, 然而我们建议不用这样做,直接在全局安装 Ansible.不要使用 easy_install 直接安装 ansible.</p>
-<h2 id="配置hosts"><a href="#配置hosts" class="headerlink" title="配置hosts"></a>配置hosts</h2><p>修改/etc/ansible/hosts 全局hosts文件，没有的话自己创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/ansible/hosts</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[localhost] # 如果服务器使用密码登录就用这个方式保存密码，避免每次输入</span><br><span class="line">127.0.0.1 ansible_ssh_pass=your_pass ansible_ssh_user=your_name</span><br><span class="line"></span><br><span class="line">[prod] # 如果服务器使用sshkey登陆（推荐使用）</span><br><span class="line">prod.server.org ansible_ssh_user=your_name ansible_ssh_private_key_file=key_path</span><br></pre></td></tr></table></figure>
-<p>具体的是 <code>prod.server.org</code>是IP, <code>your_pass</code>是服务器的密码,<code>your_name</code>是服务器的名字, <code>key_path</code>是用key登录.</p>
-<h2 id="第一条命令"><a href="#第一条命令" class="headerlink" title="第一条命令"></a>第一条命令</h2><p>首先执行ping,看是否可以连接上服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ ansible all -m ping</span><br><span class="line"></span><br><span class="line">127.0.0.1 | SUCCESS =&gt; &#123;</span><br><span class="line">    &quot;changed&quot;: false,</span><br><span class="line">    &quot;ping&quot;: &quot;pong&quot;</span><br><span class="line">&#125;</span><br><span class="line">prod.server.org | SUCCESS =&gt; &#123;</span><br><span class="line">    &quot;changed&quot;: false,</span><br><span class="line">    &quot;ping&quot;: &quot;pong&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>得到如上样式结果即为正确,另外执行 ansible prod -m ping 可以针对某一个服务器<br>组进行操作</p>
-<p>这时候说明你的ansible已经跑通，下面可以进行其他操作</p>
-
-          
+          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Ansible可通过 “pip” 安装(安装和管理Python包的工具),若你还没有安装 pip,可执行如下命令安装:<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/自动化部署/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1130,18 +950,17 @@
 
       
         
-          
-            <p>在使用ansible配置好hosts，运行ping<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ansible all -m ping</span><br></pre></td></tr></table></figure></p>
-<p>发现出现错误，错误原因是需要安装sshpass。就用yum去安装，因为用的是mac，导致没有安装yum，所以就想用brew去安装，直接使用<code>brew install sshpass</code>,发现发现错误。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Shell代码  收藏代码</span><br><span class="line">$ brew install sshpass  </span><br><span class="line">Error: No available formula for sshpass  </span><br><span class="line">We won&apos;t add sshpass because it makes it too easy for novice SSH users to  </span><br><span class="line">ruin SSH&apos;s security.</span><br></pre></td></tr></table></figure>
-<p>使用homebrew强制安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install https://raw.github.com/eugeneoden/homebrew/eca9de1/Library/Formula/sshpass.rb</span><br></pre></td></tr></table></figure>
-<p>就可以成功了</p>
-
-          
+          <p>在使用ansible配置好hosts，运行ping<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/sshpass的部署问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1310,19 +1129,16 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>Playbooks 是 Ansible的配置,部署,编排语言.他们可以被描述为一个需要希望远程主机执行命令的方案,或者一组IT程序运行的命令集合.</p>
 </blockquote>
-<p> 一个playbook就是一个YAML文件，所以playbook文件一般都以.yml结尾，一个playbook文件由一个或多个play组成，每个play定义了在一个或多个远程主机上执行的一系列的task，其中每个task一般就是调用一个ansible的模块，如调用copy模块复制文件到远程主机或调用shell模块执行命令。</p>
-<h2 id="简单的配置"><a href="#简单的配置" class="headerlink" title="简单的配置"></a>简单的配置</h2><p>配置deploy.yml完成进入远程服务器的某个目录并执行git pull操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1  - hosts: wxnacy # 它会默认使用/etc/ansible/hosts 中配置的服务器组名 也可以单独设置hosts地址</span><br><span class="line">2  tasks:</span><br><span class="line">3  - name: cd path and git pull # 命令名称</span><br><span class="line">4    shell: git pull # 执行命令</span><br><span class="line">5    args:</span><br><span class="line">6      chdir: ~/workdir # 进入目录</span><br></pre></td></tr></table></figure>
-<p>运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ansible-playbook deploy.yml</span><br><span class="line">PLAY [wxnacy] *************************************************************************</span><br><span class="line">TASK [cd path and git pull] *************************************************************************</span><br><span class="line">ok: [wxnacy.server.org]</span><br><span class="line">PLAY RECAP *************************************************************************</span><br><span class="line">wxnacy.server.org             : ok=2    changed=1    unreachable=0    failed=0</span><br></pre></td></tr></table></figure>
-<p>执行完运行命令ansible会在webservers组中依次执行tasks，返回以上样式结果极为成功，结果通过红黄绿三种颜色标明了不同的执行结果，红色表示有task执行失败，黄色表示改变了远程主机状态。</p>
-<p>可以查看相关文章<br><a href="https://docs.ansible.com/ansible/latest/modules/shell_module.html" target="_blank" rel="noopener">shell - Execute commands in nodes</a><br><a href="https://docs.ansible.com/ansible/latest/modules/list_of_all_modules.html" target="_blank" rel="noopener">All modules</a><br><a href="https://blog.csdn.net/AhhSong/article/details/78757720" target="_blank" rel="noopener">Ansible playbook简介与配置</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/playbook/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1494,16 +1310,18 @@
 
       
         
-          
-            <p><a href="https://www.jianshu.com/p/f8a145ca97dd" target="_blank" rel="noopener">ansible 自动化部署</a><br><a href="https://www.jianshu.com/p/cd5b7d9a841e" target="_blank" rel="noopener">ansible playbook</a><br><a href="https://www.jianshu.com/p/ddcf8f3ab7af" target="_blank" rel="noopener">ansible sshpass的部署问题</a>  </p>
-<h2 id="ansible介绍"><a href="#ansible介绍" class="headerlink" title="ansible介绍"></a>ansible介绍</h2><p>国内的中文站点：<a href="http://www.ansible.com.cn/" target="_blank" rel="noopener">Ansible中文权威指南</a></p>
-<p>ansible是新出现的自动化运维工具，基于Python开发，集合了众多运维工具（puppet、chef、func、fabric）的优点，实现了批量系统配置、批量程序部署、批量运行命令等功能。</p>
-<p>ansible是基于 paramiko 开发的,并且基于模块化工作，本身没有批量部署的能力。真正具有批量部署的是ansible所运行的模块，ansible只是提供一种框架。ansible不需要在远程主机上安装client/agents，因为它们是基于ssh来和远程主机通讯的。ansible目前已经已经被红帽官方收购，是自动化运维工具中大家认可度最高的，并且上手容易，学习简单。<strong>是每位运维工程师必须掌握的技能之一。</strong><br>ansible特点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、部署简单，只需在主控端部署Ansible环境，被控端无需做任何操作；</span><br><span class="line">2、默认使用SSH协议对设备进行管理；</span><br><span class="line">3、有大量常规运维操作模块，可实现日常绝大部分操作。</span><br><span class="line">4、配置简单、功能强大、扩展性强；</span><br><span class="line">5、支持API及自定义模块，可通过Python轻松扩展；</span><br><span class="line">6、通过Playbooks来定制强大的配置、状态管理；</span><br><span class="line">7、轻量级，无需在客户端安装agent，更新时，只需在操作机上进行一次更新即可；</span><br><span class="line">8、提供一个功能强大、操作性强的Web管理界面和REST API接口——AWX平台。</span><br></pre></td></tr></table></figure></p>
-
-          
+          <p><a href="https://www.jianshu.com/p/f8a145ca97dd" target="_blank" rel="noopener">ansible 自动化部署</a><br><a href="https://www.jianshu.com/p/cd5b7d9a841e" target="_blank" rel="noopener">ansible playbook</a><br><a href="https://www.jianshu.com/p/ddcf8f3ab7af" target="_blank" rel="noopener">ansible sshpass的部署问题</a>  </p>
+<h2 id="ansible介绍"><a href="#ansible介绍" class="headerlink" title="ansible介绍"></a>ansible介绍</h2><p>国内的中文站点：<a href="http://www.ansible.com.cn/" target="_blank" rel="noopener">Ansible中文权威指南</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/自动化/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1672,17 +1490,17 @@
 
       
         
-          
-            <p>使用item2已经一段时间了，发现item2和苹果自带的终端工具Terminal相比，简直完爆它。下面是一些基础的快捷键</p>
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">新建标签  command + t</span><br><span class="line">切换标签  command + 左右方向键 或者 command+数字</span><br></pre></td></tr></table></figure>
-<h2 id="分屏"><a href="#分屏" class="headerlink" title="分屏"></a>分屏</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">垂直分屏：command + d</span><br><span class="line">水平分屏：command + shift + d</span><br><span class="line">切换屏幕：command + [ 或 command + ]</span><br></pre></td></tr></table></figure>
-<h2 id="共同标签或者分屏的快键键为"><a href="#共同标签或者分屏的快键键为" class="headerlink" title="共同标签或者分屏的快键键为"></a>共同标签或者分屏的快键键为</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">关闭标签或者分屏：command + w</span><br><span class="line">切换全屏：command + enter</span><br></pre></td></tr></table></figure>
-<h2 id="command-相关的快捷键"><a href="#command-相关的快捷键" class="headerlink" title="command 相关的快捷键"></a>command 相关的快捷键</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">查找：command + f</span><br><span class="line">查看历史命令：command + ;</span><br><span class="line">查看剪贴板历史：command + shift + h</span><br><span class="line">清屏：command + r</span><br></pre></td></tr></table></figure>
-<h2 id="control-相关的快捷键"><a href="#control-相关的快捷键" class="headerlink" title="control 相关的快捷键"></a>control 相关的快捷键</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">清除当前行：ctrl + u</span><br><span class="line">到行首：ctrl + a</span><br><span class="line">到行尾：ctrl + e</span><br><span class="line">前进后退：ctrl + f/b (翻页)</span><br><span class="line">上一条命令：ctrl + p</span><br><span class="line">搜索命令历史：ctrl + r</span><br><span class="line">删除当前光标的字符：ctrl + d</span><br><span class="line">删除光标之前的字符：ctrl + h</span><br><span class="line">删除光标之前的单词：ctrl + w</span><br><span class="line">删除到文本末尾：ctrl + k</span><br><span class="line">交换光标处文本：ctrl + t</span><br></pre></td></tr></table></figure>
-          
+          <p>使用item2已经一段时间了，发现item2和苹果自带的终端工具Terminal相比，简直完爆它。下面是一些基础的快捷键<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/item2快捷键的应用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1851,26 +1669,17 @@
 
       
         
-          
-            <p>在 Mac 上使用 brew 可以很方便的安装 pyenv。</p>
-<h3 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install pyenv</span><br></pre></td></tr></table></figure>
-<h3 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h3><p>打开<code>vim  ~/.bash_profile</code>，在最后写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export PYENV_ROOT=&quot;$HOME/.pyenv&quot;</span><br><span class="line">export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;</span><br><span class="line">if which pyenv &gt; /dev/null;</span><br><span class="line">  then eval &quot;$(pyenv init -)&quot;;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p>
-<p>配置完以后别忘了<code>source  ~/.bash_profile</code>，使配置生效</p>
-<h3 id="3、使用"><a href="#3、使用" class="headerlink" title="3、使用"></a>3、使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#查看可安装的版本</span><br><span class="line">pyenv install --list</span><br><span class="line">#安装python版本</span><br><span class="line">pyenv install 3.5.0</span><br><span class="line">#查看当前已安装的python版本</span><br><span class="line">pyenv versions</span><br><span class="line">#重置版本设置 (只有 pyenv shell 和 pyenv local 命令有--unset参数)</span><br><span class="line">pyenv shell --unset</span><br><span class="line">pyenv local --unset</span><br><span class="line">#卸载版本</span><br><span class="line">pyenv uninstall 3.5.0</span><br></pre></td></tr></table></figure>
-<p>设置python版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 对所有的Shell全局有效，会把版本号写入到~/.pyenv/version文件中</span><br><span class="line">pyenv global 3.5.0</span><br><span class="line"></span><br><span class="line"># 只对当前目录有效，会在当前目录创建.python-version文件</span><br><span class="line">pyenv local 3.5.0</span><br><span class="line"></span><br><span class="line"># 只在当前会话有效</span><br><span class="line">pyenv shell 3.5.0</span><br></pre></td></tr></table></figure></p>
-<p>这个时候，pyenv已经安装成功了，下面咱们安装设置python版本 </p>
-<h1 id="pyenv-virtualenv"><a href="#pyenv-virtualenv" class="headerlink" title="pyenv-virtualenv"></a><a href="https://github.com/pyenv/pyenv-virtualenv" target="_blank" rel="noopener">pyenv-virtualenv</a></h1><blockquote>
-<p>pyenv-virtualenv 是pyenv的插件，为pyenv设置的python版本提供隔离的虚拟环境，设置虚拟环境后，在当前目录下面安装的第三方库都不会影响其他环境</p>
-</blockquote>
-<h3 id="1、安装-1"><a href="#1、安装-1" class="headerlink" title="1、安装"></a>1、安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install pyenv-virtualenv</span><br></pre></td></tr></table></figure>
-<h3 id="2、配置-1"><a href="#2、配置-1" class="headerlink" title="2、配置"></a>2、配置</h3><p>打开<code>vim  ~/.bash_profile</code>，在最后写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if which pyenv-virtualenv-init &gt; /dev/null;</span><br><span class="line">  then eval &quot;$(pyenv virtualenv-init -)&quot;;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p>
-<p>配置完以后别忘了<code>source  ~/.bash_profile</code>，使配置生效</p>
-<h3 id="3、使用-1"><a href="#3、使用-1" class="headerlink" title="3、使用"></a>3、使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#从当前版本创建virtualenv</span><br><span class="line">pyenv virtualenv env350</span><br><span class="line"></span><br><span class="line">#指定版本创建virtualenv</span><br><span class="line">#pyenv virtualenv 版本号 虚拟环境名</span><br><span class="line">pyenv virtualenv 3.6.3 xxx-3.6.3</span><br><span class="line"></span><br><span class="line">#查看已创建的virtualenv</span><br><span class="line">pyenv versions</span><br><span class="line"></span><br><span class="line">#激活和停用virtualenv</span><br><span class="line"># 手动激活</span><br><span class="line">pyenv activate 虚拟环境名</span><br><span class="line">pyenv deactivate</span><br><span class="line"></span><br><span class="line"># 自动激活</span><br><span class="line"># 使用pyenv local 虚拟环境名</span><br><span class="line"># 会把`虚拟环境名`写入当前目录的.python-version文件中</span><br><span class="line"># 关闭自动激活 -&gt; pyenv deactivate</span><br><span class="line"># 启动自动激活 -&gt; pyenv activate xxx-3.6.3</span><br><span class="line">pyenv local xxx-3.6.3</span><br><span class="line"></span><br><span class="line">#删除现有virtualenv</span><br><span class="line">pyenv uninstall 虚拟环境名</span><br></pre></td></tr></table></figure>
-
-          
+          <p>在 Mac 上使用 brew 可以很方便的安装 pyenv<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/Mac下pyenv与pyenv-virtualenv的安装/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -2039,16 +1848,193 @@
 
       
         
+          <p>如果想杀死一个已经detached的screen会话，可以使用以下命令：<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/如何杀死一个已经detached的screen会话/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+	<div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/Linux的常用命令/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小小看护">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://thirdwx.qlogo.cn/mmopen/gy7HrdALolXbdzGgLc2MpEs78jzIJDZiax8sduYYVLnXXibAiapqG3d2KAUTz2XtYZibqSzG1zaQ9vDwu7j51wyZDqPMRRYkGZ6d/132">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小小看护">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/31/Linux的常用命令/" itemprop="url">Linux的常用命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T17:55:04+08:00">
+                2018-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-            <p>如果想杀死一个已经detached的screen会话，可以使用以下命令：</p>
-<h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -X -S [session # you want to kill] quit</span><br></pre></td></tr></table></figure>
-<p>比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# screen -ls</span><br><span class="line">There are screens on:</span><br><span class="line">        9975.admin   (Detached)</span><br><span class="line">        4588.scheduler    (Detached)</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# screen -X -S 4588 quit</span><br><span class="line">[root@localhost ~]# screen -ls</span><br><span class="line">There is a screen on:</span><br><span class="line">        9975.pts-0.localhost    (Detached)</span><br><span class="line">1 Socket in /var/run/screen/S-root.</span><br></pre></td></tr></table></figure></p>
-<p>可以看到，4588会话已经没有了。</p>
-<h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><p>激活screen：</p>
-<pre><code>screen -r session_name
-并利用exit退出并kiil掉session。
-</code></pre>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  346
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="查看硬盘使用了多少容量"><a href="#查看硬盘使用了多少容量" class="headerlink" title="查看硬盘使用了多少容量"></a>查看硬盘使用了多少容量</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/Linux的常用命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2136,7 +2122,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2225,7 +2211,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">9k</span>
+    <span title="Site words total count">8.9k</span>
   
 </div>
 
@@ -2245,7 +2231,7 @@
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共9k字</span>
+  <span class="post-count">博客全站共8.9k字</span>
 </div>
 
         
