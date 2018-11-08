@@ -88,17 +88,17 @@
 
 
 
-<meta name="description" content="如果想杀死一个已经detached的screen会话，可以使用以下命令：">
+<meta name="description" content="通常的ssh登录有两种方式，一种是通过密码登录，一种是通过密钥登录，在实际使用过程中，会发现用密码登录很繁琐，需要每次都输入密码，这时候用密钥登录就会很方便。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何杀死一个已经detached的screen会话">
-<meta property="og:url" content="http://yoursite.com/2018/10/31/如何杀死一个已经detached的screen会话/index.html">
+<meta property="og:title" content="centos7 安装zsh和oh-my-zsh">
+<meta property="og:url" content="http://yoursite.com/2018/11/06/ssh 免密码登录/index.html">
 <meta property="og:site_name" content="小小看护">
-<meta property="og:description" content="如果想杀死一个已经detached的screen会话，可以使用以下命令：">
+<meta property="og:description" content="通常的ssh登录有两种方式，一种是通过密码登录，一种是通过密钥登录，在实际使用过程中，会发现用密码登录很繁琐，需要每次都输入密码，这时候用密钥登录就会很方便。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-01T06:40:22.226Z">
+<meta property="og:updated_time" content="2018-11-08T06:47:14.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何杀死一个已经detached的screen会话">
-<meta name="twitter:description" content="如果想杀死一个已经detached的screen会话，可以使用以下命令：">
+<meta name="twitter:title" content="centos7 安装zsh和oh-my-zsh">
+<meta name="twitter:description" content="通常的ssh登录有两种方式，一种是通过密码登录，一种是通过密钥登录，在实际使用过程中，会发现用密码登录很繁琐，需要每次都输入密码，这时候用密钥登录就会很方便。">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/31/如何杀死一个已经detached的screen会话/">
+  <link rel="canonical" href="http://yoursite.com/2018/11/06/ssh 免密码登录/">
 
 
 
 
 
-  <title>如何杀死一个已经detached的screen会话 | 小小看护</title>
+  <title>centos7 安装zsh和oh-my-zsh | 小小看护</title>
   
 
 
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/如何杀死一个已经detached的screen会话/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/06/ssh 免密码登录/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小小看护">
@@ -310,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">如何杀死一个已经detached的screen会话</h1>
+          <h1 class="post-title" itemprop="name headline">centos7 安装zsh和oh-my-zsh</h1>
         
 
         <div class="post-meta">
@@ -322,8 +322,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T17:56:16+08:00">
-                2018-10-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-06T16:53:06+08:00">
+                2018-11-06
               </time>
             
 
@@ -376,7 +376,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  106
+                  610
                 </span>
               
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -413,14 +413,20 @@
       
 
       
-        <p>如果想杀死一个已经detached的screen会话，可以使用以下命令：<br><a id="more"></a></p>
-<h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -X -S [session # you want to kill] quit</span><br></pre></td></tr></table></figure>
-<p>比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# screen -ls</span><br><span class="line">There are screens on:</span><br><span class="line">        9975.admin   (Detached)</span><br><span class="line">        4588.scheduler    (Detached)</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# screen -X -S 4588 quit</span><br><span class="line">[root@localhost ~]# screen -ls</span><br><span class="line">There is a screen on:</span><br><span class="line">        9975.pts-0.localhost    (Detached)</span><br><span class="line">1 Socket in /var/run/screen/S-root.</span><br></pre></td></tr></table></figure></p>
-<p>可以看到，4588会话已经没有了。</p>
-<h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><p>激活screen：</p>
-<pre><code>screen -r session_name
-并利用exit退出并kiil掉session。
-</code></pre>
+        <p>通常的ssh登录有两种方式，一种是通过密码登录，一种是通过密钥登录，在实际使用过程中，会发现用密码登录很繁琐，需要每次都输入密码，这时候用密钥登录就会很方便。<br><a id="more"></a></p>
+<h3 id="密码登录"><a href="#密码登录" class="headerlink" title="密码登录"></a>密码登录</h3><p><strong>格式</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh root@10.2.8.41</span><br><span class="line">root@10.2.8.41&apos;s password:</span><br></pre></td></tr></table></figure></p>
+<p>这时候输入密码就可以登录成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ssh root@10.2.8.41</span><br><span class="line">root@10.2.8.41&apos;s password:</span><br><span class="line">Last login: Thu Nov  1 11:34:05 2018 from 10.2.0.33</span><br><span class="line">[root@hardwareupdate ~]#</span><br></pre></td></tr></table></figure></p>
+<h3 id="密钥登录"><a href="#密钥登录" class="headerlink" title="密钥登录"></a>密钥登录</h3><h5 id="创建密钥"><a href="#创建密钥" class="headerlink" title="创建密钥"></a>创建密钥</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@host ~]$ ssh-keygen -t rsa  &lt;== 建立密钥对</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/root/.ssh/id_rsa): &lt;== 按 Enter</span><br><span class="line">Created directory &apos;/root/.ssh&apos;.</span><br><span class="line">Enter passphrase (empty for no passphrase): &lt;== 输入密钥锁码，或直接按 Enter 留空</span><br><span class="line">Enter same passphrase again: &lt;== 再输入一遍密钥锁码</span><br><span class="line">Your identification has been saved in /root/.ssh/id_rsa. &lt;== 私钥</span><br><span class="line">Your public key has been saved in /root/.ssh/id_rsa.pub. &lt;== 公钥</span><br><span class="line">The key fingerprint is:</span><br><span class="line">0f:d3:e7:1a:1c:bd:5c:03:f1:19:f1:22:df:9b:cc:08 root@host</span><br></pre></td></tr></table></figure>
+<p>密钥生成以后，在.ssh下面会多两个文件，<code>id_rsa.pub</code>是公钥，<code>id_rsa</code>是私钥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@host ~]$ cd ~/.ssh</span><br><span class="line">[root@host .ssh]$ ls</span><br><span class="line">id_rsa id_rsa.pub known_hosts config</span><br></pre></td></tr></table></figure></p>
+<p>然后把公钥上传到服务器上，<code>scp</code>等同于<code>ssh-copy-id -i</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@A ~]# scp /root/.ssh/id_rsa.pub root@192.168.1.181:/root/.ssh/authorized_keys  </span><br><span class="line">root@192.168.1.181&apos;s password:</span><br><span class="line">id_rsa.pub                                    100%  223     0.2KB/s   00:00</span><br></pre></td></tr></table></figure></p>
+<p>由于还没有免密码登录的，所以要输入一次服务器的密码登录,如果服务器没有authorized_keys文件，用touch authorized_keys 创建</p>
+<h5 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h5><p>登录服务器，进入.ssh里面，给authorized_keys设置权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@host ~]$ cd ~/.ssh</span><br><span class="line">[root@host .ssh]$ ls</span><br><span class="line">authorized_keys  known_hosts</span><br><span class="line">[root@host .ssh]$ chmod 600 authorized_keys</span><br></pre></td></tr></table></figure></p>
+<h5 id="本地配置权限"><a href="#本地配置权限" class="headerlink" title="本地配置权限"></a>本地配置权限</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@host ~]$ cd ~/.ssh</span><br><span class="line">[root@host .ssh]$ chmod 600 id_rsa</span><br></pre></td></tr></table></figure>
+<p>这时候就可以用密钥登录了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i ~/.ssh/id_rsa root@192.168.100.39</span><br></pre></td></tr></table></figure></p>
+<h3 id="用config去管理"><a href="#用config去管理" class="headerlink" title="用config去管理"></a>用config去管理</h3><p>用<code>ssh -i ~/.ssh/id_rsa root@192.168.100.39</code>登录时很繁琐的，这时候就可以用config去管理</p>
+<p><strong>例如</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># ~/.ssh/config 文件示例</span><br><span class="line"># Host 参数标明以下内容仅适用于访问 236 主机时适用，Host 参数本身只是一个入口字符串；</span><br><span class="line">Host fuwuqi</span><br><span class="line">　　HostName 192.168.99.236</span><br><span class="line">　　User git</span><br><span class="line">　　Port 22</span><br><span class="line">　　IdentityFile ~/.ssh/rsa-michael-236</span><br><span class="line">Host github</span><br><span class="line">　　HostName 192.168.99.3</span><br><span class="line">　　User root</span><br><span class="line">　　Port 22</span><br><span class="line">　　IdentityFile ~/.ssh/rsa-3root-michael</span><br></pre></td></tr></table></figure></p>
+<p>配置完这些以后，就可以用这个登录了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@host ~] ssh fuwuqi</span><br><span class="line">Last login: Thu Nov  8 09:40:00 2018 from 192.168.99.236</span><br><span class="line">Welcome to Alibaba Cloud Elastic Compute Service !</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -454,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/31/Linux的常用命令/" rel="next" title="Linux的常用命令">
-                <i class="fa fa-chevron-left"></i> Linux的常用命令
+              <a href="/2018/11/06/centos7-安装zsh和oh-my-zsh/" rel="next" title="centos7 安装zsh和oh-my-zsh">
+                <i class="fa fa-chevron-left"></i> centos7 安装zsh和oh-my-zsh
               </a>
             
           </div>
@@ -463,10 +469,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/31/Mac下pyenv与pyenv-virtualenv的安装/" rel="prev" title="Mac下pyenv与pyenv-virtualenv的安装">
-                Mac下pyenv与pyenv-virtualenv的安装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -620,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一："><span class="nav-number">1.</span> <span class="nav-text">方法一：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二："><span class="nav-number">2.</span> <span class="nav-text">方法二：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#密码登录"><span class="nav-number">1.</span> <span class="nav-text">密码登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#密钥登录"><span class="nav-number">2.</span> <span class="nav-text">密钥登录</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建密钥"><span class="nav-number">2.0.1.</span> <span class="nav-text">创建密钥</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#服务器"><span class="nav-number">2.0.2.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#本地配置权限"><span class="nav-number">2.0.3.</span> <span class="nav-text">本地配置权限</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#用config去管理"><span class="nav-number">3.</span> <span class="nav-text">用config去管理</span></a></li></div>
             
 
           </div>
