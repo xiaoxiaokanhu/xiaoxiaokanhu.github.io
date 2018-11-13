@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-09T07:44:20.676Z</updated>
+  <updated>2018-11-13T10:45:11.119Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux cp、ln命令的使用</title>
+    <link href="http://yoursite.com/2018/11/13/Linux-cp%E3%80%81ln%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2018/11/13/Linux-cp、ln命令的使用/</id>
+    <published>2018-11-13T10:17:07.000Z</published>
+    <updated>2018-11-13T10:45:11.119Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><p>cp命令主要用于复制文件或目录<br><a id="more"></a></p><p><strong>语法</strong><br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cp</span> [<span class="keyword">options</span>] <span class="keyword">source</span> dest</span><br></pre></td></tr></table></figure></p><p><strong>实例</strong><br>复制文件</p><blockquote><p>cp 源文件 目标文件</p></blockquote><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FQY<span class="variable">@bogon</span> ~<span class="regexp">/Desktop/edc</span></span><br><span class="line">╰─<span class="variable">$ </span>cp /Users/FQY/Desktop/<span class="number">1</span>.xlsx <span class="number">1</span>.xlsx</span><br><span class="line">╭─FQY<span class="variable">@bogon</span> ~<span class="regexp">/Desktop/edc</span></span><br><span class="line">╰─<span class="variable">$ </span>ll</span><br><span class="line">total <span class="number">72</span></span><br><span class="line">-rw-------@ <span class="number">1</span> FQY  staff    <span class="number">28</span>K <span class="number">11</span> <span class="number">13</span> <span class="number">15</span><span class="symbol">:</span><span class="number">14</span> <span class="number">1</span>.xlsx</span><br><span class="line">-rw-r--r--  <span class="number">1</span> FQY  staff     0B <span class="number">11</span> <span class="number">13</span> <span class="number">14</span><span class="symbol">:</span><span class="number">31</span> bm.conf</span><br></pre></td></tr></table></figure><p>复制目录下面的所有文件<br>使用指令”cp”将当前目录”test/“下的所有文件复制到新目录”newtest”下，输入如下命令</p><blockquote><p>$ cp –r test/ newtest </p></blockquote><p>参数说明：</p><blockquote><ul><li>-a：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合。</li><li>-d：复制时保留链接。这里所说的链接相当于Windows系统中的快捷方式。</li><li>-f：覆盖已经存在的目标文件而不给出提示。</li><li>-i：与-f选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答”y”时目标文件将被覆盖。</li><li>-p：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。</li><li>-r：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。</li><li>-l：不复制文件，只是生成链接文件。</li></ul></blockquote><h2 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h2><p>Linux ln命令是一个非常重要命令，它的功能是为某一个文件在另外一个位置建立一个同步的链接。<br>当我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在某个固定的目录，放上该文件，然后在 其它的目录下用ln命令链接（link）它就可以，不必重复的占用磁盘空间。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><blockquote><p>ln [参数][源文件或目录][目标文件或目录]</p></blockquote><p><strong>软链接</strong></p><ul><li>1.软链接，以路径的形式存在。类似于Windows操作系统中的快捷方式</li><li>2.软链接可以 跨文件系统 ，硬链接不可以</li><li>3.软链接可以对一个不存在的文件名进行链接</li><li>4.软链接可以对目录进行链接</li></ul><p><strong>硬链接</strong></p><ul><li>1.硬链接，以文件副本的形式存在。但不占用实际空间。</li><li>2.不允许给目录创建硬链接</li><li>3.硬链接只有在同一个文件系统中才能创建</li></ul><p><strong>必要参数</strong></p><ul><li>-b 删除，覆盖以前建立的链接</li><li>-d 允许超级用户制作目录的硬链接</li><li>-f 强制执行</li><li>-i 交互模式，文件存在则提示用户是否覆盖</li><li>-n 把符号链接视为一般目录</li><li>-s 软链接(符号链接)</li><li>-v 显示详细的处理过程</li></ul><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>创建硬链接</p><blockquote><p>ln destop/1.xlsx 1.xlsx</p></blockquote><p>创建软链接</p><blockquote><p>ln -s destop/1.xlsx 1.xlsx</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;cp&quot;&gt;&lt;a href=&quot;#cp&quot; class=&quot;headerlink&quot; title=&quot;cp&quot;&gt;&lt;/a&gt;cp&lt;/h2&gt;&lt;p&gt;cp命令主要用于复制文件或目录&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>git clone 子模块</title>
@@ -398,26 +418,6 @@
     <summary type="html">
     
       &lt;p&gt;项目中因为业务的需要，需要打标签。所以这里就把常用的几个命令写下来，方便以后自己在打tag的时候可以直接用到。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="git" scheme="http://yoursite.com/categories/git/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>git的初始用</title>
-    <link href="http://yoursite.com/2018/10/31/git%E7%9A%84%E5%88%9D%E5%A7%8B%E7%94%A8/"/>
-    <id>http://yoursite.com/2018/10/31/git的初始用/</id>
-    <published>2018-10-31T10:07:44.000Z</published>
-    <updated>2018-11-01T06:42:09.831Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="git配置全局的用户名和邮箱"><a href="#git配置全局的用户名和邮箱" class="headerlink" title="git配置全局的用户名和邮箱"></a>git配置全局的用户名和邮箱</h3><a id="more"></a><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name xxkh</span><br><span class="line">git<span class="built_in"> config </span>--global user.email xxx@gmail.com</span><br></pre></td></tr></table></figure><h3 id="查看用户名和邮箱"><a href="#查看用户名和邮箱" class="headerlink" title="查看用户名和邮箱"></a>查看用户名和邮箱</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>user.name</span><br><span class="line">git<span class="built_in"> config </span>user.email</span><br></pre></td></tr></table></figure><h3 id="记住密码"><a href="#记住密码" class="headerlink" title="记住密码"></a>记住密码</h3><p>在服务器上 clone 代码第一次通常会提示输入密码，为了下次不再提示，可以在 clone 后做如下操作<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>credential.helper store</span><br></pre></td></tr></table></figure></p><h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd project_root                             <span class="comment"># 进入项目目录</span></span><br><span class="line">git init                                    <span class="comment"># 初始化git仓库</span></span><br><span class="line">git add .                                   <span class="comment"># 添加文件到仓库</span></span><br><span class="line">git commit -m 'init commit'                 <span class="comment"># 提交代码到本地仓库</span></span><br><span class="line">git remote add origin $&#123;repository_path&#125;    <span class="comment"># 将项目关联到git server</span></span><br><span class="line">git pull origin <span class="keyword">master</span>                      <span class="title"># 同步代码</span></span><br><span class="line"><span class="title">git</span> push origin <span class="keyword">master</span>                      <span class="title"># push</span>代码到远程仓库</span><br><span class="line">git <span class="keyword">clone</span> <span class="title">$</span>&#123;repository_path&#125;                <span class="comment"># 新的位置clone项目</span></span><br></pre></td></tr></table></figure><h3 id="重新提交"><a href="#重新提交" class="headerlink" title="重新提交"></a>重新提交</h3><p>提交后如果发现遗漏可以使用 git commit –amend 重新提交<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">commit</span> -m <span class="string">'initial commit'</span></span><br><span class="line">git <span class="keyword">add</span> forgotten_file</span><br><span class="line">git <span class="keyword">commit</span> <span class="comment">--amend</span></span><br></pre></td></tr></table></figure></p><h3 id="撤销提交文件"><a href="#撤销提交文件" class="headerlink" title="撤销提交文件"></a>撤销提交文件</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="comment">-- &lt;file&gt;              # 取消对文件的修改。还原到最近的版本，废弃本地做的修改。</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> &lt;<span class="keyword">file</span>&gt;...            <span class="comment"># 取消已经暂存的文件。即，撤销先前"git add"的操作</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>^                     <span class="comment"># 回退所有内容到上一个版本</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>^ a.py                <span class="comment"># 回退a.py这个文件的版本到上一个版本</span></span><br><span class="line">git <span class="keyword">reset</span> –soft <span class="keyword">HEAD</span>~<span class="number">3</span>              <span class="comment"># 向前回退到第3个版本</span></span><br><span class="line">git <span class="keyword">reset</span> –hard origin/<span class="keyword">master</span>       <span class="comment"># 将本地的状态回退到和远程的一样</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="number">057</span>d                      <span class="comment"># 回退到某个版本</span></span><br><span class="line">git revert <span class="keyword">HEAD</span>                     <span class="comment"># 回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit.(代码回滚到上个版本，并提交git)</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;git配置全局的用户名和邮箱&quot;&gt;&lt;a href=&quot;#git配置全局的用户名和邮箱&quot; class=&quot;headerlink&quot; title=&quot;git配置全局的用户名和邮箱&quot;&gt;&lt;/a&gt;git配置全局的用户名和邮箱&lt;/h3&gt;
     
     </summary>
     
