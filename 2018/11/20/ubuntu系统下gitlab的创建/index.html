@@ -19,7 +19,7 @@
 <p>账户：root<br>密码：xxkh1234</p>
 </blockquote>
 <h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><p>1、停止gitlab<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gitlab-ctl <span class="built_in">stop</span></span><br></pre></td></tr></table></figure></p>
-<p>2、卸载gitlab（注意这里写的是gitlab-ce）<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rpm -e gitlab-ce</span></span><br></pre></td></tr></table></figure></p>
+<p>2、卸载gitlab（注意这里写的是gitlab-ce）<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo dpkg -r gitlab-ce</span></span><br></pre></td></tr></table></figure></p>
 <p>3、查看gitlab进程<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ps</span> aux | <span class="keyword">grep</span> gitlab</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://blog.whsir.com/wp-content/uploads/2017/05/gitlab.png" alt=""><br>4、杀掉第一个进程（就是带有好多………….的进程）<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill <span class="number">-9</span> <span class="number">18777</span></span><br></pre></td></tr></table></figure></p>
 <p>杀掉后，在ps aux | grep gitlab确认一遍，还有没有gitlab的进程</p>
