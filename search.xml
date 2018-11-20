@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[sudo -s 切换到root账户]]></title>
+    <url>%2F2018%2F11%2F20%2Fsudo-s-%E5%88%87%E6%8D%A2%E5%88%B0root%E8%B4%A6%E6%88%B7%2F</url>
+    <content type="text"><![CDATA[sudo su 和 sudo -s都是切换到root用户，不同的是： sudo su 环境用的是目标用户(root)的环境sudo -s 环境用的是当前用户本身的环境]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[ubuntu系统下gitlab的创建]]></title>
     <url>%2F2018%2F11%2F20%2Fubuntu%E7%B3%BB%E7%BB%9F%E4%B8%8Bgitlab%E7%9A%84%E5%88%9B%E5%BB%BA%2F</url>
     <content type="text"><![CDATA[摘要： gitlab的介绍、环境、创建步骤、关键点、卸载gitlab gitlab的介绍 GitLab 是一个用于仓库管理系统的开源项目，使用Git作为代码管理工具，并在此基础上搭建起来的web服务。 环境 ubuntu 18.04LTS 创建步骤gitlab官网上面有在ubuntu创建gitlab的步骤https://about.gitlab.com/install/ 可以点击按照步骤来做 关键点每次修改配置的时候记得sudo gitlab-ctl reconfigure，使配置生效 指令12345678910111213141516查看运行状态 sudo gitlab-ctl status启动所有 gitlab 组件 sudo gitlab-ctl start 停止所有 gitlab 组件 sudo gitlab-ctl stop 重启所有 gitlab 组件 sudo gitlab-ctl restart 启动服务 sudo gitlab-ctl reconfigure 修改默认的配置文件 sudo vim /etc/gitlab/gitlab.rb 检查gitlab gitlab-rake gitlab:check SANITIZE=true --trace 查看日志 sudo gitlab-ctl tail 初始账户和密码有的笔记上说的默认账户和密码是下面的 账户：root密码：5iveL!fe 但是我打开网页的时候，直接提示的是 change your password。这时候我做的就是把密码修改下，密码最少8个字，当你修改过了以后你就可以登录了。比如： 账户：root密码：xxkh1234 卸载1、停止gitlab1sudo gitlab-ctl stop 2、卸载gitlab（注意这里写的是gitlab-ce）1sudo dpkg -r gitlab-ce 3、查看gitlab进程1ps aux | grep gitlab 4、杀掉第一个进程（就是带有好多………….的进程）1kill -9 18777 杀掉后，在ps aux | grep gitlab确认一遍，还有没有gitlab的进程 5、删除所有包含gitlab文件1find / -name gitlab | xargs rm -rf]]></content>
