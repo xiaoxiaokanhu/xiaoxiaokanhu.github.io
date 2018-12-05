@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-29T07:43:02.708Z</updated>
+  <updated>2018-12-05T09:36:22.434Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux下chattr命令详解</title>
+    <link href="http://yoursite.com/2018/12/05/linux%E4%B8%8Bchattr%E3%80%81chgrp%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://yoursite.com/2018/12/05/linux下chattr、chgrp命令详解/</id>
+    <published>2018-12-05T09:04:13.000Z</published>
+    <updated>2018-12-05T09:36:22.434Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>chattr 可以修改文件属性</p></blockquote><p>有时候你发现用root权限都不能修改某个文件，大部分原因是曾经用chattr命令锁定该文件了。chattr命令的作用很大，通过chattr命令修改属性能够提高系统的安全性，但是它并不适合所有的目录。chattr命令不能保护/、/dev、/tmp、/var目录。lsattr命令是显示chattr命令设置的文件属性</p><h3 id="lsattr"><a href="#lsattr" class="headerlink" title="lsattr"></a>lsattr</h3><p>lsattr命令是显示chattr命令设置的文件属性<br><a id="more"></a></p><h3 id="chattr和chmod的区别"><a href="#chattr和chmod的区别" class="headerlink" title="chattr和chmod的区别"></a>chattr和chmod的区别</h3><p>这两个命令是用来查看和改变文件、目录属性的，与chmod这个命令相比，chmod只是改变文件的读写、执行权限，更底层的属性控制是由chattr来改变的。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><blockquote><p>chattr [-RV][-v&lt;版本编号&gt;][+/-/=&lt;属性&gt;][文件或目录…]</p></blockquote><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><blockquote></blockquote><pre><code>+ ：在原有参数设定基础上，追加参数。- ：在原有参数设定基础上，移除参数。= ：更新为指定参数设定。A：文件或目录的 atime (access time)不可被修改(modified), 可以有效预防例如手提电脑磁盘I/O错误的发生。S：硬盘I/O同步选项，功能类似sync。a：即append，设定该参数后，只能向文件中添加数据，而不能删除，多用于服务器日志文件安全，对于日志系统很好用，这个权限让目标文件只能追加，不能删除，而且不能通过编辑器追加。c：即compresse，设定文件是否经压缩后再存储。读取时需要经过自动解压操作。d：即no dump，设定文件不能成为dump程序的备份目标。i：设定文件不能被删除、改名、设定链接关系，同时不能写入或新增内容。i参数对于文件 系统的安全设置有很大帮助。j：即journal，设定此参数使得当通过mount参数：data=ordered 或者 data=writeback 挂 载的文件系统，文件在写入时会先被记录(在journal中)。如果filesystem被设定参数为 data=journal，则该参数自动失效。s：保密性地删除文件或目录，即硬盘空间被全部收回。u：与s相反，当设定为u时，数据内容其实还存在磁盘中，可以用于undeletion。各参数选项中常用到的是a和i。a选项强制只可添加不可删除，多用于日志系统的安全设定。而i是更为严格的安全设定，只有superuser (root) 或具有CAP_LINUX_IMMUTABLE处理能力（标识）的进程能够施加该选项</code></pre><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><pre><code>-R 递归处理，将指定目录下的所有文件及子目录一并处理。-v&lt;版本编号&gt; 设置文件或目录版本。-V 显示指令执行过程。+&lt;属性&gt; 开启文件或目录的该项属性。-&lt;属性&gt; 关闭文件或目录的该项属性。=&lt;属性&gt; 指定文件或目录的该项属性</code></pre><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">╭─root@iz ~</span><br><span class="line">╰─# <span class="keyword">ls</span> </span><br><span class="line">hello.<span class="keyword">conf</span>   # 我在下面创建一个hello.<span class="keyword">conf</span>文件</span><br><span class="line">╭─root@iz~</span><br><span class="line">╰─# chattr -V +i  hello.<span class="keyword">conf</span>   # 设定文件不能被删除、改名等</span><br><span class="line">chattr 1.42.9 (28-<span class="keyword">Dec</span>-2013)</span><br><span class="line">hello.<span class="keyword">conf</span>的标志被设为 ----i--------<span class="keyword">e</span>--</span><br><span class="line">╭─root@iz ~</span><br><span class="line">╰─# <span class="keyword">rm</span> hello.<span class="keyword">conf</span></span><br><span class="line"><span class="keyword">rm</span>: 无法删除<span class="string">"hello.conf"</span>: 不允许的操作</span><br><span class="line">╭─root@iz ~</span><br><span class="line">╰─# lsattr hello.<span class="keyword">conf</span>   # 用lsattr 可以查看chattr下面的设置</span><br><span class="line">----i--------<span class="keyword">e</span>-- hello.<span class="keyword">conf</span></span><br><span class="line">╭─root@iz ~</span><br><span class="line">╰─# lsattr hello.<span class="keyword">conf</span></span><br><span class="line">----i--------<span class="keyword">e</span>-- hello.<span class="keyword">conf</span></span><br><span class="line">╭─root@iz ~</span><br><span class="line">╰─# chattr -V -i hello.<span class="keyword">conf</span></span><br><span class="line">chattr 1.42.9 (28-<span class="keyword">Dec</span>-2013)</span><br><span class="line">hello.<span class="keyword">conf</span>的标志被设为 -------------<span class="keyword">e</span>--</span><br><span class="line">这时候在删除就可以删除了</span><br><span class="line">╭─root@iz ~</span><br><span class="line">╰─# <span class="keyword">rm</span> hello.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;chattr 可以修改文件属性&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;有时候你发现用root权限都不能修改某个文件，大部分原因是曾经用chattr命令锁定该文件了。chattr命令的作用很大，通过chattr命令修改属性能够提高系统的安全性，但是它并不适合所有的目录。chattr命令不能保护/、/dev、/tmp、/var目录。lsattr命令是显示chattr命令设置的文件属性&lt;/p&gt;
+&lt;h3 id=&quot;lsattr&quot;&gt;&lt;a href=&quot;#lsattr&quot; class=&quot;headerlink&quot; title=&quot;lsattr&quot;&gt;&lt;/a&gt;lsattr&lt;/h3&gt;&lt;p&gt;lsattr命令是显示chattr命令设置的文件属性&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>python 批量上传文件到阿里云oss，并写入Excel，存到本地</title>
@@ -410,26 +434,6 @@
     <summary type="html">
     
       &lt;p&gt; 最近另一个同事安装了PyCrypto，并且在本地和服务器运行都没有错误。当我download下来的时候，安装PyCrypto，运行竟然出现了错误。如下：&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用tablib出现的错误</title>
-    <link href="http://yoursite.com/2018/10/31/%E4%BD%BF%E7%94%A8tablib%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/"/>
-    <id>http://yoursite.com/2018/10/31/使用tablib出现的错误/</id>
-    <published>2018-10-31T10:11:39.000Z</published>
-    <updated>2018-11-01T06:40:34.073Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近公司要发邮件，基于tablib的强大功能，我理所当然的使用了它。但是在使用过程中发现一个bug，具体bug报这个错误<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Using <span class="selector-tag">a</span> coordinate with ws<span class="selector-class">.cell</span> is deprecated. Use ws[coordinate] instead<span class="string">"</span></span><br></pre></td></tr></table></figure></p><a id="more"></a><p>刚开始是报警告，后面因为换电脑直接更新requerement.txt，然后发邮件就直接报错<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DeprecationWarning: Call <span class="keyword">to</span> <span class="keyword">deprecated</span> <span class="function"><span class="keyword">function</span> <span class="title">remove_sheet</span></span></span><br><span class="line"><span class="function"> <span class="params">(Use wb.<span class="keyword">remove</span>(worksheet)</span> <span class="title">or</span> <span class="title">del</span> <span class="title">wb</span>[<span class="title">sheetname</span>]).</span></span><br><span class="line"><span class="function">  <span class="title">wb</span>.<span class="title">remove_sheet</span><span class="params">(sheet)</span></span></span><br></pre></td></tr></table></figure></p><p>后来经过查资料发现是因为tablib里面使用openpyxl的问题。openpyxl的版本过高，导致的问题，把openpyxl的版本改下就OK了。<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">原来的openpyxl版本是<span class="number">2.5</span><span class="number">.4</span>.将其降到<span class="number">2.5</span><span class="number">.0</span>以下就没问题了。</span><br><span class="line">pip install openpyxl==<span class="number">2.4</span><span class="number">.9</span></span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近公司要发邮件，基于tablib的强大功能，我理所当然的使用了它。但是在使用过程中发现一个bug，具体bug报这个错误&lt;br&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Using &lt;span class=&quot;selector-tag&quot;&gt;a&lt;/span&gt; coordinate with ws&lt;span class=&quot;selector-class&quot;&gt;.cell&lt;/span&gt; is deprecated. Use ws[coordinate] instead&lt;span class=&quot;string&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
     
     </summary>
     
