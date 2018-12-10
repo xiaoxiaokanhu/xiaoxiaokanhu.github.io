@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-07T08:11:41.488Z</updated>
+  <updated>2018-12-10T05:56:59.816Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux文件管理之cmp、diff的使用详解</title>
+    <link href="http://yoursite.com/2018/12/10/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E4%B9%8Bcmp%E3%80%81diff%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://yoursite.com/2018/12/10/Linux文件管理之cmp、diff的使用详解/</id>
+    <published>2018-12-10T03:41:40.000Z</published>
+    <updated>2018-12-10T05:56:59.816Z</updated>
+    
+    <content type="html"><![CDATA[<p>cmp和diff都是用于比较两个文件的差异。但是两者的不同之处在于:</p><blockquote><p>cmp用于比较两个二进制文件，而diff主要用于比较两个文本文件<br><a id="more"></a></p></blockquote><h1 id="cmp"><a href="#cmp" class="headerlink" title="cmp"></a>cmp</h1><p>Linux cmp命令用于比较两个文件是否有差异。<br>当相互比较的两个文件完全一样时，则该指令不会显示任何信息。若发现有所差异，预设会标示出第一个不同之处的字符和列数编号。若不指定任何文件名称或是所给予的文件名为”-“，则cmp指令会从标准输入设备读取数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><blockquote><p>cmp [参数][文件1][文件2]</p></blockquote><p><strong>参数</strong></p><ul><li>-c或–print-chars 　除了标明差异处的十进制字码之外，一并显示该字符所对应字符。</li><li>-i&lt;字符数目&gt;或–ignore-initial=&lt;字符数目&gt; 　指定一个数目。</li><li>-l或–verbose 　标示出所有不一样的地方。</li><li>-s或–quiet或–silent 　不显示错误信息。</li><li>-v或–version 　显示版本信息。</li><li>–help 　在线帮助。<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">╭─FQY<span class="variable">@bogon</span> ~<span class="regexp">/Desktop/hello</span></span><br><span class="line">╰─<span class="variable">$ </span>cmp hello hello1   <span class="comment"># hello1是从hello复制的，然后在hello1添加了一些内容</span></span><br><span class="line">╭─FQY<span class="variable">@bogon</span> ~<span class="regexp">/Desktop/hello</span></span><br><span class="line">╰─<span class="variable">$ </span>cmp hello hello1   <span class="comment"># 出现EOF 是则 hello1 的第一部分与 hello 相同，但在 hello1 中还有其他数据</span></span><br><span class="line"><span class="symbol">cmp:</span> EOF on hello</span><br><span class="line">╭─FQY<span class="variable">@bogon</span> ~<span class="regexp">/Desktop/hello</span></span><br><span class="line">╰─<span class="variable">$ </span>cmp -l hello hello1 <span class="comment"># 这时候在hello中添加一些数据，在重新比较</span></span><br><span class="line"><span class="number">37</span> <span class="number">351</span> <span class="number">141</span></span><br><span class="line"><span class="number">38</span> <span class="number">230</span> <span class="number">163</span></span><br><span class="line"><span class="number">39</span> <span class="number">277</span> <span class="number">144</span></span><br><span class="line"><span class="number">40</span> <span class="number">346</span> <span class="number">146</span></span><br><span class="line"><span class="number">41</span> <span class="number">226</span> <span class="number">141</span></span><br><span class="line"><span class="symbol">cmp:</span> EOF on hello   </span><br><span class="line">╭─FQY<span class="variable">@bogon</span> ~<span class="regexp">/Desktop/hello</span></span><br><span class="line">╰─<span class="variable">$ </span>cmp  hello hello1                                                       <span class="number">1</span> ↵</span><br><span class="line">hello hello1 <span class="symbol">differ:</span> char <span class="number">37</span>, line <span class="number">4</span></span><br></pre></td></tr></table></figure></li></ul><h1 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h1><p>Linux diff命令用于比较文件的差异。<br>diff以逐行的方式，比较文本文件的异同处。如果指定要比较目录，则diff会比较目录中相同文件名的文件，但不会比较其中子目录</p><h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><blockquote><p>diff[参数][文件1或目录1][文件2或目录2]</p></blockquote><p><strong>参数</strong></p><ul><li>-B或–ignore-blank-lines 　不检查空白行。</li><li>-c 　显示全部内文，并标出不同之处。</li><li>-C&lt;行数&gt;或–context&lt;行数&gt; 　与执行”-c-&lt;行数&gt;”指令相同。</li><li>-d或–minimal 　使用不同的演算法，以较小的单位来做比较。</li><li>-D&lt;巨集名称&gt;或ifdef&lt;巨集名称&gt; 　此参数的输出格式可用于前置处理器巨集。</li><li>-e或–ed 　此参数的输出格式可用于ed的script文件。</li><li>-f或-forward-ed 　输出的格式类似ed的script文件，但按照原来文件的顺序来显示不同处。</li><li>-H或–speed-large-files 　比较大文件时，可加快速度。</li><li>-l&lt;字符或字符串&gt;或–ignore-matching-lines&lt;字符或字符串&gt; 　若两个文件在某几行有所不同，而这几行同时都包含了选项中指定的字符或字符串，则不显示这两个文件的差异。</li><li>-i或–ignore-case 　不检查大小写的不同。</li><li>-l或–paginate 　将结果交由pr程序来分页。</li><li>-n或–rcs 　将比较结果以RCS的格式来显示。</li><li>-N或–new-file 　在比较目录时，若文件A仅出现在某个目录中，预设会显示：</li><li>Only in目录：文件A若使用-N参数，则diff会将文件A与一个空白的文件比较。</li><li>-p 　若比较的文件为C语言的程序码文件时，显示差异所在的函数名称。</li><li>-P或–unidirectional-new-file 　与-N类似，但只有当第二个目录包含了一个第一个目录所没有的文件时，才会将这个文件与空白的文件做比较。</li><li>-q或–brief 　仅显示有无差异，不显示详细的信息。</li><li>-r或–recursive 　比较子目录中的文件。</li><li>-s或–report-identical-files 　若没有发现任何差异，仍然显示信息。</li><li>-S&lt;文件&gt;或–starting-file&lt;文件&gt; 　在比较目录时，从指定的文件开始比较。</li><li>-t或–expand-tabs 　在输出时，将tab字符展开。</li><li>-T或–initial-tab 　在每行前面加上tab字符以便对齐。</li><li>-u,-U&lt;列数&gt;或–unified=&lt;列数&gt; 　以合并的方式来显示文件内容的不同。</li><li>-v或–version 　显示版本信息。</li><li>-w或–ignore-all-space 　忽略全部的空格字符。</li><li>-W&lt;宽度&gt;或–width&lt;宽度&gt; 　在使用-y参数时，指定栏宽。</li><li>-x&lt;文件名或目录&gt;或–exclude&lt;文件名或目录&gt; 　不比较选项中所指定的文件或目录。</li><li>-X&lt;文件&gt;或–exclude-from&lt;文件&gt; 　您可以将文件或目录类型存成文本文件，然后在=&lt;文件&gt;中指定此文本文件。</li><li>-y或–side-by-side 　以并列的方式显示文件的异同之处。</li><li>–help 　显示帮助。</li><li>–left-column 　在使用-y参数时，若两个文件某一行内容相同，则仅在左侧的栏位显示该行内容。</li><li>–suppress-common-lines 　在使用-y参数时，仅显示不同之处。</li></ul><h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">╭─FQY@bogon</span> <span class="string">~/Desktop/hello</span></span><br><span class="line"><span class="string">╰─$</span> <span class="string">diff</span> <span class="string">hello</span> <span class="string">hello1</span>                                                       <span class="number">1</span> <span class="string">↵</span></span><br><span class="line"><span class="number">4</span><span class="string">c4,5</span></span><br><span class="line"><span class="string">&lt;</span> <span class="string">python好用</span></span><br><span class="line"><span class="string">\</span> <span class="literal">No</span> <span class="string">newline</span> <span class="string">at</span> <span class="string">end</span> <span class="string">of</span> <span class="string">file</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="string">&gt; node很方便</span></span><br><span class="line"><span class="string">&gt; 加油</span></span><br><span class="line"><span class="string">\ No newline at end of file </span></span><br><span class="line"><span class="string">╭─FQY@bogon ~/Desktop/hello</span></span><br><span class="line"><span class="string">╰─$ diff hello hello1 -y -W 50                                              2 ↵</span></span><br><span class="line"><span class="string">生活很美好       生活很美好</span></span><br><span class="line"><span class="string">现实很骨感       现实很骨感</span></span><br><span class="line"><span class="string">理想很丰富       理想很丰富</span></span><br><span class="line"><span class="string">python好用          \ node很方便</span></span><br><span class="line"><span class="string">              &gt; 加油%</span></span><br></pre></td></tr></table></figure><p><strong>说明</strong><br>“|”表示前后2个文件内容有不同<br>“&lt;”表示后面文件比前面文件少了1行内容<br>“&gt;”表示后面文件比前面文件多了1行内容</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;cmp和diff都是用于比较两个文件的差异。但是两者的不同之处在于:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cmp用于比较两个二进制文件，而diff主要用于比较两个文本文件&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux cksum的使用详解</title>
+    <link href="http://yoursite.com/2018/12/10/Linux-cksum%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://yoursite.com/2018/12/10/Linux-cksum的使用详解/</id>
+    <published>2018-12-10T02:38:22.000Z</published>
+    <updated>2018-12-10T02:55:23.341Z</updated>
+    
+    <content type="html"><![CDATA[<p>cksum命令是检查文件的CRC是否正确，确保文件从一个系统传输到另一个系统的过程中不被损坏。这种方法要求校验和在源系统中被计算出来，在目的系统中又被计算一次，两个数字进行比较，如果校验和相等，则该文件被认为是正确传输了。<br>注意：CRC是指一种排错检查方法，即循环冗余校验法。<br>指定文件交由cksum命令进行校验后，会返回校验结果供用户核对文件是否正确无误。若不指定任何文件名称或是所给予的文件名为”-“，则cksum命令会从标准输入设备中读取数据。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><blockquote><p>cksum [–help][–version][文件…]</p></blockquote><p><strong>参数</strong></p><ul><li>–help：在线帮助。</li><li>–version：显示版本信息。</li><li>文件…:需要进行检查的文件路径</li></ul><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">╭─FQY<span class="variable">@bogon</span> ~<span class="regexp">/Desktop/hello</span></span><br><span class="line">╰─<span class="variable">$ </span>cksum hello  <span class="comment"># 命令执行后，将输出校验码等相关的信息</span></span><br><span class="line"><span class="number">4294967295</span> <span class="number">0</span> hello</span><br><span class="line">╭─FQY<span class="variable">@bogon</span> ~<span class="regexp">/Desktop/hello</span></span><br><span class="line">╰─<span class="variable">$ </span>vim hello    <span class="comment"># 因为hello文件是空的，所以字节数为0，这时候给hello里面添加数据并保存</span></span><br><span class="line">╭─FQY<span class="variable">@bogon</span> ~<span class="regexp">/Desktop/hello</span></span><br><span class="line">╰─<span class="variable">$ </span>cksum hello  <span class="comment"># 再一次执行命令，这时候看到字节数是36。"4090568956"表示校验码</span></span><br><span class="line"><span class="number">4090568956</span> <span class="number">36</span> hello</span><br></pre></td></tr></table></figure><p><strong>注意</strong>：如果文件中有任何字符被修改，都将改变计算后CRC校验码的值。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;cksum命令是检查文件的CRC是否正确，确保文件从一个系统传输到另一个系统的过程中不被损坏。这种方法要求校验和在源系统中被计算出来，在目的系统中又被计算一次，两个数字进行比较，如果校验和相等，则该文件被认为是正确传输了。&lt;br&gt;注意：CRC是指一种排错检查方法，即循环冗余
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Linux 系统目录结构</title>
@@ -397,46 +442,6 @@
     <summary type="html">
     
       &lt;p&gt;random.random()生成0和1之间的随机浮点数float&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>利用tablib、make_response 进行文件的下载</title>
-    <link href="http://yoursite.com/2018/10/31/%E5%88%A9%E7%94%A8tablib%E3%80%81make-response-%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8B%E8%BD%BD/"/>
-    <id>http://yoursite.com/2018/10/31/利用tablib、make-response-进行文件的下载/</id>
-    <published>2018-10-31T10:12:23.000Z</published>
-    <updated>2018-11-01T06:40:12.180Z</updated>
-    
-    <content type="html"><![CDATA[<p>tablib 主要作用是将数据导出为各种不同的格式，包括excel，json，html，yaml，csv，tsv等格式。使用起来也非常简单。<br><a id="more"></a></p><p>tablib的下载<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> tablib</span><br></pre></td></tr></table></figure></p><p>下面就是文件下载的代码<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import tablib</span><br><span class="line">from flask import make_response</span><br><span class="line">def file_download():</span><br><span class="line"> dataset1 = tablib.<span class="symbol">Dataset</span>()</span><br><span class="line">    header1 = (<span class="string">'ID'</span>, <span class="string">'Name'</span>, <span class="string">'Tel'</span>, <span class="string">'Age'</span>)</span><br><span class="line">    dataset1.headers = header1</span><br><span class="line">    dataset1.append([<span class="number">1</span>, <span class="string">'zhangsands'</span>, <span class="number">13711111111</span>, <span class="number">16</span>])</span><br><span class="line">    dataset1.append([<span class="number">2</span>, <span class="string">'lisiasfasd阿斯顿发gwus'</span>, <span class="number">13911111111</span>, <span class="number">20</span>])</span><br><span class="line">    dataset1.append([<span class="number">4</span>, <span class="string">'zhao发送到li2u'</span>, <span class="number">15811111111</span>, <span class="number">25</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    header2 = (<span class="string">'ID'</span>, <span class="string">'Name'</span>, <span class="string">'Tel'</span>, <span class="string">'Age'</span>)</span><br><span class="line">    data2 = [</span><br><span class="line">        [<span class="number">1</span>, <span class="string">'zhangsan'</span>, <span class="number">13711111111</span>, <span class="number">16</span>],</span><br><span class="line">        [<span class="number">2</span>, <span class="string">'lisi'</span>, <span class="number">13811111111</span>, <span class="number">18</span>],</span><br><span class="line">        [<span class="number">3</span>, <span class="string">'wangwu'</span>, <span class="number">13911111111</span>, <span class="number">20</span>],</span><br><span class="line">        [<span class="number">4</span>, <span class="string">'zhaoliu'</span>, <span class="number">15811111111</span>, <span class="number">25</span>]</span><br><span class="line">    ]</span><br><span class="line">    dataset2 = tablib.<span class="symbol">Dataset</span>(*data2, headers=header2)</span><br><span class="line"></span><br><span class="line">    dataset1.title = <span class="string">'dataset1'</span>  # 设置<span class="symbol">Excel</span>中表单的名称</span><br><span class="line">    dataset2.title = <span class="string">'dataset2'</span></span><br><span class="line">    </span><br><span class="line">      # 如果有多个sheet表单，使用<span class="symbol">DataBook</span>就可以了</span><br><span class="line">    myDataBook = tablib.<span class="symbol">Databook</span>((dataset1, dataset2))</span><br><span class="line">    ds = myDataBook.export(<span class="string">'xlsx'</span>)</span><br><span class="line"></span><br><span class="line">    response = make_response(ds)</span><br><span class="line">    response.headers[<span class="string">'Content-Disposition'</span>] = <span class="string">'attachment; filename=&#123;&#125;'</span>.format(<span class="string">'dhel.xlsx'</span>)</span><br><span class="line">    return response</span><br></pre></td></tr></table></figure></p><p>引用：<br><a href="https://blog.csdn.net/calling_wisdom/article/details/41447791" target="_blank" rel="noopener">Python tablib模块</a><br><a href="http://docs.python-tablib.org/en/master/" target="_blank" rel="noopener">tablib文档</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;tablib 主要作用是将数据导出为各种不同的格式，包括excel，json，html，yaml，csv，tsv等格式。使用起来也非常简单。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>pip 升级所遇到的问题</title>
-    <link href="http://yoursite.com/2018/10/31/pip-%E5%8D%87%E7%BA%A7%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/10/31/pip-升级所遇到的问题/</id>
-    <published>2018-10-31T10:12:11.000Z</published>
-    <updated>2018-11-01T06:43:03.091Z</updated>
-    
-    <content type="html"><![CDATA[<p>pip的原有版本是9.0.1，最近发现pip可以升级了，想到pip升级到10以上用了下面各种方法，都不管用,如下：<br><a id="more"></a><br>用了mac/limux方法 :<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> pip <span class="keyword">install</span> -U pip </span><br><span class="line">easy_install  <span class="comment">--upgrade pip</span></span><br><span class="line">pip <span class="keyword">install</span> <span class="comment">--upgrade pip</span></span><br></pre></td></tr></table></figure></p><p>用了windows 方法：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m pip <span class="keyword">install</span> <span class="comment">--upgrade pip</span></span><br><span class="line">python -m pip <span class="keyword">install</span> -U pip</span><br></pre></td></tr></table></figure></p><p>最后从源头做起，里面搞定<br><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">curl </span><span class="string">https:</span>//<span class="string">bootstrap.</span><span class="string">pypa.</span><span class="string">io/</span><span class="built_in">get-pip.py</span> | <span class="string">python3</span></span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;pip的原有版本是9.0.1，最近发现pip可以升级了，想到pip升级到10以上用了下面各种方法，都不管用,如下：&lt;br&gt;
     
     </summary>
     
