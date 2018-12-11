@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-11T03:37:29.901Z</updated>
+  <updated>2018-12-11T09:28:32.471Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux file命令:查看文件信息或类型</title>
+    <link href="http://yoursite.com/2018/12/11/Linux-file%E5%91%BD%E4%BB%A4-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E6%88%96%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://yoursite.com/2018/12/11/Linux-file命令-查看文件信息或类型/</id>
+    <published>2018-12-11T08:32:25.000Z</published>
+    <updated>2018-12-11T09:28:32.471Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Linux file命令用于辨识文件类型,通过file指令，我们得以辨识该文件的类型。</p></blockquote><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><blockquote><p>file [-bcLvz][-f &lt;名称文件&gt;][-m &lt;魔法数字文件&gt;…][文件或目录…]<br><strong>参数</strong></p><ul><li>-b 　列出辨识结果时，不显示文件名称。</li><li>-c 　详细显示指令执行过程，便于排错或分析程序执行的情形。</li><li>-f&lt;名称文件&gt; 　指定名称文件，其内容有一个或多个文件名称时，让file依序辨识这些文件，格式为每列一个文件名称。</li><li>-L 　直接显示符号连接所指向的文件的类别。</li><li>-m&lt;魔法数字文件&gt; 　指定魔法数字文件。</li><li>-v 　显示版本信息。</li><li>-z 　尝试去解读压缩文件的内容 (支持gzip类型)。</li><li>[文件或目录…]要确定类型的文件列表，多个文件之间使用空格分开，可以使用shell通配符匹配多个文件</li></ul></blockquote><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><h5 id="查看文件类型"><a href="#查看文件类型" class="headerlink" title="查看文件类型"></a>查看文件类型</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@hardwareupdate linux_test]</span># <span class="selector-tag">file</span> <span class="selector-tag">hello</span><span class="selector-class">.txt</span></span><br><span class="line"><span class="selector-tag">hello</span><span class="selector-class">.txt</span>: <span class="selector-tag">UTF-8</span> <span class="selector-tag">Unicode</span> <span class="selector-tag">text</span></span><br></pre></td></tr></table></figure><p>使用不带任何选项的 file 命令，即可查看指定文件的类型信息。在上面的例子中可以看出 poetry.txt 的文件类型为 text，编码格式为 UTF-8。</p><p>使用<code>-b</code>就只显示编码和文件类型，不显示文件名<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hardwareupdate linux_test]# <span class="keyword">file</span> -b hello.txt</span><br><span class="line">UTF<span class="number">-8</span> Unicode <span class="keyword">text</span></span><br></pre></td></tr></table></figure></p><p>使用<code>-i</code>，咱们能看出什么?<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hardwareupdate linux_test]# <span class="keyword">file</span> -i hello.txt</span><br><span class="line">hello.txt: <span class="keyword">text</span>/plain; charset=utf<span class="number">-8</span></span><br></pre></td></tr></table></figure></p><p><strong>常见的文件类型：</strong></p><ul><li>text/plain：普通文本。</li><li>text/html：HTML文本。</li><li>application/pdf：PDF文档。</li><li>application/msword：Word文档。</li><li>image/png：PNG图片。</li><li>mage/jpeg：JPEG图片。</li><li>application/x-tar：TAR文件。</li><li>application/x-gzip：GZIP文件</li></ul><h5 id="按照清单去工作"><a href="#按照清单去工作" class="headerlink" title="按照清单去工作"></a>按照清单去工作</h5><p>如果我们需要用 file 命令查看大量文件的类型信息，恰好这些文件的名称都被存储在了一个文本文件中，那么-f选项就派上用场了。我们可以通过-f选项来指定这个文本文件，file 命令就会乖乖地去逐个查看每一个文件的类型信息，示例如下:<br><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#文件中含有三个待查文件, 我们故意设置了一个不存在的文件, 位于最后一个</span></span><br><span class="line">[roc@roclinux ~]$ cat poetry_list.txt</span><br><span class="line">/root/book/poetry.txt</span><br><span class="line">/root/book/poetry_s.txt</span><br><span class="line"><span class="literal">Nothing</span>.txt</span><br><span class="line"> </span><br><span class="line"><span class="meta">#使用-f选项执行file命令</span></span><br><span class="line">[roc@roclinux ~]$ file -f poetry_list.txt</span><br><span class="line">/root/book/poetry.txt:   ASCII <span class="keyword">text</span></span><br><span class="line">/root/book/poetry_s.txt: symbolic link <span class="keyword">to</span> `poetry.txt<span class="comment">'</span></span><br><span class="line"><span class="literal">Nothing</span>.txt: <span class="keyword">ERROR</span>: cannot open `<span class="literal">Nothing</span>.txt <span class="comment">' (No such file or directory)</span></span><br></pre></td></tr></table></figure></p><p>其他的各种指令，大家也可以去尝试，比如<code>-L</code>，当用软链接的时候不会直接返回文件类型，而是返回的是<code>symbolic link to XXX</code>，所以加<code>-L</code>就可以知道它是哪个类型了。</p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://c.biancheng.net/linux/file.html" target="_blank" rel="noopener">file命令_Linux file命令：查看文件信息或类型</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;Linux file命令用于辨识文件类型,通过file指令，我们得以辨识该文件的类型。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>常见的HTTP状态码(HTTP Status Code)</title>
@@ -425,26 +451,6 @@
     <summary type="html">
     
       &lt;p&gt;gunicorn使用非常简单，并且也非常好用，所以需要写一下自己的理解。😀&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python之random的send()的使用</title>
-    <link href="http://yoursite.com/2018/10/31/Python%E4%B9%8Brandom%E7%9A%84send-%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2018/10/31/Python之random的send-的使用/</id>
-    <published>2018-10-31T10:12:55.000Z</published>
-    <updated>2018-11-01T06:43:42.386Z</updated>
-    
-    <content type="html"><![CDATA[<p>对于send方法的定义，在一篇文章中看到这样一个定义，发现很符合这个解释<br><a id="more"></a><br><code>seed( ) 用于指定随机数生成时所用算法开始的整数值，如果使用相同的seed( )值，则每次生成的随即数都相同，如果不设置这个值，则系统根据时间来自己选择这个值，此时每次生成的随机数因时间差异而不同</code></p><p>情况下面的几行代码</p><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">random</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">random</span>.seed(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">"random 5 is "</span>, <span class="built_in">random</span>.<span class="built_in">random</span>())</span><br><span class="line"><span class="built_in">random</span>.seed(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">"random 10 is "</span>, <span class="built_in">random</span>.<span class="built_in">random</span>())</span><br><span class="line"><span class="built_in">random</span>.seed(<span class="number">7</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">"random 7 is "</span>, <span class="built_in">random</span>.<span class="built_in">random</span>())</span><br><span class="line"><span class="built_in">random</span>.seed(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"random 5 is "</span>, <span class="built_in">random</span>.<span class="built_in">random</span>())</span><br></pre></td></tr></table></figure><p>运行结果为:</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">random <span class="number">5</span> is  <span class="number">0.6229016948897019</span></span><br><span class="line">random <span class="number">10</span> is  <span class="number">0.5714025946899135</span></span><br><span class="line">random <span class="number">7</span> is  <span class="number">0.32383276483316237</span></span><br><span class="line">random <span class="number">5</span> is  <span class="number">0.6229016948897019</span></span><br></pre></td></tr></table></figure><p>你会发现当seed()值是一样的时候，输出的结果是一样的。而不一样的值得出的结果不一样。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;对于send方法的定义，在一篇文章中看到这样一个定义，发现很符合这个解释&lt;br&gt;
     
     </summary>
     
