@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Flask-OAuth urlparse错误]]></title>
+    <url>%2F2018%2F12%2F13%2FFlask-OAuth-urlparse%E9%94%99%E8%AF%AF%2F</url>
+    <content type="text"><![CDATA[最近用到了Flash-OAuth的三方库，一运行，错误12345 File "/Users/FQY/Desktop/bm_blog/blog/extensions.py", line 10, in &lt;module&gt; from flask_oauth import OAuth File "/Users/FQY/env350/lib/python3.5/site-packages/flask_oauth.py", line 13, in &lt;module&gt; from urlparse import parseImportError: No module named 'urlparse' 先说明下我用的python环境是3.5.0,百度下说是from urlparse import urljoin 是2.0的python用法，3.0的python用法已经urlparse已经被重新设置,所以进入三方库里面改下就可以了。进入flask_oauth.py文件中进行修改原代码1234567import httplib2from functools import wrapsfrom urlparse import urljoinfrom flask import request, session, json, redirect, Responsefrom werkzeug import url_decode, url_encode, url_quote, \ parse_options_header, Headersimport oauth2 修改以后的代码1234567import httplib2from functools import wrapsfrom urllib.parse import urljoinfrom flask import request, session, json, redirect, Responsefrom werkzeug import url_decode, url_encode, url_quote, \ parse_options_header, Headersimport oauth2 这时候在运行就可以了。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux tree:目录结构以树形显示]]></title>
+    <url>%2F2018%2F12%2F12%2F%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E4%BB%A5%E6%A0%91%E5%BD%A2%E6%98%BE%E7%A4%BA%2F</url>
+    <content type="text"><![CDATA[有时候看到别人的目录结构是以树形显示，看到以后感觉很酷，所以自己就google了下，发现了很简单。 实例123456789101112131415╭─FQY@bogon ~/Desktop/hello╰─$ tree .├── dong.txt├── dong_s.txt -&gt; dong.txt├── hell│ ├── hell│ │ └── hello│ └── hello├── hello├── hello1├── hello_s -&gt; hello└── tmd.rtf2 directories, 8 files 具体更多的关于tree的指令，后期在补充 未完接续。。。。。。。。。。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Linux file命令:查看文件信息或类型]]></title>
     <url>%2F2018%2F12%2F11%2FLinux-file%E5%91%BD%E4%BB%A4-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E6%88%96%E7%B1%BB%E5%9E%8B%2F</url>
     <content type="text"><![CDATA[Linux file命令用于辨识文件类型,通过file指令，我们得以辨识该文件的类型。 语法 file [-bcLvz][-f &lt;名称文件&gt;][-m &lt;魔法数字文件&gt;…][文件或目录…]参数 -b 列出辨识结果时，不显示文件名称。 -c 详细显示指令执行过程，便于排错或分析程序执行的情形。 -f&lt;名称文件&gt; 指定名称文件，其内容有一个或多个文件名称时，让file依序辨识这些文件，格式为每列一个文件名称。 -L 直接显示符号连接所指向的文件的类别。 -m&lt;魔法数字文件&gt; 指定魔法数字文件。 -v 显示版本信息。 -z 尝试去解读压缩文件的内容 (支持gzip类型)。 [文件或目录…]要确定类型的文件列表，多个文件之间使用空格分开，可以使用shell通配符匹配多个文件 实例查看文件类型12[root@hardwareupdate linux_test]# file hello.txthello.txt: UTF-8 Unicode text 使用不带任何选项的 file 命令，即可查看指定文件的类型信息。在上面的例子中可以看出 poetry.txt 的文件类型为 text，编码格式为 UTF-8。 使用-b就只显示编码和文件类型，不显示文件名12[root@hardwareupdate linux_test]# file -b hello.txtUTF-8 Unicode text 使用-i，咱们能看出什么?12[root@hardwareupdate linux_test]# file -i hello.txthello.txt: text/plain; charset=utf-8 常见的文件类型： text/plain：普通文本。 text/html：HTML文本。 application/pdf：PDF文档。 application/msword：Word文档。 image/png：PNG图片。 mage/jpeg：JPEG图片。 application/x-tar：TAR文件。 application/x-gzip：GZIP文件 按照清单去工作如果我们需要用 file 命令查看大量文件的类型信息，恰好这些文件的名称都被存储在了一个文本文件中，那么-f选项就派上用场了。我们可以通过-f选项来指定这个文本文件，file 命令就会乖乖地去逐个查看每一个文件的类型信息，示例如下:1234567891011#文件中含有三个待查文件, 我们故意设置了一个不存在的文件, 位于最后一个[roc@roclinux ~]$ cat poetry_list.txt/root/book/poetry.txt/root/book/poetry_s.txtNothing.txt #使用-f选项执行file命令[roc@roclinux ~]$ file -f poetry_list.txt/root/book/poetry.txt: ASCII text/root/book/poetry_s.txt: symbolic link to `poetry.txt'Nothing.txt: ERROR: cannot open `Nothing.txt ' (No such file or directory) 其他的各种指令，大家也可以去尝试，比如-L，当用软链接的时候不会直接返回文件类型，而是返回的是symbolic link to XXX，所以加-L就可以知道它是哪个类型了。 参考file命令_Linux file命令：查看文件信息或类型]]></content>

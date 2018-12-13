@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-11T09:28:32.471Z</updated>
+  <updated>2018-12-13T07:58:38.402Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flask-OAuth urlparse错误</title>
+    <link href="http://yoursite.com/2018/12/13/Flask-OAuth-urlparse%E9%94%99%E8%AF%AF/"/>
+    <id>http://yoursite.com/2018/12/13/Flask-OAuth-urlparse错误/</id>
+    <published>2018-12-13T07:52:27.000Z</published>
+    <updated>2018-12-13T07:58:38.402Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近用到了Flash-OAuth的三方库，一运行，错误<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="built_in">File</span> <span class="string">"/Users/FQY/Desktop/bm_blog/blog/extensions.py"</span>, <span class="built_in">line</span> <span class="number">10</span>, in &lt;<span class="keyword">module</span>&gt;</span><br><span class="line">    from flask_oauth <span class="keyword">import</span> OAuth</span><br><span class="line">  <span class="built_in">File</span> <span class="string">"/Users/FQY/env350/lib/python3.5/site-packages/flask_oauth.py"</span>, <span class="built_in">line</span> <span class="number">13</span>, in &lt;<span class="keyword">module</span>&gt;</span><br><span class="line">    from urlparse <span class="keyword">import</span> parse</span><br><span class="line">ImportError: No <span class="keyword">module</span> named <span class="string">'urlparse'</span></span><br></pre></td></tr></table></figure></p><p>先说明下我用的python环境是<code>3.5.0</code>,百度下说是<code>from urlparse import urljoin</code> 是2.0的python用法，3.0的python用法已经urlparse已经被重新设置,所以进入三方库里面改下就可以了。<br>进入flask_oauth.py文件中进行修改<br><strong>原代码</strong><br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> httplib2</span><br><span class="line"><span class="title">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"><span class="title">from</span> urlparse <span class="keyword">import</span> urljoin</span><br><span class="line"><span class="title">from</span> flask <span class="keyword">import</span> request, session, json, redirect, Response</span><br><span class="line"><span class="title">from</span> werkzeug <span class="keyword">import</span> url_decode, url_encode, url_quote, \</span><br><span class="line">     parse_options_header, <span class="type">Headers</span></span><br><span class="line"><span class="keyword">import</span> oauth2</span><br></pre></td></tr></table></figure></p><p><strong>修改以后的代码</strong><br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> httplib2</span><br><span class="line"><span class="title">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"><span class="title">from</span> urllib.parse <span class="keyword">import</span> urljoin</span><br><span class="line"><span class="title">from</span> flask <span class="keyword">import</span> request, session, json, redirect, Response</span><br><span class="line"><span class="title">from</span> werkzeug <span class="keyword">import</span> url_decode, url_encode, url_quote, \</span><br><span class="line">     parse_options_header, <span class="type">Headers</span></span><br><span class="line"><span class="keyword">import</span> oauth2</span><br></pre></td></tr></table></figure></p><p>这时候在运行就可以了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近用到了Flash-OAuth的三方库，一运行，错误&lt;br&gt;&lt;figure class=&quot;highlight arduino&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span 
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux tree:目录结构以树形显示</title>
+    <link href="http://yoursite.com/2018/12/12/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E4%BB%A5%E6%A0%91%E5%BD%A2%E6%98%BE%E7%A4%BA/"/>
+    <id>http://yoursite.com/2018/12/12/目录结构以树形显示/</id>
+    <published>2018-12-12T06:51:20.000Z</published>
+    <updated>2018-12-12T06:58:07.918Z</updated>
+    
+    <content type="html"><![CDATA[<p>有时候看到别人的目录结构是以树形显示，看到以后感觉很酷，所以自己就google了下，发现了很简单。</p><p><strong>实例</strong><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">╭─FQY@bogon ~/Desktop/hello</span><br><span class="line">╰─$ tree </span><br><span class="line">.</span><br><span class="line">├── dong.txt</span><br><span class="line">├── dong_s<span class="selector-class">.txt</span> -&gt; dong.txt</span><br><span class="line">├── hell</span><br><span class="line">│   ├── hell</span><br><span class="line">│   │   └── hello</span><br><span class="line">│   └── hello</span><br><span class="line">├── hello</span><br><span class="line">├── hello1</span><br><span class="line">├── hello_s -&gt; hello</span><br><span class="line">└── tmd.rtf</span><br><span class="line"></span><br><span class="line"><span class="number">2</span> directories, <span class="number">8</span> files</span><br></pre></td></tr></table></figure></p><p>具体更多的关于tree的指令，后期在补充</p><p>未完接续。。。。。。。。。。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;有时候看到别人的目录结构是以树形显示，看到以后感觉很酷，所以自己就google了下，发现了很简单。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实例&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Linux file命令:查看文件信息或类型</title>
@@ -401,56 +448,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;切片&quot;&gt;&lt;a href=&quot;#切片&quot; class=&quot;headerlink&quot; title=&quot;切片&quot;&gt;&lt;/a&gt;切片&lt;/h2&gt;&lt;p&gt;通常我们取list里面的元素会这样写&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Flask 上下文全局变量</title>
-    <link href="http://yoursite.com/2018/10/31/Flask-%E4%B8%8A%E4%B8%8B%E6%96%87%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/"/>
-    <id>http://yoursite.com/2018/10/31/Flask-上下文全局变量/</id>
-    <published>2018-10-31T10:13:21.000Z</published>
-    <updated>2018-11-01T06:41:36.829Z</updated>
-    
-    <content type="html"><![CDATA[<table><thead><tr><th style="text-align:left">变量名</th><th style="text-align:left">上下文</th><th style="text-align:left">说明</th></tr></thead><tbody><tr><td style="text-align:left">current_app</td><td style="text-align:left">程序上下文</td><td style="text-align:left">当前激活程序的程序实例</td></tr><tr><td style="text-align:left">g</td><td style="text-align:left">程序上下文</td><td style="text-align:left">处理请求时用作临时存储的对象，每次请求都会重设这个变量</td></tr><tr><td style="text-align:left">request</td><td style="text-align:left">请求上下文</td><td style="text-align:left">请求对象，封装了客户端发出的HTTP请求中的内容</td></tr><tr><td style="text-align:left">session</td><td style="text-align:left">请求上下文</td><td style="text-align:left">用户会话，用于存储请求之间需要记住的值的词典</td></tr></tbody></table><p>Flask 在分发请求之前激活(或推送)程序和请求上下文，请求处理完成后再将其删除。程 序上下文被推送后，就可以在线程中使用 current_app 和 g 变量。类似地，请求上下文被 推送后，就可以使用 request 和 session 变量。如果使用这些变量时我们没有激活程序上 下文或请求上下文，就会导致错误。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:left&quot;&gt;变量名&lt;/th&gt;
-&lt;th style=&quot;text-align:left&quot;&gt;上下文&lt;/th&gt;
-&lt;th style=&quot;text-align:left&quot;&gt;说明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/t
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>flask下 gunicorn在Python中的使用</title>
-    <link href="http://yoursite.com/2018/10/31/flask%E4%B8%8B-gunicorn%E5%9C%A8Python%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2018/10/31/flask下-gunicorn在Python中的使用/</id>
-    <published>2018-10-31T10:13:09.000Z</published>
-    <updated>2018-11-01T06:41:51.737Z</updated>
-    
-    <content type="html"><![CDATA[<p>gunicorn使用非常简单，并且也非常好用，所以需要写一下自己的理解。😀<br><a id="more"></a></p><p>使用gunicorn的使用，需先安装flask,安装方法如下：</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> flask</span><br></pre></td></tr></table></figure><p>下面为一个简单的用flask写的web服务,main.py</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'hello world'</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.debug = <span class="keyword">True</span></span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure><p>gunicorn的作用就是用命令行来启动服务器。安装如下：</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> gunicorn</span><br></pre></td></tr></table></figure><p>最简单的启动命令为：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gunicorn</span> <span class="selector-tag">main</span><span class="selector-pseudo">:app</span></span><br></pre></td></tr></table></figure></p><p> 其中code就是指main.py.app就是那个wsgifunc的名字。<br> 这样运行的话， gunicorn 默认作为一个监听 127.0.0.1:8000 的web server，可以在本机通过： <a href="http://127.0.0.1:8000" target="_blank" rel="noopener">http://127.0.0.1:8000</a> 访问。<br>如果要通过网络访问，则需要绑定不同的地址（也可以同时设置监听端口），设置0.0.0.0可以监听到所有ip的请求：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gunicorn</span> <span class="selector-tag">-b</span> 0<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-pseudo">:8080</span> <span class="selector-tag">main</span><span class="selector-pseudo">:app</span></span><br></pre></td></tr></table></figure></p><p>在多核服务器上，为了支持更多的并发访问并充分利用资源，可以使用更多的 gunicorn 进程：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gunicorn</span> <span class="selector-tag">-w</span> 4 <span class="selector-tag">main</span><span class="selector-pseudo">:app</span></span><br></pre></td></tr></table></figure></p><p>两者结合到一起就是：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gunicorn</span> <span class="selector-tag">-w</span> 4 <span class="selector-tag">-b</span> 0<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-pseudo">:8080</span> <span class="selector-tag">main</span><span class="selector-pseudo">:app</span></span><br></pre></td></tr></table></figure></p><h4 id="备注："><a href="#备注：" class="headerlink" title="备注："></a>备注：<br></h4><ul><li>-b 表示 gunicorn 开发的访问地址 <br></li><li>-w 表示开启多少个线程</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;gunicorn使用非常简单，并且也非常好用，所以需要写一下自己的理解。😀&lt;br&gt;
     
     </summary>
     
