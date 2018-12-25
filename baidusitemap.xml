@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2018/12/25/python%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86%E3%80%81%E5%B9%B6%E9%9B%86%E3%80%81%E5%B7%AE%E9%9B%86/</loc>
+    <lastmod>2018-12-25T03:05:26.679Z</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2018/12/13/Flask-OAuth-urlparse%E9%94%99%E8%AF%AF/</loc>
     <lastmod>2018-12-13T07:58:38.402Z</lastmod>
   </url>  <url>
