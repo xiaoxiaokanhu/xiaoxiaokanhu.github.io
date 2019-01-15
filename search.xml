@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[学习nginx遇到的一些问题]]></title>
+    <url>%2F2019%2F01%2F15%2F%E5%AD%A6%E4%B9%A0nginx%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[nginx 找不到安装地址今天看到了nginx,想到我在服务器里面安装了nginx，只是还没有用到，所以想看下其安装地址，却没有找到，后来谷歌下，发现用nginx -t就可以找到nginx.conf的文件位置，从而知道nginx的安装位置。123# nginx -tnginx: the configuration file /etc/nginx/nginx.conf syntax is oknginx: configuration file /etc/nginx/nginx.conf test is successful]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python基础系列之*args和**kwargs的认识]]></title>
     <url>%2F2019%2F01%2F06%2FPython%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E4%B9%8B-args%E5%92%8C-kwargs%2F</url>
     <content type="text"><![CDATA[*args和**kwargs这两个参数咱们经常用到，今天在巩固基础的时候，看到了这两个参数，做了一下对比，所以记录一下。 *args*args这种写法代表的是 元组，就比如我上面为啥说它们是参数，是因为他们经常在函数的参数中出现。下面咱们在例子中来说明1234567891011def getTupleParameter(x, *args): print('x is &#123;&#125;'.format(x)) print('args is &#123;&#125;'.format(args)) print('type is &#123;&#125;'.format(type(args))) for i in args: print('i is &#123;&#125;'.format(i))getTupleParameter(1, 2, 3, 4, 5, 6, 7)print('*'*100)getTupleParameter(1) 结果12345678910111213x is 1args is (2, 3, 4, 5, 6, 7)type is &lt;class 'tuple'&gt;i is 2i is 3i is 4i is 5i is 6i is 7********************************************************************x is 1args is ()type is &lt;class 'tuple'&gt; **kwargs*kwargs这种写法代表的是 字典，下面咱们在例子中来说明12345678910111213def getDictParameter(x, **kwargs): print('x is &#123;&#125;'.format(x)) print('kwargs is &#123;&#125;'.format(kwargs)) print('type is &#123;&#125;'.format(type(kwargs)))getDictParameter(1, a=1, b=2, c=3)getDictParameter(1)res = dict( a=1, b=2, c=3)getDictParameter(1, **res) 结果123456789x is 1kwargs is &#123;'b': 2, 'a': 1, 'c': 3&#125;type is &lt;class 'dict'&gt;x is 1kwargs is &#123;&#125;type is &lt;class 'dict'&gt;x is 1kwargs is &#123;'b': 2, 'a': 1, 'c': 3&#125;type is &lt;class 'dict'&gt; *args和**kwargs的混合使用*args和**kwargs在程序中一起使用很常见12345def getTupleAndDict(x, *args, **kwargs): print('x is &#123;&#125;'.format(x)) print('kwargs is &#123;&#125;'.format(kwargs)) print('args is &#123;&#125;'.format(args))getTupleAndDict(1, 2, 3, 4, 5, A=1, B=2, C=3, D=4) 结果123x is 1kwargs is &#123;'D': 4, 'C': 3, 'A': 1, 'B': 2&#125;args is (2, 3, 4, 5)]]></content>
