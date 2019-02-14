@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-13T09:06:46.605Z</updated>
+  <updated>2019-02-14T03:47:59.453Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo 添加本地图片</title>
+    <link href="http://yoursite.com/2019/02/14/hexo-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/"/>
+    <id>http://yoursite.com/2019/02/14/hexo-添加本地图片/</id>
+    <published>2019-02-14T03:15:30.000Z</published>
+    <updated>2019-02-14T03:47:59.453Z</updated>
+    
+    <content type="html"><![CDATA[<p>hexo插入图片的方式有好几种，链接或者本地图片，介于链接图片有可能失效的原因，用本地图片是最省事的，目前插入本地图片有两种方式。</p><ul><li>跟随文章的创建图片文件夹</li><li>创建总的图片文件夹<a id="more"></a><h1 id="跟随文章的创建方式"><a href="#跟随文章的创建方式" class="headerlink" title="跟随文章的创建方式"></a>跟随文章的创建方式</h1><h4 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h4>根目录下的配置文件_config.yml里的post_asset_folder选项设置为true。新建文章的时候会同时创建一个同名文件夹用于放图片。<h4 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h4>执行命令<code>npm install hexo-asset-image --save</code> ，下载安装一个可以上传本地图片的插件。<br>使用的时候，只需要图片名就可以 <code>![](test.jpg)</code><br><strong>例如</strong>我创建的这篇文章，<code>hexo 添加本地图片</code><br><img src="/2019/02/14/hexo-添加本地图片/1550115421513.jpg" alt=""><br>然后下面就生成了相应的文件夹，这个文件夹下面存放相应的图片。<br><img src="/2019/02/14/hexo-添加本地图片/1550115487994.jpg" alt=""><br>这时候我只需要引用<code>![](1550115421513.jpg)</code>就可以了。</li></ul><h1 id="创建总的图片文件夹"><a href="#创建总的图片文件夹" class="headerlink" title="创建总的图片文件夹"></a>创建总的图片文件夹</h1><p>在主题的 source 下面新建一个 文件夹（比如uploads）用于专门放置这些图片资源。<br>使用的时候使用<code>![](/uploads/test.jpg)</code>的方式。</p><p>PS:你可以根据自己的爱好去选择。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;hexo插入图片的方式有好几种，链接或者本地图片，介于链接图片有可能失效的原因，用本地图片是最省事的，目前插入本地图片有两种方式。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;跟随文章的创建图片文件夹&lt;/li&gt;
+&lt;li&gt;创建总的图片文件夹&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="杂记" scheme="http://yoursite.com/categories/%E6%9D%82%E8%AE%B0/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>git push github失败，提示SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443</title>
@@ -50,7 +75,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;使用&lt;code&gt;https&lt;/code&gt;需要配置SSL证书,因为我使用的阿里云，所以下面是阿里云的配置&lt;br&gt;
+      &lt;p&gt;使用&lt;code&gt;https&lt;/code&gt;需要配置SSL证书,因为我使用的阿里云，所以下面是阿里云的配置&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -98,7 +123,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;code&gt;https&lt;/code&gt; 越来越普及，但是当用户自己访问 &lt;code&gt;http&lt;/code&gt; 是控制不了的，所以强制跳转的功能就必不可少了，下面是几种强制跳转的方法&lt;br&gt;
+      &lt;p&gt;&lt;code&gt;https&lt;/code&gt; 越来越普及，但是当用户自己访问 &lt;code&gt;http&lt;/code&gt; 是控制不了的，所以强制跳转的功能就必不可少了，下面是几种强制跳转的方法&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -121,7 +146,7 @@
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。&lt;strong&gt;它最常的用途是提供反向代理服务。&lt;/strong&gt;关于nginx的安装，网上有很多教程，大家都可以去百度上查找。这篇文章是来记录nginx的基本使用和配置中遇到的错误问题。&lt;br&gt;
+&lt;p&gt;Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。&lt;strong&gt;它最常的用途是提供反向代理服务。&lt;/strong&gt;关于nginx的安装，网上有很多教程，大家都可以去百度上查找。这篇文章是来记录nginx的基本使用和配置中遇到的错误问题。&lt;br&gt;&lt;/p&gt;&lt;/blockquote&gt;
     
     </summary>
     
@@ -171,7 +196,7 @@
       &lt;blockquote&gt;
 &lt;p&gt;*args和**kwargs这两个参数咱们经常用到，今天在巩固基础的时候，看到了这两个参数，做了一下对比，所以记录一下。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;args&quot;&gt;&lt;a href=&quot;#args&quot; class=&quot;headerlink&quot; title=&quot;*args&quot;&gt;&lt;/a&gt;*args&lt;/h3&gt;&lt;p&gt;*args这种写法代表的是 &lt;strong&gt;元组&lt;/strong&gt;，就比如我上面为啥说它们是参数，是因为他们经常在函数的参数中出现。&lt;br&gt;下面咱们在例子中来说明&lt;br&gt;
+&lt;h3 id=&quot;args&quot;&gt;&lt;a href=&quot;#args&quot; class=&quot;headerlink&quot; title=&quot;*args&quot;&gt;&lt;/a&gt;*args&lt;/h3&gt;&lt;p&gt;*args这种写法代表的是 &lt;strong&gt;元组&lt;/strong&gt;，就比如我上面为啥说它们是参数，是因为他们经常在函数的参数中出现。&lt;br&gt;下面咱们在例子中来说明&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -192,7 +217,7 @@
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;find命令是根据文件的属性进行查找，如文件名，文件大小，所有者，所属组，是否为空，访问时间，修改时间等。任何位于参数之前的字符串都将被视为欲查找的目录名。如果使用该命令时，不设置任何参数，则find命令将在当前目录下查找子目录与文件。并且将查找到的子目录和文件全部进行显示。&lt;br&gt;
+&lt;p&gt;find命令是根据文件的属性进行查找，如文件名，文件大小，所有者，所属组，是否为空，访问时间，修改时间等。任何位于参数之前的字符串都将被视为欲查找的目录名。如果使用该命令时，不设置任何参数，则find命令将在当前目录下查找子目录与文件。并且将查找到的子目录和文件全部进行显示。&lt;br&gt;&lt;/p&gt;&lt;/blockquote&gt;
     
     </summary>
     
@@ -381,7 +406,7 @@
     
       &lt;p&gt;cmp和diff都是用于比较两个文件的差异。但是两者的不同之处在于:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;cmp用于比较两个二进制文件，而diff主要用于比较两个文本文件&lt;br&gt;
+&lt;p&gt;cmp用于比较两个二进制文件，而diff主要用于比较两个文本文件&lt;br&gt;&lt;/p&gt;&lt;/blockquote&gt;
     
     </summary>
     
@@ -447,31 +472,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Linux系统中的每个文件和目录都有访问许可权限，用它来确定谁可以通过何种方式对文件和目录进行访问和操作。&lt;br&gt;文件或目录的访问权限分为只读，只写和可执行三种。以文件为例，只读权限表示只允许读其内容，而禁止对其做任何的更改操作。可执行权限表示允许将该文件作为一个程序执行。文件被创建时，文件所有者自动拥有对该文件的读、写和可执行权限，以便于对文件的阅读和修改。用户也可根据需要把访问权限设置为需要的任何组合。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Linux下chattr命令详解</title>
-    <link href="http://yoursite.com/2018/12/05/linux%E4%B8%8Bchattr%E3%80%81chgrp%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://yoursite.com/2018/12/05/linux下chattr、chgrp命令详解/</id>
-    <published>2018-12-05T09:04:13.000Z</published>
-    <updated>2018-12-05T09:36:22.434Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>chattr 可以修改文件属性</p></blockquote><p>有时候你发现用root权限都不能修改某个文件，大部分原因是曾经用chattr命令锁定该文件了。chattr命令的作用很大，通过chattr命令修改属性能够提高系统的安全性，但是它并不适合所有的目录。chattr命令不能保护/、/dev、/tmp、/var目录。lsattr命令是显示chattr命令设置的文件属性</p><h3 id="lsattr"><a href="#lsattr" class="headerlink" title="lsattr"></a>lsattr</h3><p>lsattr命令是显示chattr命令设置的文件属性<br><a id="more"></a></p><h3 id="chattr和chmod的区别"><a href="#chattr和chmod的区别" class="headerlink" title="chattr和chmod的区别"></a>chattr和chmod的区别</h3><p>这两个命令是用来查看和改变文件、目录属性的，与chmod这个命令相比，chmod只是改变文件的读写、执行权限，更底层的属性控制是由chattr来改变的。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><blockquote><p>chattr [-RV][-v&lt;版本编号&gt;][+/-/=&lt;属性&gt;][文件或目录…]</p></blockquote><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><blockquote></blockquote><pre><code>+ ：在原有参数设定基础上，追加参数。- ：在原有参数设定基础上，移除参数。= ：更新为指定参数设定。A：文件或目录的 atime (access time)不可被修改(modified), 可以有效预防例如手提电脑磁盘I/O错误的发生。S：硬盘I/O同步选项，功能类似sync。a：即append，设定该参数后，只能向文件中添加数据，而不能删除，多用于服务器日志文件安全，对于日志系统很好用，这个权限让目标文件只能追加，不能删除，而且不能通过编辑器追加。c：即compresse，设定文件是否经压缩后再存储。读取时需要经过自动解压操作。d：即no dump，设定文件不能成为dump程序的备份目标。i：设定文件不能被删除、改名、设定链接关系，同时不能写入或新增内容。i参数对于文件 系统的安全设置有很大帮助。j：即journal，设定此参数使得当通过mount参数：data=ordered 或者 data=writeback 挂 载的文件系统，文件在写入时会先被记录(在journal中)。如果filesystem被设定参数为 data=journal，则该参数自动失效。s：保密性地删除文件或目录，即硬盘空间被全部收回。u：与s相反，当设定为u时，数据内容其实还存在磁盘中，可以用于undeletion。各参数选项中常用到的是a和i。a选项强制只可添加不可删除，多用于日志系统的安全设定。而i是更为严格的安全设定，只有superuser (root) 或具有CAP_LINUX_IMMUTABLE处理能力（标识）的进程能够施加该选项</code></pre><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><pre><code>-R 递归处理，将指定目录下的所有文件及子目录一并处理。-v&lt;版本编号&gt; 设置文件或目录版本。-V 显示指令执行过程。+&lt;属性&gt; 开启文件或目录的该项属性。-&lt;属性&gt; 关闭文件或目录的该项属性。=&lt;属性&gt; 指定文件或目录的该项属性</code></pre><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">╭─root@iz ~</span><br><span class="line">╰─# <span class="keyword">ls</span> </span><br><span class="line">hello.<span class="keyword">conf</span>   # 我在下面创建一个hello.<span class="keyword">conf</span>文件</span><br><span class="line">╭─root@iz~</span><br><span class="line">╰─# chattr -V +i  hello.<span class="keyword">conf</span>   # 设定文件不能被删除、改名等</span><br><span class="line">chattr 1.42.9 (28-<span class="keyword">Dec</span>-2013)</span><br><span class="line">hello.<span class="keyword">conf</span>的标志被设为 ----i--------<span class="keyword">e</span>--</span><br><span class="line">╭─root@iz ~</span><br><span class="line">╰─# <span class="keyword">rm</span> hello.<span class="keyword">conf</span></span><br><span class="line"><span class="keyword">rm</span>: 无法删除<span class="string">"hello.conf"</span>: 不允许的操作</span><br><span class="line">╭─root@iz ~</span><br><span class="line">╰─# lsattr hello.<span class="keyword">conf</span>   # 用lsattr 可以查看chattr下面的设置</span><br><span class="line">----i--------<span class="keyword">e</span>-- hello.<span class="keyword">conf</span></span><br><span class="line">╭─root@iz ~</span><br><span class="line">╰─# lsattr hello.<span class="keyword">conf</span></span><br><span class="line">----i--------<span class="keyword">e</span>-- hello.<span class="keyword">conf</span></span><br><span class="line">╭─root@iz ~</span><br><span class="line">╰─# chattr -V -i hello.<span class="keyword">conf</span></span><br><span class="line">chattr 1.42.9 (28-<span class="keyword">Dec</span>-2013)</span><br><span class="line">hello.<span class="keyword">conf</span>的标志被设为 -------------<span class="keyword">e</span>--</span><br><span class="line">这时候在删除就可以删除了</span><br><span class="line">╭─root@iz ~</span><br><span class="line">╰─# <span class="keyword">rm</span> hello.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;chattr 可以修改文件属性&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;有时候你发现用root权限都不能修改某个文件，大部分原因是曾经用chattr命令锁定该文件了。chattr命令的作用很大，通过chattr命令修改属性能够提高系统的安全性，但是它并不适合所有的目录。chattr命令不能保护/、/dev、/tmp、/var目录。lsattr命令是显示chattr命令设置的文件属性&lt;/p&gt;
-&lt;h3 id=&quot;lsattr&quot;&gt;&lt;a href=&quot;#lsattr&quot; class=&quot;headerlink&quot; title=&quot;lsattr&quot;&gt;&lt;/a&gt;lsattr&lt;/h3&gt;&lt;p&gt;lsattr命令是显示chattr命令设置的文件属性&lt;br&gt;
+      &lt;p&gt;Linux系统中的每个文件和目录都有访问许可权限，用它来确定谁可以通过何种方式对文件和目录进行访问和操作。&lt;br&gt;文件或目录的访问权限分为只读，只写和可执行三种。以文件为例，只读权限表示只允许读其内容，而禁止对其做任何的更改操作。可执行权限表示允许将该文件作为一个程序执行。文件被创建时，文件所有者自动拥有对该文件的读、写和可执行权限，以便于对文件的阅读和修改。用户也可根据需要把访问权限设置为需要的任何组合。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
