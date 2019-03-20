@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Supervisord 启动报错:No such file or directory: file: /usr/lib/python2.7/socket.py line: 224]]></title>
+    <url>%2F2019%2F03%2F20%2FSupervisord-%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99-No-such-file-or-directory-file-usr-lib-python2-7-socket-py-line-224%2F</url>
+    <content type="text"><![CDATA[最近在部署的时候遇到一个错误1error: , [Errno 2] No such file or directory: file: /usr/lib/python2.7/socket.py line: 224 如上，如果 supervisord 正常启动过，突然报这个错误，则有可能是非正常关闭导致的。此时，需要强行关闭后，再正常启动即可。 1ps aux | grep supervisord 首先用sudo kill -9 XXX关闭supervisord然后关闭运营中的程序然后启动1$ sudo /bin/supervisord -c /etc/supervisord/supervisord.conf]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[ssl.SSLError: [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version错误]]></title>
     <url>%2F2019%2F02%2F27%2Fssl-SSLError-SSL-TLSV1-ALERT-PROTOCOL-VERSION-tlsv1-alert-protocol-version%E9%94%99%E8%AF%AF%2F</url>
     <content type="text"><![CDATA[今天在写一个demo的时候，报了这个错误。代码如下:12345import requestsr = requests.get("https://github.com/favicon.ico")with open('favicon.ico', 'wb') as f: f.write(r.content) 运行报错，错误消息如下:1234567891011121314151617181920Traceback (most recent call last): File "/Users/FQY/env350/lib/python3.5/site-packages/urllib3/connectionpool.py", line 600, in urlopen chunked=chunked) File "/Users/FQY/env350/lib/python3.5/site-packages/urllib3/connectionpool.py", line 343, in _make_request self._validate_conn(conn) File "/Users/FQY/env350/lib/python3.5/site-packages/urllib3/connectionpool.py", line 849, in _validate_conn conn.connect() File "/Users/FQY/env350/lib/python3.5/site-packages/urllib3/connection.py", line 356, in connect ssl_context=context) File "/Users/FQY/env350/lib/python3.5/site-packages/urllib3/util/ssl_.py", line 359, in ssl_wrap_socket return context.wrap_socket(sock, server_hostname=server_hostname) File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/ssl.py", line 376, in wrap_socket _context=self) File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/ssl.py", line 747, in __init__ self.do_handshake() File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/ssl.py", line 983, in do_handshake self._sslobj.do_handshake() File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/ssl.py", line 628, in do_handshake self._sslobj.do_handshake()ssl.SSLError: [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:646) 网上百度都说的是要升级pip或者python，因为我用的是python3.5，应该不是这个问题，所以应该升级openssl升级1$ pip install pyopenssl 这时候在运行就没问题了。]]></content>
