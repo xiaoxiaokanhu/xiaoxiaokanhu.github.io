@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-03T10:45:39.814Z</updated>
+  <updated>2019-05-14T06:22:15.265Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python爬虫系列-使用selenium模拟豆瓣登录</title>
+    <link href="http://yoursite.com/2019/05/14/python%E7%88%AC%E8%99%AB%E7%B3%BB%E5%88%97-%E4%BD%BF%E7%94%A8selenium%E6%A8%A1%E6%8B%9F%E8%B1%86%E7%93%A3%E7%99%BB%E5%BD%95/"/>
+    <id>http://yoursite.com/2019/05/14/python爬虫系列-使用selenium模拟豆瓣登录/</id>
+    <published>2019-05-14T05:42:24.000Z</published>
+    <updated>2019-05-14T06:22:15.265Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Selenium是一个用于测试网站的自动化测试工具，支持各种浏览器包括Chrome、Firefox、Safari等主流界面浏览器，同时也支持phantomJS无界面浏览器。<br><a id="more"></a></p></blockquote><p>最近公司忙，没有时间更新博客了，今天终于有点时间，把之前做的selenium模拟豆瓣登录整理出来。网上的模拟豆瓣登录，我看了下，都是豆瓣5.0版本的爬取。而现在豆瓣的版本是6.0，5.0的爬虫不适合于这个。<br>咱们先看下目前的豆瓣的代码结构<br><img src="/2019/05/14/python爬虫系列-使用selenium模拟豆瓣登录/123456.jpg" alt=""></p><p>可以发现这个是里面嵌套了一个<code>iframe</code>。</p><p>所以根据这个，所以下面是具体的代码：<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium import webdriver</span><br><span class="line">import <span class="built_in">time</span></span><br><span class="line"></span><br><span class="line">username = XXX</span><br><span class="line">password = XXX</span><br><span class="line"></span><br><span class="line"><span class="built_in">driver</span> = webdriver.Chrome()</span><br><span class="line"><span class="built_in">driver</span>.get(<span class="string">'https://www.douban.com/'</span>)</span><br><span class="line">iframe = <span class="built_in">driver</span>.find_element_by_tag_name(<span class="string">"iframe"</span>)</span><br><span class="line"><span class="built_in">driver</span>.switch_to_frame(iframe)</span><br><span class="line"><span class="built_in">driver</span>.find_element_by_class_name(<span class="string">'account-tab-account'</span>).click()</span><br><span class="line"><span class="built_in">driver</span>.find_element_by_id(<span class="string">'username'</span>).send_keys(username)</span><br><span class="line"><span class="built_in">driver</span>.find_element_by_id(<span class="string">'password'</span>).send_keys(password)</span><br><span class="line"><span class="built_in">driver</span>.find_element_by_class_name(<span class="string">'btn-account'</span>).click()</span><br><span class="line"><span class="built_in">time</span>.<span class="built_in">sleep</span>(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">driver</span>.quit()</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Selenium是一个用于测试网站的自动化测试工具，支持各种浏览器包括Chrome、Firefox、Safari等主流界面浏览器，同时也支持phantomJS无界面浏览器。&lt;br&gt;&lt;/p&gt;&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>爬虫系列之Beautiful Soup的使用</title>
@@ -453,29 +476,6 @@
       &lt;blockquote&gt;
 &lt;p&gt;数组是在python中很常见，所以关于数组的知识点也相当重要。这篇博客是把工作中用到的知识点记录一下，持续更新中&lt;/p&gt;
 &lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Flask-OAuth urlparse错误</title>
-    <link href="http://yoursite.com/2018/12/13/Flask-OAuth-urlparse%E9%94%99%E8%AF%AF/"/>
-    <id>http://yoursite.com/2018/12/13/Flask-OAuth-urlparse错误/</id>
-    <published>2018-12-13T07:52:27.000Z</published>
-    <updated>2018-12-13T07:58:38.402Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近用到了Flash-OAuth的三方库，一运行，错误<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="built_in">File</span> <span class="string">"/Users/FQY/Desktop/bm_blog/blog/extensions.py"</span>, <span class="built_in">line</span> <span class="number">10</span>, in &lt;<span class="keyword">module</span>&gt;</span><br><span class="line">    from flask_oauth <span class="keyword">import</span> OAuth</span><br><span class="line">  <span class="built_in">File</span> <span class="string">"/Users/FQY/env350/lib/python3.5/site-packages/flask_oauth.py"</span>, <span class="built_in">line</span> <span class="number">13</span>, in &lt;<span class="keyword">module</span>&gt;</span><br><span class="line">    from urlparse <span class="keyword">import</span> parse</span><br><span class="line">ImportError: No <span class="keyword">module</span> named <span class="string">'urlparse'</span></span><br></pre></td></tr></table></figure></p><p>先说明下我用的python环境是<code>3.5.0</code>,百度下说是<code>from urlparse import urljoin</code> 是2.0的python用法，3.0的python用法已经urlparse已经被重新设置,所以进入三方库里面改下就可以了。<br>进入flask_oauth.py文件中进行修改<br><strong>原代码</strong><br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> httplib2</span><br><span class="line"><span class="title">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"><span class="title">from</span> urlparse <span class="keyword">import</span> urljoin</span><br><span class="line"><span class="title">from</span> flask <span class="keyword">import</span> request, session, json, redirect, Response</span><br><span class="line"><span class="title">from</span> werkzeug <span class="keyword">import</span> url_decode, url_encode, url_quote, \</span><br><span class="line">     parse_options_header, <span class="type">Headers</span></span><br><span class="line"><span class="keyword">import</span> oauth2</span><br></pre></td></tr></table></figure></p><p><strong>修改以后的代码</strong><br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> httplib2</span><br><span class="line"><span class="title">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"><span class="title">from</span> urllib.parse <span class="keyword">import</span> urljoin</span><br><span class="line"><span class="title">from</span> flask <span class="keyword">import</span> request, session, json, redirect, Response</span><br><span class="line"><span class="title">from</span> werkzeug <span class="keyword">import</span> url_decode, url_encode, url_quote, \</span><br><span class="line">     parse_options_header, <span class="type">Headers</span></span><br><span class="line"><span class="keyword">import</span> oauth2</span><br></pre></td></tr></table></figure></p><p>这时候在运行就可以了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;最近用到了Flash-OAuth的三方库，一运行，错误&lt;br&gt;&lt;figure class=&quot;highlight arduino&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span 
-      
     
     </summary>
     
