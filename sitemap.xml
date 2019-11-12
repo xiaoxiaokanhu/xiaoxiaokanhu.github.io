@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/11/12/docker%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2019-11-12T07:37:59.394Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/11/12/python-datetime%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2019-11-12T07:33:31.459Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/10/31/Centos7%E5%AE%89%E8%A3%85mysql/</loc>
     
     <lastmod>2019-08-02T06:05:09.922Z</lastmod>
