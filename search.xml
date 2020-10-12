@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ERROR: The Python ssl extension was not compiled. Missing the OpenSSL lib?]]></title>
+    <url>%2F2020%2F10%2F12%2FERROR-The-Python-ssl-extension-was-not-compiled-Missing-the-OpenSSL-lib%2F</url>
+    <content type="text"><![CDATA[官方已经给出解决方案：https://github.com/pyenv/pyenv/wiki/Common-build-problems#error-the-python-ssl-extension-was-not-compiled-missing-the-openssl-lib 在Mac上且用homebrew装了openssl的情况下，命令行如下：123CFLAGS="-I$(brew --prefix openssl)/include" \LDFLAGS="-L$(brew --prefix openssl)/lib" \pyenv install -v 3.6.2 再补充一句，pyenv前面不要加sudo。否则编译仍旧报错通不过。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[EQ、NE、GT、LT、GE、LE的意思]]></title>
+    <url>%2F2020%2F10%2F12%2FEQ%E3%80%81NE%E3%80%81GT%E3%80%81LT%E3%80%81GE%E3%80%81LE%E7%9A%84%E6%84%8F%E6%80%9D%2F</url>
+    <content type="text"><![CDATA[123456EQ 就是 EQUAL 等于 NE就是 NOT EQUAL 不等于 GT 就是 GREATER THAN 大于 LT 就是 LESS THAN 小于 GE 就是 GREATER THAN OR EQUAL 大于等于 LE 就是 LESS THAN OR EQUAL 小于等于]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac 安装jupyter，并且在后台运行]]></title>
+    <url>%2F2020%2F10%2F12%2FMac-%E5%AE%89%E8%A3%85jupyter%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%2F</url>
+    <content type="text"><![CDATA[Jupyter Notebook 的本质是一个 Web 应用程序，便于创建和共享文学化程序文档，支持实时代码，数学方程，可视化和 markdown。 用途包括：数据清理和转换，数值模拟，统计建模，机器学习等等。 安装jupyter 环境 python 3.5.0 安装指令1pip install jupyter 运行jupyter1jupyter notebook 浏览器就会自动弹出http://localhost:8888。 一开始进的页面就是你自己电脑的根目录！不要害怕！下面咱们会讲到修改目录 修改Jupyter Notebook默认的工作目录终端运行1jupyter notebook --generate -config 生成配置文件。会得到得到/Users/XXXX/.jupyter/jupyter_notebook_config.py路径（”XXXX”为具体用户名） 打开 jupyter_notebook_config.py 文件，找到以下代码：1#c.NotebookApp.notebook_dir = ‘' 修改为：12## 用于笔记本和内核的目录。c.NotebookApp.notebook_dir = ‘自己想设的文件路径' **Note: 注意修改的第二行要去掉#号这时候重启jupyter notebook。就会发现已经修改成所设的文件路径 后台运行jupyter notebook程序在终端运行下列代码，就可以在后台运行jupyter notebook程序了1nohup jupyter notebook &amp; nohup 输出文件： nohup忽略hangup信号地运行程序，程序的输出默认重定向到当前文件夹下的 ‘nohup.out’ 文件中。也可以通过nohup COMMAND &gt; FILE 命令的方式将输出文件重定位到指定的FILE文件中。如果要查看 jupyter notebook 的日志文件，可以打开 ‘nohup.out’ 文件进行查看。可以使用 vim、head、tail、cat 等命令进行查看。 用途：Run COMMAND, ignoring hangup signals. 语法： nohup COMMAND [ARG]… &amp; 命令作用：在后台运行程序 查看、kill jupyter后台运行进程查看运行的jupyter进程1ps aux | grep jupyter 使用kill -9 pid删除jupyter。 Mac上面jupyter的快捷键常用快捷键123456只运行本单元 Ctrl + Enter运行本单元后,跳到下一单元 Shift+Enter合并选中的单元 Shift + M删除选中单元 d + d代码补全提示 Tab查看函数定义 Shit + Tab 命令模式 (按键 Esc 开启)123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869Enter : 转入编辑模式Shift-Enter : 运行本单元，选中下个单元Ctrl-Enter : 运行本单元Alt-Enter : 运行本单元，在其下插入新单元Y : 单元转入代码状态M :单元转入markdown状态R : 单元转入raw状态1 : 设定 1 级标题2 : 设定 2 级标题3 : 设定 3 级标题4 : 设定 4 级标题5 : 设定 5 级标题6 : 设定 6 级标题Up : 选中上方单元K : 选中上方单元Down : 选中下方单元J : 选中下方单元Shift-K : 扩大选中上方单元Shift-J : 扩大选中下方单元A : 在上方插入新单元B : 在下方插入新单元X : 剪切选中的单元C : 复制选中的单元Shift-V : 粘贴到上方单元V : 粘贴到下方单元Z : 恢复删除的最后一个单元D,D : 删除选中的单元Shift-M : 合并选中的单元Ctrl-S : 文件存盘S : 文件存盘L : 转换行号O : 转换输出Shift-O : 转换输出滚动Esc : 关闭页面Q : 关闭页面H : 显示快捷键帮助I,I : 中断Notebook内核0,0 : 重启Notebook内核Shift : 忽略Shift-Space : 向上滚动Space : 向下滚动编辑模式 ( Enter 键启动)Tab : 代码补全或缩进Shift-Tab : 提示Ctrl-] : 缩进Ctrl-[ : 解除缩进Ctrl-A : 全选Ctrl-Z : 复原Ctrl-Shift-Z : 再做Ctrl-Y : 再做Ctrl-Home : 跳到单元开头Ctrl-Up : 跳到单元开头Ctrl-End : 跳到单元末尾Ctrl-Down : 跳到单元末尾Ctrl-Left : 跳到左边一个字首Ctrl-Right : 跳到右边一个字首Ctrl-Backspace : 删除前面一个字Ctrl-Delete : 删除后面一个字Esc : 进入命令模式Ctrl-M : 进入命令模式Shift-Enter : 运行本单元，选中下一单元Ctrl-Enter : 运行本单元Alt-Enter : 运行本单元，在下面插入一单元Ctrl-Shift-- : 分割单元Ctrl-Shift-Subtract : 分割单元Ctrl-S : 文件存盘Shift : 忽略Up : 光标上移或转入上一单元Down :光标下移或转入下一单元]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python之进程、线程和协程]]></title>
     <url>%2F2020%2F09%2F07%2Fpython%20%E4%B9%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[定义进程 进程是每一个应用运行起来都会有自己的进程，因为进程是系统资源分配的基本单位。直观点说，保存在硬盘上的程序运行以后，会在内存空间里形成一个独立的内存体，这个内存体有自己独立的地址空间，有自己的堆，上级挂靠单位是操作系统。操作系统会以进程为单位，分配系统资源（CPU时间片、内存等资源），进程是资源分配的最小单位。 每个进程都有自己的独立内存空间，不同进程通过进程间通信来通信。由于进程比较重量，占据独立的内存，所以上下文进程间的切换开销（栈、寄存器、虚拟内存、文件句柄等）比较大，但相对比较稳定安全。每一个进程创建出来，都会分配三种基本的内存资源，分别是代码段、数据段和堆栈段。代码段和数据段分别保存着应用的执行代码和全局变量、常量、静态变量，这些就是不会变化或者很少变化的内容，当然内存占用相对也会比较少。而应用运行起来，需要的更多资源就会在堆栈中用到。其中堆空间是存放各种变量数据的地方，内存大小也是可以动态调整的。而栈空间是子任务（线程、协程）独立存放自己的数据地方，比如：函数调用、参数、返回值和局部变量。进程切换只发生在内核态，两步：1 切换页全局目录以安装一个新的地址空间 2 切换内核态堆栈和硬件上下文。 另一种说法类似：1 保存CPU环境（寄存器值、程序计数器、堆栈指针）2修改内存管理单元MMU的寄存器 3 转换后备缓冲器TLB中的地址转换缓存内容标记为无效。 线程 线程有时被称为轻量级进程(Lightweight Process，LWP），是操作系统调度（CPU调度）执行的最小单位。 线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源(如程序计数器,一组寄存器和栈),但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。线程间通信主要通过共享内存，上下文切换很快，资源开销较少，但相比进程不够稳定容易丢失数据。 操作系统不仅仅维持一个进程表，而且还会维持一个线程表，这样操作系统就可以把线程作为调度单位。 线程是进程内创建，可以共享进程的资源，所以，线程自身独立的资源依赖就会少很多，因为只需要为每个线程分配独立的栈空间。 而线程的栈空间是固定大小的，如果程序比较复杂，或者里面的数据量大，为了不出现“栈空间不足”的错误，就必须把栈空间设置的足够大才行。 协程 协程是一种比线程更加轻量级的存在，协程不是被操作系统内核所管理，而完全是由程序所控制（也就是在用户态执行）。是一种用户态的轻量级线程 协程的调度完全由用户控制。协程拥有自己的寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复先前保存的寄存器上下文和栈，直接操作栈则基本没有内核切换的开销，可以不加锁的访问全局变量，所以上下文的切换非常快。 联系和区别联系1、一个进程可以有多个线程，一个进程也可以有多个协程。2、一个程序至少有一个进程，一个进程至少有一个线程3、一个线程上可以有多个协程 区别1、进程切换需要的资源很最大，效率很低2、进程和线程都是同步机制，而协程是异步3、和线程比较，协程能保留上一次调用时的状态，每次过程重入时，就相当于进入上一次调用的状态4、进程和线程是有操作系统来控制切换的，协程不需要 通俗描述有一个老板想要开个工厂进行生产某件商品（例如剪子）他需要花一些财力物力制作一条生产线，这个生产线上有很多的器件以及材料这些所有的 为了能够生产剪子而准备的资源称之为：进程只有生产线是不能够进行生产的，所以老板的找个工人来进行生产，这个工人能够利用这些材料最终一步步的将剪子做出来，这个来做事情的工人称之为：线程这个老板为了提高生产率，想到3种办法：在这条生产线上多招些工人，一起来做剪子，这样效率是成倍増长，即单进程 多线程方式老板发现这条生产线上的工人不是越多越好，因为一条生产线的资源以及材料毕竟有限，所以老板又花了些财力物力购置了另外一条生产线，然后再招些工人这样效率又再一步提高了，即多进程 多线程方式老板发现，现在已经有了很多条生产线，并且每条生产线上已经有很多工人了（即程序是多进程的，每个进程中又有多个线程），为了再次提高效率，老板想了个损招，规定：如果某个员工在上班时临时没事或者再等待某些条件（比如等待另一个工人生产完谋道工序 之后他才能再次工作） ，那么这个员工就利用这个时间去做其它的事情，那么也就是说：如果一个线程等待某些条件，可以充分利用这个时间去做其它事情，其实这就是：协程方式]]></content>
