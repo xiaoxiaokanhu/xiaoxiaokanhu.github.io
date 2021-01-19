@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-10-12T03:46:31.295Z</updated>
+  <updated>2021-01-11T10:05:20.068Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python json 的使用</title>
+    <link href="http://yoursite.com/2021/01/11/python-json-%E7%9A%84dumps%E5%92%8Cdump-loads%E5%92%8Cload%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2021/01/11/python-json-的dumps和dump-loads和load的使用方法/</id>
+    <published>2021-01-11T09:56:54.000Z</published>
+    <updated>2021-01-11T10:05:20.068Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="dumps和dump-loads和load的区别"><a href="#dumps和dump-loads和load的区别" class="headerlink" title="dumps和dump loads和load的区别"></a>dumps和dump loads和load的区别</h2><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dumps 是用于将<span class="keyword">dict</span>类型的数据转成str</span><br><span class="line">loads 是用于将str类型的数据转成<span class="keyword">dict</span></span><br><span class="line">dump  是用于将<span class="keyword">dict</span>类型的数据转成str，并写入到json文件中，一般配合着<span class="keyword">open</span>写入文件来用</span><br><span class="line"><span class="keyword">load</span>  是用于从json文件中读取数据，一般配合着<span class="keyword">open</span>打开文件来用</span><br></pre></td></tr></table></figure><h2 id="json使用过程中的一些错误"><a href="#json使用过程中的一些错误" class="headerlink" title="json使用过程中的一些错误"></a>json使用过程中的一些错误</h2><h3 id="json里面有中文的时候，出现的错误，将ensure-ascii设置成False即可，因为默认是用ascii转码的"><a href="#json里面有中文的时候，出现的错误，将ensure-ascii设置成False即可，因为默认是用ascii转码的" class="headerlink" title="json里面有中文的时候，出现的错误，将ensure_ascii设置成False即可，因为默认是用ascii转码的"></a>json里面有中文的时候，出现的错误，将ensure_ascii设置成False即可，因为默认是用ascii转码的</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">path</span> = <span class="built_in">os</span>.<span class="built_in">path</span>.dirname(<span class="built_in">os</span>.<span class="built_in">path</span>.abspath(__file__))</span><br><span class="line"><span class="built_in">path</span> = f<span class="string">"&#123;path&#125;/app_apk_visit_local_total.json"</span></span><br><span class="line">with <span class="built_in">open</span>(<span class="built_in">path</span>, <span class="string">'w'</span>, encoding=<span class="string">'UTF-8'</span>) as file:</span><br><span class="line">    json.<span class="built_in">dump</span>(contents,file, ensure_ascii=False)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;dumps和dump-loads和load的区别&quot;&gt;&lt;a href=&quot;#dumps和dump-loads和load的区别&quot; class=&quot;headerlink&quot; title=&quot;dumps和dump loads和load的区别&quot;&gt;&lt;/a&gt;dumps和dump loa
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+      <category term="json" scheme="http://yoursite.com/tags/json/"/>
+    
+  </entry>
   
   <entry>
     <title>ERROR: The Python ssl extension was not compiled. Missing the OpenSSL lib?</title>
@@ -233,7 +258,7 @@
     <link href="http://yoursite.com/2019/04/02/mysql-%E4%B8%ADjson%E7%9A%84%E6%9F%A5%E8%AF%A2/"/>
     <id>http://yoursite.com/2019/04/02/mysql-中json的查询/</id>
     <published>2019-04-02T03:19:45.000Z</published>
-    <updated>2019-04-02T03:22:52.528Z</updated>
+    <updated>2021-01-19T06:15:26.606Z</updated>
     
     <content type="html"><![CDATA[<p>在mysql中查询json<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> agency_screen <span class="keyword">WHERE</span> JSON_EXTRACT(ext_property, <span class="string">"$.ad_is_refresh"</span>) = <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>]]></content>
     
@@ -456,28 +481,6 @@
         &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h1 id=&quot;nginx配置详解&quot;&gt;&lt;a href=&quot;#nginx配置详解&quot; class=&quot;headerlink&quot; title=&quot;nginx配置详解&quot;&gt;&lt;/a&gt;nginx配置详解&lt;/h1&gt;&lt;figure class=&quot;highlight ap
       
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
-    
-    
-      <category term="nginx" scheme="http://yoursite.com/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Nginx http 强制跳转 https 地址</title>
-    <link href="http://yoursite.com/2019/02/12/Nginx-http-%E5%BC%BA%E5%88%B6%E8%B7%B3%E8%BD%AC-https-%E5%9C%B0%E5%9D%80/"/>
-    <id>http://yoursite.com/2019/02/12/Nginx-http-强制跳转-https-地址/</id>
-    <published>2019-02-12T10:18:42.000Z</published>
-    <updated>2019-02-12T11:07:04.543Z</updated>
-    
-    <content type="html"><![CDATA[<p><code>https</code> 越来越普及，但是当用户自己访问 <code>http</code> 是控制不了的，所以强制跳转的功能就必不可少了，下面是几种强制跳转的方法<br><a id="more"></a></p><h1 id="return-301"><a href="#return-301" class="headerlink" title="return 301"></a>return 301</h1><p>返回 301 错误，并跳转到 https 地址<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span>  wxnacy.com;</span><br><span class="line">    <span class="attribute">return</span>       <span class="number">301</span> https://<span class="variable">$server_name</span><span class="variable">$request_uri</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h1 id="rewrite"><a href="#rewrite" class="headerlink" title="rewrite"></a>rewrite</h1><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rewrite</span><span class="regexp"> ^(.*)$</span>  https://<span class="variable">$host</span><span class="variable">$1</span> <span class="literal">permanent</span>;</span><br></pre></td></tr></table></figure><p>两者相比，301 的方式在搜索引擎速度上要块一些。</p><h1 id="error-page-497"><a href="#error-page-497" class="headerlink" title="error_page 497"></a>error_page 497</h1><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">error </span>code 497: normal request was sent to HTTPS</span><br></pre></td></tr></table></figure><p>在一个站点只允许 https 访问时, 如果使用 http 访问会报出497错误码<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">error_page</span> <span class="number">497</span>  https://<span class="variable">$host</span><span class="variable">$uri</span>?<span class="variable">$args</span>;</span><br></pre></td></tr></table></figure></p><h1 id="index-html-refresh"><a href="#index-html-refresh" class="headerlink" title="index.html refresh"></a>index.html refresh</h1><p>百度页面 <a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a> 自动跳转 <a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a> 是灵活利用了 meta 的刷新属性<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; $ curl http://baidu.com</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"refresh"</span> <span class="attr">content</span>=<span class="string">"0;url=http://www.baidu.com/"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">meta</span>&gt;</span>html&gt;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;https&lt;/code&gt; 越来越普及，但是当用户自己访问 &lt;code&gt;http&lt;/code&gt; 是控制不了的，所以强制跳转的功能就必不可少了，下面是几种强制跳转的方法&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
